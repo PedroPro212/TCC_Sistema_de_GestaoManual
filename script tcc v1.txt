@@ -1,0 +1,46 @@
+CREATE DATABASE metalurgicasaveiro;
+USE metalurgicasaveiro;
+
+CREATE TABLE setor(
+    id int AUTO_INCREMENT PRIMARY KEY NOT null,
+    descricao varchar(50) NOT null
+);
+
+CREATE TABLE TecnicoQualidade(
+    id int AUTO_INCREMENT PRIMARY KEY NOT null,
+    nome varchar(200) NOT null,
+    registro varchar(6) NOT null,
+    senha varchar(10) NOT null
+);
+
+CREATE TABLE operador(
+    id int AUTO_INCREMENT PRIMARY KEY NOT null,
+    nome varchar(200) NOT null,
+    registro varchar(6) NOT null,
+    senha varchar(10) NOT null,
+    idSetor int,
+    FOREIGN KEY (idSetor) REFERENCES setor(id)
+);
+
+CREATE TABLE encarregado(
+    id int AUTO_INCREMENT PRIMARY KEY NOT null,
+    nome varchar(200) NOT null,
+    registro varchar(6) NOT null,
+    senha varchar(10) NOT null,
+    idSetor int,
+    FOREIGN KEY (idSetor) REFERENCES setor(id)
+);
+
+CREATE TABLE encarregado(
+    id int AUTO_INCREMENT PRIMARY KEY NOT null,
+    produto varchar(30) NOT null,
+    datahora datetime,
+    noPecas int,
+    lotePecas varchar(20),
+    idOperador int,
+    etapaProcesso varchar(30),
+    idMaquina******
+    FOREIGN KEY (idSetor) REFERENCES setor(id)
+);
+
+**FAZER CLASSE MAQUINA
