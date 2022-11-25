@@ -1,9 +1,9 @@
 # Breve resumo
 
-Esse projeto tem como alvo a economia de tempo em relação ao preenchimento de planilhas de excel.<br/> 
+Esse projeto tem como alvo a economia de tempo em relação ao preenchimento de planilhas de excel. Com isso o trabalho de preencher com os dados ficará automatico, sem a necessidade de ser manual. 
 
 
-# Tecnologias utizadas
+## Tecnologias utizadas
 Linguagem de marcação e estilização: Html e Css.<br/>
 Linguagens de programação: C#, Javascript e Python.<br/>
 Utilização de API: Criação do zero feita com Python.<br/>
