@@ -1,9 +1,9 @@
-# TCC_Sistema_de_GestaoManual
+# Breve resumo
 
 Esse projeto tem como alvo a economia de tempo em relação ao preenchimento de planilhas de excel. 
 
 
-# Tecnologias utizadas.
+# Tecnologias utizadas
 Linguagem de marcação e estilização: Html e Css.
 Linguagens de programação: C#, Javascript e Python.
 Utilização de API: Criação do zero feita com Python.
