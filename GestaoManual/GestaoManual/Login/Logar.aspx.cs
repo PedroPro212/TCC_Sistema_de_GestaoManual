@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace GestaoManual
+namespace GestaoManual.Login
 {
-    public partial class TelaLogin : Page
+    public partial class Logar : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

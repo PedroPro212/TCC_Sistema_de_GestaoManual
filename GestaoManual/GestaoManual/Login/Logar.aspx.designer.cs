@@ -11,7 +11,7 @@ namespace GestaoManual.Login
 {
 
 
-    public partial class TelaLogin
+    public partial class Logar
     {
     }
 }

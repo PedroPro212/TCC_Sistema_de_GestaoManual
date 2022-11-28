@@ -1,23 +1,24 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="GestaoManual.Login" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Logar.master.cs" Inherits="GestaoManual.Logar" %>
 
 <!DOCTYPE html>
 
-<html lang="pt">
+<html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> Tela de Login</title>
+    <title>Login</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:ContentPlaceHolder>
-
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
+
     <form id="form1" runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -38,35 +39,16 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="mais opções">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nome do aplicativo</a>
-                </div>
-            <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Página inicial</a></li>
-                        <li><a runat="server" href="~/About">Sobre</a></li>
-                        <li><a runat="server" href="~/Contact">Contato</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="content" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
+            
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> Login</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Senai Itajubá Mg</p>
             </footer>
         </div>
     </form>
+    <asp:ContentPlaceHolder ID="footer" runat="server">
+    </asp:ContentPlaceHolder>
 </body>
 </html>

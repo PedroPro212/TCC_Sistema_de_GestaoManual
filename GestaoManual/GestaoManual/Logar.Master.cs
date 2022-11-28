@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace GestaoManual
 {
-    public partial class Login : MasterPage
+    public partial class Logar : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
