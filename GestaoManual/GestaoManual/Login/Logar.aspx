@@ -29,14 +29,14 @@
                     </div>
                     <div class="text-left" style="margin-top:10px">
                         <p>Senha:</p>
-                        <asp:TextBox runat="server" ID="txtSenha" Width="250" TextMode="Password"></asp:TextBox><br />
+                        <asp:TextBox runat="server" CssClass="txtSenha" ID="txtSenha" Width="250" type="password"></asp:TextBox><br />
                     </div>
                 </div>
-                <asp:CheckBox runat="server" ID="chkSenha" Text="Mostrar senha" OnCheckedChanged="chkSenha_CheckedChanged" />
-<%--            <div class="form-check text-left" style="padding-top:8px;padding-left:50px;">
-                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="Msenha" onclick="">
+<%--                <asp:CheckBox runat="server" ID="chkSenha" Text="Mostrar senha" OnCheckedChanged="chkSenha_CheckedChanged" />--%>
+                <div class="form-check text-left" style="padding-top:8px;padding-left:50px;">
+                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="Msenha">
                     <label class="form-check-label" for="check1">Mostrar senha</label>
-                </div>--%>
+                </div>
                 <div class="text-right" style="padding-top:30px;padding-right:48px;"><asp:Button runat="server" ID="btnLogin" Text="ENTRAR" CssClass="bg" BorderStyle="None" /></div>
             </div>
         </div>
@@ -44,6 +44,21 @@
         <div class="col-sm-4"></div>
     </div>
     
+    <script>
+
+        const senha = document.querySelector('#txtSenha').value;
+        const check = document.querySelector('#check1');
+
+        check.onclick = () => {
+            if (senha.type === 'password')
+            {
+                senha.type = 'text'
+                console.log('Type')
+            }
+        }
+
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
 </asp:Content>
