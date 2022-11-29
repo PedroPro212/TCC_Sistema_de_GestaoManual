@@ -11,6 +11,19 @@ namespace GestaoManual.Login
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtSenha.MaxLength = 6;
+        }
+
+        protected void chkSenha_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!IsPostBack)
+            {
+                if(chkSenha.Checked)
+                {
+                    //txtSenha.Style[TextBoxMode.SingleLine.ToString()];
+                }
+
+            }
 
         }
     }

@@ -19,24 +19,28 @@
         <div class="col-sm-4"></div>
 
         <div class="col-sm-4 quadro text-center">
-            <div style="background-color:white;margin-top:50px;border-radius:5px; height:330px; box-shadow:black 1px 1px 1px">
+            <div id="quadro" style="background-color:white;margin-top:50px;border-radius:5px; height:330px; box-shadow:black 1px 1px 1px">
                 <p class="text-left" style="padding-top:10px; padding-left:18px">*LOGO</p>
                 <b><p style="text-transform:uppercase; font-size:18px;">Fazer Login</p></b>
                 <div style="padding-top:20px;padding-left:50px;">
                     <div class="text-left">
                         <p>Registro:</p>
-                        <asp:TextBox runat="server" Width="250"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtRegistro" Width="250"></asp:TextBox>
                     </div>
-                    <div class="text-left">
+                    <div class="text-left" style="margin-top:10px">
                         <p>Senha:</p>
-                        <asp:TextBox runat="server" Width="250"></asp:TextBox><br />
+                        <asp:TextBox runat="server" ID="txtSenha" Width="250" TextMode="Password"></asp:TextBox><br />
                     </div>
                 </div>
-
-                <div class="text-right" style="padding-top:30px;padding-right:48px;"><asp:Button runat="server" Text="ENTRAR" CssClass="bg" BorderStyle="None" /></div>
+                <asp:CheckBox runat="server" ID="chkSenha" Text="Mostrar senha" OnCheckedChanged="chkSenha_CheckedChanged" />
+<%--            <div class="form-check text-left" style="padding-top:8px;padding-left:50px;">
+                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="Msenha" onclick="">
+                    <label class="form-check-label" for="check1">Mostrar senha</label>
+                </div>--%>
+                <div class="text-right" style="padding-top:30px;padding-right:48px;"><asp:Button runat="server" ID="btnLogin" Text="ENTRAR" CssClass="bg" BorderStyle="None" /></div>
             </div>
         </div>
-
+        
         <div class="col-sm-4"></div>
     </div>
     
