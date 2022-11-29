@@ -13,5 +13,22 @@ namespace GestaoManual
         {
 
         }
+        public static void AlertPersonalizado(Page page, string mensagem)
+        {
+            page.ClientScript.RegisterStartupScript(
+                page.GetType(),
+                "MessageBox" + Guid.NewGuid(),
+                "<script language='javascript'>swal('" + mensagem + "');</script>"
+                );
+        }
+
+        public static void AlertPersonalizado(Page page, string mensagem, string pagina)
+        {
+            page.ClientScript.RegisterStartupScript(
+                page.GetType(),
+                "MessageBox" + Guid.NewGuid(),
+                "<script language='javascript'>swal('" + mensagem + "');window.location = '" + pagina + "'</script>"
+                );
+        }
     }
 }
