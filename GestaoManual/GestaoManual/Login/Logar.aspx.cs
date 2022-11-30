@@ -12,11 +12,20 @@ namespace GestaoManual.Login
         protected void Page_Load(object sender, EventArgs e)
         {
             txtSenha.MaxLength = 6;
+            txtSenha.TextMode = TextBoxMode.Password;
         }
 
-        //protected void chkSenha_CheckedChanged(object sender, EventArgs e)
-        //{
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
 
-        //}
+        }
+
+        protected void chkMostrarSenha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMostrarSenha.Checked)
+                txtSenha.TextMode = TextBoxMode.SingleLine; 
+            else
+                txtSenha.TextMode = TextBoxMode.Password;
+        }
     }
 }
