@@ -45,7 +45,7 @@
             </asp:ContentPlaceHolder>
             
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Senai Itajubá Mg</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Senai Itajubá-MG</p>
             </footer>
         </div>
     </form>
