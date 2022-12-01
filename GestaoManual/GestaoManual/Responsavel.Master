@@ -105,6 +105,7 @@
         #sidebar ul.components {
             padding: 20px 0;
             border-bottom: 1px solid #47748b;
+            font-size:12px;
         }
 
         #sidebar ul p {
@@ -126,7 +127,7 @@
         #sidebar ul li.active>a,
         a[aria-expanded="true"] {
             color: #fff;
-            background: #6d7fcc;
+            background: #00A3FF;
         }
 
         a[data-toggle="collapse"] {
@@ -144,7 +145,7 @@
         ul ul a {
             font-size: 0.9em !important;
             padding-left: 30px !important;
-            background: #6d7fcc;
+            background: #00A3FF;
         }
 
         ul.CTAs {
@@ -170,7 +171,9 @@
             color: #fff !important;
         }
 
-        
+        .foto_perfil{
+            border-radius:50%;
+        }
     </style>
 </head>
 <body>
@@ -196,6 +199,61 @@
             </Scripts>
         </asp:ScriptManager>
 
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <div class="foto text-center" style="margin-bottom:15px;"><img runat="server" src="imgs/kratao.jpg" width="50" height="50" class="foto_perfil" /></div>
+                <h3 class="text-center">War, Kratão</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Lista de funcionalidades</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Acessos</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Dar acesso</a>
+                        </li>
+                        <li>
+                            <a href="#">Retirar acesso</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageMaquina" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Máquinas</a>
+                    <ul class="collapse list-unstyled" id="pageMaquina">
+                        <li>
+                            <a href="#">Visualizar máquinas</a>
+                        </li>
+                        <li>
+                            <a href="#">Cadastrar máquina</a>
+                        </li>
+                        <li>
+                            <a href="#">Linkar funcionário</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Funcionários</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Técnico de Qualidade</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
         
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="content" runat="server">
@@ -203,9 +261,9 @@
                 
             </asp:ContentPlaceHolder>
             
-            <footer>
+<%--            <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Senai Itajubá-MG</p>
-            </footer>
+            </footer>--%>
         </div>
     </form>
     <asp:ContentPlaceHolder ID="footer" runat="server">
