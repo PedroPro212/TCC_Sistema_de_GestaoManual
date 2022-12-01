@@ -9,22 +9,20 @@ namespace GestaoManual.Login
 {
     public partial class Logar : System.Web.UI.Page
     {
-        //string senha = txtSenha;
         protected void Page_Load(object sender, EventArgs e)
         {
             txtSenha.MaxLength = 6;
             txtSenha.TextMode = TextBoxMode.Password;
-            txtSenha.Text = txtSenha.Text.Trim();
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void chkMostrarSenha_CheckedChanged(object sender, EventArgs e)
         {
-                
+            string senha = txtSenha.Text;
 
             if (chkMostrarSenha.Checked)
             {
@@ -36,9 +34,7 @@ namespace GestaoManual.Login
             {   
                 txtSenha.Text = senha;
                 txtSenha.TextMode = TextBoxMode.Password;
-            }
-            
-                
+            }             
         }
     }
 }
