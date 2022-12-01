@@ -10,14 +10,14 @@ CREATE TABLE TecnicoQualidade(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
     nome varchar(200) NOT null,
     registro varchar(6) NOT null,
-    senha varchar(10) NOT null
+    senha varchar(6) NOT null
 );
 
 CREATE TABLE operador(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
     nome varchar(200) NOT null,
     registro varchar(6) NOT null,
-    senha varchar(10) NOT null,
+    senha varchar(6) NOT null,
     idSetor int,
     FOREIGN KEY (idSetor) REFERENCES setor(id)
 );
@@ -26,12 +26,17 @@ CREATE TABLE encarregado(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
     nome varchar(200) NOT null,
     registro varchar(6) NOT null,
-    senha varchar(10) NOT null,
+    senha varchar(6) NOT null,
     idSetor int,
     FOREIGN KEY (idSetor) REFERENCES setor(id)
 );
 
-CREATE TABLE encarregado(
+CREATE TABLE maquina(
+    id varchar(6) PRIMARY KEY NOT null,
+    tipo varchar(200) NOT null
+);
+
+CREATE TABLE processo(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
     produto varchar(30) NOT null,
     datahora datetime,
@@ -39,8 +44,8 @@ CREATE TABLE encarregado(
     lotePecas varchar(20),
     idOperador int,
     etapaProcesso varchar(30),
-    idMaquina******
-    FOREIGN KEY (idSetor) REFERENCES setor(id)
+    idMaquina varchar(6),
+    FOREIGN KEY (idOperador) REFERENCES operador(id),
+    FOREIGN KEY (idMaquina) REFERENCES maquina(id),
+    loteTinta varchar(20)
 );
-
-**FAZER CLASSE MAQUINA
