@@ -199,13 +199,13 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav id="sidebar">
+        <nav class="navbar-collapse navbar-inverse dropdown-menu-left" id="sidebar">
             <div class="sidebar-header">
                 <div class="foto text-center" style="margin-bottom:15px;"><img runat="server" src="imgs/kratao.jpg" width="50" height="50" class="foto_perfil" /></div>
                 <h3 class="text-center">War, Kratão</h3>
             </div>
 
-            <ul class="list-unstyled components">
+            <ul class="list-unstyled components" data-target=".navbar-collapse">
                 <p>Lista de funcionalidades</p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Acessos</a>
