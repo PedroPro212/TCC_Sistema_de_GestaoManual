@@ -158,6 +158,9 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Supervisor\Funcionario\Funcionario.aspx" />
+    <Content Include="Supervisor\Funcionario\UpdateFunc.aspx" />
+    <Content Include="Supervisor\Maquina\AdicionarMaquina.aspx" />
     <Content Include="Supervisor\Responsavel.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -226,6 +229,27 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Funcionario\Funcionario.aspx.cs">
+      <DependentUpon>Funcionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Funcionario\Funcionario.aspx.designer.cs">
+      <DependentUpon>Funcionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Funcionario\UpdateFunc.aspx.cs">
+      <DependentUpon>UpdateFunc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Funcionario\UpdateFunc.aspx.designer.cs">
+      <DependentUpon>UpdateFunc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Maquina\AdicionarMaquina.aspx.cs">
+      <DependentUpon>AdicionarMaquina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Maquina\AdicionarMaquina.aspx.designer.cs">
+      <DependentUpon>AdicionarMaquina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Supervisor\Responsavel.aspx.cs">
       <DependentUpon>Responsavel.aspx</DependentUpon>

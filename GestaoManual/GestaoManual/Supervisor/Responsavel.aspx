@@ -39,14 +39,14 @@
             <div class="col-sm-2">
                 <div class="quadro">
                     <div class="quadroCenter">
-                        <img runat="server" src="/imgs/chave.png" width="70" />
-                        <p>Acesso</p>
+                        <a href="https://www.youtube.com/"><img runat="server" src="/imgs/chave.png" width="70" />
+                        <p>Acesso</p></a>
                     </div>
                 </div>
                 <div class="quadro">
                     <div class="quadroCenter">
-                        <img runat="server" src="/imgs/user.png" width="70" />
-                        <p>Funcionários</p>
+                        <a href="Funcionario/Funcionario.aspx"><img runat="server" src="/imgs/user.png" width="70" />
+                        <p>Funcionários</p></a>
                     </div>
                 </div>
             </div>
