@@ -28,152 +28,318 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
-        @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-        body{
-            font-family: 'Poppins', sans-serif;
-            background-color: #F9B463;
-        }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
 
-        p {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1em;
-            font-weight: 300;
-            line-height: 1.7em;
-            color: #999;
-        }
+    :root{
+        /* ===== Colors ===== */
+        --body-color: #F9B463;
+        --sidebar-color: #00A3FF;
+        --primary-color: #0a6789;
+        --primary-color-light: #F6F5FF;
+        --toggle-color: #DDD;
+        --text-color: black;
 
-        a,
-        a:hover,
-        a:focus {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
+        /* ====== Transition ====== */
+        --tran-03: all 0.2s ease;
+        --tran-03: all 0.3s ease;
+        --tran-04: all 0.3s ease;
+        --tran-05: all 0.3s ease;
+    }
 
-        .navbar {
-            padding: 15px 10px;
-            background: #fff;
-            border: none;
-            border-radius: 0;
-            margin-bottom: 40px;
-            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-        }
+    body{
+        min-height: 100vh;
+        background-color: var(--body-color);
+        transition: var(--tran-05);
+    }
 
-        .navbar-btn {
-            box-shadow: none;
-            outline: none !important;
-            border: none;
-        }
+    ::selection{
+        background-color: var(--primary-color);
+        color: #fff;
+    }
 
-        .line {
-            width: 100%;
-            height: 1px;
-            border-bottom: 1px dashed #ddd;
-            margin: 40px 0;
-        }
+    body.dark{
+        --body-color: #F9B463;
+        --sidebar-color: #242526;
+        --primary-color: #3a3b3c;
+        --primary-color-light: #3a3b3c;
+        --toggle-color: #fff;
+        --text-color: #ccc;
+    }
 
-        /* ---------------------------------------------------
-            SIDEBAR STYLE
-        ----------------------------------------------------- */
+    /* ===== Sidebar ===== */
+     .sidebar{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        padding: 10px 14px;
+        background: var(--sidebar-color);
+        transition: var(--tran-05);
+        z-index: 100;  
+    }
+    .sidebar.close{
+        width: 88px;
+    }
 
-        .wrapper {
-            display: flex;
-            width: 100%;
-        }
+    /* ===== Reusable code - Here ===== */
+    .sidebar li{
+        height: 50px;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
 
-        #sidebar {
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            z-index: 999;
-            background: #00A3FF;
-            color: #fff;
-            transition: all 0.3s;
-        }
+    .sidebar header .image,
+    .sidebar .icon{
+        min-width: 60px;
+        border-radius: 6px;
+    }
 
-        #sidebar.active {
-            margin-left: -250px;
-        }
+    .sidebar .icon{
+        min-width: 20px;
+        border-radius: 6px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
 
-        #sidebar .sidebar-header {
-            padding: 20px;
-            background: #00A3FF;
-        }
+    .sidebar .text,
+    .sidebar .icon{
+        color: var(--text-color);
+        transition: var(--tran-03);
+    }
 
-        #sidebar ul.components {
-            padding: 20px 0;
-            border-bottom: 1px solid #47748b;
-            font-size:12px;
-        }
+    .sidebar .text{
+        font-size: 17px;
+        font-weight: 500;
+        white-space: nowrap;
+        opacity: 1;
+    }
+    .sidebar.close .text{
+        opacity: 0;
+    }
+    /* =========================== */
 
-        #sidebar ul p {
-            color: #fff;
-            padding: 10px;
-        }
+    .sidebar header{
+        position: relative;
+    }
 
-        #sidebar ul li a {
-            padding: 10px;
-            font-size: 1.1em;
-            display: block;
-        }
+    .sidebar header .image-text{
+        display: flex;
+        align-items: center;
+    }
+    .sidebar header .logo-text{
+        display: flex;
+        flex-direction: column;
+    }
+    header .image-text .name {
+        margin-top: 2px;
+        font-size: 18px;
+        font-weight: 600;
+    }
 
-        #sidebar ul li a:hover {
-            color: #7386D5;
-            background: #fff;
-        }
+    header .image-text .profession{
+        font-size: 16px;
+        margin-top: -2px;
+        display: block;
+    }
 
-        #sidebar ul li.active>a,
-        a[aria-expanded="true"] {
-            color: #fff;
-            background: #00A3FF;
-        }
+    .sidebar header .image{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-        a[data-toggle="collapse"] {
-            position: relative;
-        }
+    .sidebar header .image img{
+        width: 40px;
+        border-radius: 6px;
+    }
 
-        .dropdown-toggle::after {
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
+    .sidebar header .toggle{
+        position: absolute;
+        top: 50%;
+        right: -25px;
+        transform: translateY(-50%) rotate(180deg);
+        height: 25px;
+        width: 25px;
+        background-color: var(--primary-color);
+        color: var(--sidebar-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        cursor: pointer;
+        transition: var(--tran-05);
+    }
 
-        ul ul a {
-            font-size: 0.9em !important;
-            padding-left: 30px !important;
-            background: #00A3FF;
-        }
+    body.dark .sidebar header .toggle{
+        color: var(--text-color);
+    }
 
-        ul.CTAs {
-            padding: 20px;
-        }
+    .sidebar.close .toggle{
+        transform: translateY(-50%) rotate(0deg);
+    }
 
-        ul.CTAs a {
-            text-align: center;
-            font-size: 0.9em !important;
-            display: block;
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
+    .sidebar .menu{
+        margin-top: 40px;
+    }
 
-        a.download {
-            background: #fff;
-            color: #7386D5;
-        }
+    .sidebar li.search-box{
+        border-radius: 6px;
+        background-color: var(--primary-color-light);
+        cursor: pointer;
+        transition: var(--tran-05);
+    }
 
-        a.article,
-        a.article:hover {
-            background: #6d7fcc !important;
-            color: #fff !important;
-        }
+    .sidebar li.search-box input{
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: var(--primary-color-light);
+        color: var(--text-color);
+        border-radius: 6px;
+        font-size: 17px;
+        font-weight: 500;
+        transition: var(--tran-05);
+    }
+    .sidebar li a{
+        list-style: none;
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: var(--tran-03);
+    }
 
-        .foto_perfil{
-            border-radius:50%;
-        }
+    .sidebar li a:hover{
+        background-color: var(--primary-color);
+    }
+    .sidebar li a:hover .icon,
+    .sidebar li a:hover .text{
+        color: var(--sidebar-color);
+    }
+    body.dark .sidebar li a:hover .icon,
+    body.dark .sidebar li a:hover .text{
+        color: var(--text-color);
+    }
+
+    .sidebar .menu-bar{
+        height: calc(100% - 55px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-y: scroll;
+    }
+    .menu-bar::-webkit-scrollbar{
+        display: none;
+    }
+    .sidebar .menu-bar .mode{
+        border-radius: 6px;
+        background-color: var(--primary-color-light);
+        position: relative;
+        transition: var(--tran-05);
+    }
+
+    .menu-bar .mode .sun-moon{
+        height: 50px;
+        width: 60px;
+    }
+
+    .mode .sun-moon i{
+        position: absolute;
+    }
+    .mode .sun-moon i.sun{
+        opacity: 0;
+    }
+    body.dark .mode .sun-moon i.sun{
+        opacity: 1;
+    }
+    body.dark .mode .sun-moon i.moon{
+        opacity: 0;
+    }
+
+    .menu-bar .bottom-content .toggle-switch{
+        position: absolute;
+        right: 0;
+        height: 100%;
+        min-width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    .toggle-switch .switch{
+        position: relative;
+        height: 22px;
+        width: 40px;
+        border-radius: 25px;
+        background-color: var(--toggle-color);
+        transition: var(--tran-05);
+    }
+
+    .switch::before{
+        content: '';
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        background-color: var(--sidebar-color);
+        transition: var(--tran-04);
+    }
+
+    body.dark .switch::before{
+        left: 20px;
+    }
+
+    .home{
+        position: absolute;
+        top: 0;
+        top: 0;
+        left: 250px;
+        height: 100vh;
+        width: calc(100% - 250px);
+        background-color: var(--body-color);
+        transition: var(--tran-05);
+    }
+    .home .text{
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--text-color);
+        padding: 12px 60px;
+    }
+
+    .sidebar.close ~ .home{
+        left: 78px;
+        height: 100vh;
+        width: calc(100% - 78px);
+    }
+    body.dark .home .text{
+        color: var(--text-color);
+    }
+
+    .foto_perfil{
+        border-radius:50%;
+    }
     </style>
 </head>
 <body>
@@ -199,61 +365,144 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <div class="foto text-center" style="margin-bottom:15px;"><img runat="server" src="imgs/kratao.jpg" width="50" height="50" class="foto_perfil" /></div>
-                <h3 class="text-center">War, Kratão</h3>
+        <nav class="sidebar close">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="/imgs/kratao.jpg" width="70" height="50" style="border-radius:50%" class="foto_perfil" alt="Foto de perfil">
+                    </span>
+
+                    <div class="text logo-text">
+                        <span class="name">War, Kratão</span>
+                    </div>
+                </div>
+
+                <i class='bx bx-chevron-right toggle' onclick="openNav()"></i>
+            </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="https://www.youtube.com/watch?v=bFvfqUMjvsA">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Funcionários</span>
+                            <ul class="collapse list-unstyled">
+                                <li></li>
+                            </ul>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <span class="text nav-text">Máquinas</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Acesso</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-pie-chart-alt icon' ></i>
+                            <span class="text nav-text">Técnico Qualidade</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">Relatório</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">Suporte</span>
+                        </a>
+                    </li>
+
+                </ul>
             </div>
 
-            <ul class="list-unstyled components">
-                <p>Lista de funcionalidades</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Acessos</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Dar acesso</a>
-                        </li>
-                        <li>
-                            <a href="#">Retirar acesso</a>
-                        </li>
-                    </ul>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/Login/Logar.aspx">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Sair</span>
+                    </a>
                 </li>
-                <li>
-                    <a href="#pageMaquina" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Máquinas</a>
-                    <ul class="collapse list-unstyled" id="pageMaquina">
-                        <li>
-                            <a href="#">Visualizar máquinas</a>
-                        </li>
-                        <li>
-                            <a href="#">Cadastrar máquina</a>
-                        </li>
-                        <li>
-                            <a href="#">Linkar funcionário</a>
-                        </li>
-                    </ul>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
                 </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Funcionários</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Técnico de Qualidade</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </nav>
+                
+            </div>
+        </div>
+
+    </nav>
+
+    <script>
+        const body = document.querySelector('body'),
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+
+
+        toggle.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
+        })
+
+        searchBtn.addEventListener("click" , () =>{
+            sidebar.classList.remove("close");
+        })
+
+        modeSwitch.addEventListener("click" , () =>{
+            body.classList.toggle("dark");
+    
+            if(body.classList.contains("dark")){
+                modeText.innerText = "Light mode";
+            }else{
+                modeText.innerText = "Dark mode";
+        
+            }
+        });
+
+        function openNav() {
+            if (typeof (Storage) !== "undefined") {
+                localStorage.setItem("sidebar", "opened");
+            }
+        }
+
+        function closeNav() {
+            if (typeof (Storage) !== "undefined") {
+                localStorage.setItem("sidebar", "closed");
+            }
+        }
+
+    </script>
         
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="content" runat="server">
