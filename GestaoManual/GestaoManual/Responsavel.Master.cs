@@ -7,10 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace GestaoManual
 {
-    public partial class SiteMaster : MasterPage
+    public partial class Responsavel : System.Web.UI.MasterPage
     {
-        public static string ConnectionString = "Server=127.0.0.1;User ID=root;Password=;Database=metalurgicasaveiro";
-
         protected void Page_Load(object sender, EventArgs e)
         {
 

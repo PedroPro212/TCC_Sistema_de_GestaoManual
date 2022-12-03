@@ -9,36 +9,32 @@ namespace GestaoManual.Login
 {
     public partial class Logar : System.Web.UI.Page
     {
-        //string senha = txtSenha;
+        protected static string senha;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtSenha.MaxLength = 6;
-            txtSenha.TextMode = TextBoxMode.Password;
-            txtSenha.Text = txtSenha.Text.Trim();
+            if (!IsPostBack)
+                txtSenha.TextMode = TextBoxMode.Password;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void chkMostrarSenha_CheckedChanged(object sender, EventArgs e)
         {
-                
+            string Password = txtSenha.Text;
+            txtSenha.Attributes.Add("value", Password);
 
             if (chkMostrarSenha.Checked)
             {
                 txtSenha.TextMode = TextBoxMode.SingleLine;
-                senha = txtSenha.Text;
             }
-
             else
             {   
-                txtSenha.Text = senha;
                 txtSenha.TextMode = TextBoxMode.Password;
             }
-            
-                
         }
     }
 }
