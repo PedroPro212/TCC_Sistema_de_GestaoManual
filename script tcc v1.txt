@@ -54,3 +54,7 @@ CREATE TABLE processo(
     FOREIGN KEY (idMaquina) REFERENCES maquina(id),
     loteTinta varchar(20)
 );
+
+insert into acesso(descricao) values ("Produção");
+insert into acesso(descricao) values ("Supervisor");
+insert into acesso(descricao) values ("Técnico de Qualidade");
