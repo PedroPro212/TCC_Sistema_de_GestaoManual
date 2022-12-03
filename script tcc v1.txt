@@ -1,6 +1,16 @@
 CREATE DATABASE metalurgicasaveiro;
 USE metalurgicasaveiro;
 
+CREATE TABLE funcionarios(
+	id int primary key auto_increment not null,
+    nome varchar(300) not null,
+    data_nascimento date,
+    cpf varchar(11) not null,
+    id_setor int,
+    
+	foreign key (id_setor) references setor(id)
+);
+
 CREATE TABLE setor(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
     descricao varchar(50) NOT null
