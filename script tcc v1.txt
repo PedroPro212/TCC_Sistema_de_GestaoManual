@@ -1,19 +1,19 @@
 CREATE DATABASE metalurgicasaveiro;
 USE metalurgicasaveiro;
 
+CREATE TABLE setor(
+    id int AUTO_INCREMENT PRIMARY KEY NOT null,
+    descricao varchar(50) NOT null
+);
+
 CREATE TABLE funcionarios(
-	id int primary key auto_increment not null,
+    id int primary key auto_increment not null,
     nome varchar(300) not null,
     data_nascimento date,
     cpf varchar(11) not null,
     id_setor int,
     
-	foreign key (id_setor) references setor(id)
-);
-
-CREATE TABLE setor(
-    id int AUTO_INCREMENT PRIMARY KEY NOT null,
-    descricao varchar(50) NOT null
+    foreign key (id_setor) references setor(id)
 );
 
 CREATE TABLE acesso(
@@ -22,13 +22,13 @@ CREATE TABLE acesso(
 );
 
 CREATE TABLE login(
-	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     registro varchar(6),
     senha varchar(6),
     id_acesso int,
     
     FOREIGN KEY (id_acesso) REFERENCES acesso(id)
-)
+);
 
 CREATE TABLE TecnicoQualidade(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
@@ -59,6 +59,14 @@ CREATE TABLE maquina(
     tipo varchar(200) NOT null
 );
 
+CREATE TABLE produto(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    descricao varchar(100) NOT NULL,
+    id_setor int,
+    
+    FOREIGN KEY (id_setor) REFERENCES setor(id)
+);
+
 CREATE TABLE processo(
     id int,
     id_produto INT NOT NULL,
@@ -75,14 +83,6 @@ CREATE TABLE processo(
     FOREIGN KEY (id_produto) REFERENCES produto(id)
 );
 
-CREATE TABLE produto(
-    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    descricao varchar(100) NOT NULL,
-    id_setor int,
-    
-    FOREIGN KEY (id_setor) REFERENCES setor(id)
-);
-
 insert into acesso(descricao) values ("Produção");
 insert into acesso(descricao) values ("Supervisor");
 insert into acesso(descricao) values ("Técnico de Qualidade");
@@ -90,3 +90,7 @@ insert into acesso(descricao) values ("Técnico de Qualidade");
 INSERT INTO setor VALUES(NULL, "Corte");
 
 INSERT INTO funcionarios VALUES(NULL, "Pedro Henrique Oliveira", "2004-01-02", "12312312312", 1);
+INSERT INTO funcionarios VALUES(NULL, "Filipe Fonseca Coura", "2005-05-16", "12312312312", 1);
+
+INSERT INTO login VALUES(NULL, 1, "1234", 1);
+INSERT INTO login VALUES(NULL, 2, "1234", 1);
