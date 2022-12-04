@@ -38,12 +38,11 @@ CREATE TABLE TecnicoQualidade(
 );
 
 CREATE TABLE operador(
-    id int AUTO_INCREMENT PRIMARY KEY NOT null,
-    nome varchar(200) NOT null,
-    registro varchar(6) NOT null,
-    senha varchar(6) NOT null,
+    id int PRIMARY KEY AUTO_INCREMENT NOT null,
+    registro int NOT null,
     idSetor int,
-    FOREIGN KEY (idSetor) REFERENCES setor(id)
+    FOREIGN KEY (idSetor) REFERENCES setor(id),
+    FOREIGN KEY (registro) REFERENCES funcionarios(id)
 );
 
 CREATE TABLE encarregado(
@@ -61,19 +60,33 @@ CREATE TABLE maquina(
 );
 
 CREATE TABLE processo(
-    id int AUTO_INCREMENT PRIMARY KEY NOT null,
-    produto varchar(30) NOT null,
-    datahora datetime,
+    id int,
+    id_produto INT NOT NULL,
+    datahoraIni datetime,
+    datahoraFin DATETIME,
     noPecas int,
     lotePecas varchar(20),
     idOperador int,
     etapaProcesso varchar(30),
     idMaquina varchar(6),
+    loteTinta varchar(20),
     FOREIGN KEY (idOperador) REFERENCES operador(id),
     FOREIGN KEY (idMaquina) REFERENCES maquina(id),
-    loteTinta varchar(20)
+    FOREIGN KEY (id_produto) REFERENCES produto(id)
+);
+
+CREATE TABLE produto(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    descricao varchar(100) NOT NULL,
+    id_setor int,
+    
+    FOREIGN KEY (id_setor) REFERENCES setor(id)
 );
 
 insert into acesso(descricao) values ("Produção");
 insert into acesso(descricao) values ("Supervisor");
 insert into acesso(descricao) values ("Técnico de Qualidade");
+
+INSERT INTO setor VALUES(NULL, "Corte");
+
+INSERT INTO funcionarios VALUES(NULL, "Pedro Henrique Oliveira", "2004-01-02", "12312312312", 1);
