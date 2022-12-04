@@ -23,7 +23,7 @@ namespace GestaoManual.Login
         {
             connection.Open();
             MySqlCommand comando = new MySqlCommand();
-            comando.CommandText = "SELECT * FROM login WHERE registro = @registro AND senha = @senha AND id_acesso";
+            comando.CommandText = "SELECT * FROM login WHERE registro=@registro AND senha=@senha";
             comando.Parameters.AddWithValue("@registro", txtRegistro.Text);
             comando.Parameters.AddWithValue("@senha", txtSenha.Text);
             MySqlDataReader dr;
@@ -32,15 +32,20 @@ namespace GestaoManual.Login
             {
                 comando.Connection = connection;
                 dr = comando.ExecuteReader();
-                if(dr.HasRows)
+                if (dr.HasRows)
                 {
-                    Response.Redirect("/Supervisor/Responsavel.aspx");
+                    if(dr.Equals("AND id_acesso=1"))
+                    {
+                        Response.Redirect("/Supervisor/Responsavel.aspx");  
+                    }
+                                    
                 }
+
                 else
                 {
                     SiteMaster.AlertPersonalizado(this, "Registro ou senha incorretos");
                     txtRegistro.Text = "";
-                }              
+                }
             }
             catch(Exception ex)
             {
