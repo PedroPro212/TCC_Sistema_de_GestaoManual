@@ -22,7 +22,7 @@
                     </div>
                     <div class="text-left" style="margin-top: 10px">
                         <p>Senha:</p>
-                        <asp:TextBox runat="server" ID="txtSenha" Width="250" MaxLength="6"></asp:TextBox> <%--Campo para inserir senha--%>
+                        <asp:TextBox runat="server" ID="txtSenha" Width="250"></asp:TextBox> <%--Campo para inserir senha--%>
                         <br />
                     </div>
                 </div>
