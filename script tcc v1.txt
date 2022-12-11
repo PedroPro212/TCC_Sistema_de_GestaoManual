@@ -23,10 +23,11 @@ CREATE TABLE acesso(
 
 CREATE TABLE login(
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    registro varchar(6),
+    registro INT,
     senha varchar(6),
     id_acesso int,
     
+    FOREIGN KEY (registro) REFERENCES funcionarios(id),
     FOREIGN KEY (id_acesso) REFERENCES acesso(id)
 );
 
@@ -88,9 +89,17 @@ insert into acesso(descricao) values ("Supervisor");
 insert into acesso(descricao) values ("Técnico de Qualidade");
 
 INSERT INTO setor VALUES(NULL, "Corte");
+INSERT INTO setor VALUES(NULL, "Pintura por Imersão");
+INSERT INTO setor VALUES(NULL, "Prensa");
+INSERT INTO setor VALUES(NULL, "Ponteadeira");
+INSERT INTO setor VALUES(NULL, "Viradeira");
+INSERT INTO setor VALUES(NULL, "Montagem");
+INSERT INTO setor VALUES(NULL, "Banho");
 
 INSERT INTO funcionarios VALUES(NULL, "Pedro Henrique Oliveira", "2004-01-02", "12312312312", 1);
-INSERT INTO funcionarios VALUES(NULL, "Filipe Fonseca Coura", "2005-05-16", "12312312312", 1);
+INSERT INTO funcionarios VALUES(NULL, "Filipe Fonseca Coura", "2005-05-16", "12312312312", 2);
+INSERT INTO funcionarios VALUES(NULL, "Matheus Henrique Carvalho", "2002-06-18", "60193219085", 6);
 
 INSERT INTO login VALUES(NULL, 1, "1234", 1);
-INSERT INTO login VALUES(NULL, 2, "1234", 1);
+INSERT INTO login VALUES(NULL, 2, "1234", 2)
+INSERT INTO login VALUES(NULL, 3, "1234", 2) 
