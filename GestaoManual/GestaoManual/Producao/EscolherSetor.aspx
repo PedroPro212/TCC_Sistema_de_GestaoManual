@@ -63,6 +63,7 @@
                                 <div class="text-center"><asp:DropDownList runat="server" ID="ddlSetor"></asp:DropDownList></div>
                                 <div class="text-center" style="margin-top:100px;"><asp:Button runat="server" ID="btnEntrar" CssClass="btnEntrar" Text="Entrar" /></div>
                                 <div class="text-center"><p style="margin-top:30px;">Seja bem-vindo <asp:Label runat="server" ID="lblNome" CssClass="nome"></asp:Label></p></div>
+                                
                             </div>
                         </div>
                     </div>

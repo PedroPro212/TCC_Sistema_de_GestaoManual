@@ -187,6 +187,7 @@
     <Content Include="Supervisor\Funcionario\UpdateFunc.aspx" />
     <Content Include="Supervisor\Maquina\AdicionarMaquina.aspx" />
     <Content Include="Supervisor\Responsavel.aspx" />
+    <Content Include="Supervisor\Suporte.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -301,6 +302,13 @@
     </Compile>
     <Compile Include="Supervisor\Responsavel.aspx.designer.cs">
       <DependentUpon>Responsavel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Suporte.aspx.cs">
+      <DependentUpon>Suporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Suporte.aspx.designer.cs">
+      <DependentUpon>Suporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

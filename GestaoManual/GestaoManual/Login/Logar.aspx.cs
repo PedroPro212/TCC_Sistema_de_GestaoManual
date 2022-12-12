@@ -34,8 +34,8 @@ namespace GestaoManual.Login
                 dr = comando.ExecuteReader();
                 if (dr.HasRows)
                 {
-                    //Response.Redirect("/Supervisor/Responsavel.aspx");
-                    Response.Redirect("/Producao/EscolherSetor.aspx");
+                    Response.Redirect("/Supervisor/Responsavel.aspx");
+                    //Response.Redirect("/Producao/EscolherSetor.aspx");
                 }
 
                 else

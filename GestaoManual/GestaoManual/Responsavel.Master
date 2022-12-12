@@ -341,6 +341,9 @@
         border-radius:50%;
     }
     </style>
+    <script>
+        localStorage.setItem("")
+    </script>
 </head>
 <body>
 
@@ -365,7 +368,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="sidebar close">
+        <nav class="sidebar close" id="sidebar">
             <header>
                 <div class="image-text">
                     <span class="image">
@@ -428,7 +431,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/Supervisor/Suporte.aspx">
                             <i class='bx bx-heart icon' ></i>
                             <span class="text nav-text">Suporte</span>
                         </a>

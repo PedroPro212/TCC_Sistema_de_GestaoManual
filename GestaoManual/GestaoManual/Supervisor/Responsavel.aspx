@@ -32,6 +32,7 @@
         }
     </style>    
 
+
     <div class="container text-center">
         <div class="row">
             <div class="col-sm-12 text-center" style="text-transform:uppercase;margin-top:20px  ;margin-left:20px;"><h1>Aplicativos</h1></div>
