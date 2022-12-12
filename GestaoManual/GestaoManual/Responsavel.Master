@@ -373,7 +373,7 @@
                     </span>
 
                     <div class="text logo-text">
-                        <span class="name">War, Kratão</span>
+                        <span class="name"><asp:Label runat="server" ID="lblNome"></asp:Label></span>
                     </div>
                 </div>
 
