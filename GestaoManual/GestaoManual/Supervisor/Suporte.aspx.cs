@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace GestaoManual.Supervisor
 {
-    public partial class Responsavel : System.Web.UI.Page
+    public partial class Suporte : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

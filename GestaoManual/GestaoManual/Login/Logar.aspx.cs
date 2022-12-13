@@ -23,22 +23,19 @@ namespace GestaoManual.Login
         {
             connection.Open();
             MySqlCommand comando = new MySqlCommand();
-            comando.CommandText = "SELECT * FROM login WHERE registro=@registro AND senha=@senha";
+            comando.CommandText = "SELECT * FROM login WHERE registro=@registro AND senha=@senha AND (id_acesso=1 OR id_acesso=2)";
             comando.Parameters.AddWithValue("@registro", txtRegistro.Text);
             comando.Parameters.AddWithValue("@senha", txtSenha.Text);
             MySqlDataReader dr;
-                 
+            Session["Login"] = txtRegistro.Text;
             try
             {
                 comando.Connection = connection;
                 dr = comando.ExecuteReader();
                 if (dr.HasRows)
                 {
-                    if(dr.Equals("AND id_acesso=1"))
-                    {
-                        Response.Redirect("/Supervisor/Responsavel.aspx");  
-                    }
-                                    
+                    Response.Redirect("/Supervisor/Responsavel.aspx");
+                    //Response.Redirect("/Producao/EscolherSetor.aspx");
                 }
 
                 else
