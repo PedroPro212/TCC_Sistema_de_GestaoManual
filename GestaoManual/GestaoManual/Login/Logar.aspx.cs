@@ -12,6 +12,8 @@ namespace GestaoManual.Login
     {
         protected static string senha;
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
+        private MySqlConnection connection2 = new MySqlConnection(SiteMaster.ConnectionString);
+
         protected void Page_Load(object sender, EventArgs e)
         {
             txtSenha.MaxLength = 6;
@@ -23,7 +25,7 @@ namespace GestaoManual.Login
         {
             connection.Open();
             MySqlCommand comando = new MySqlCommand();
-            comando.CommandText = "SELECT * FROM login WHERE registro=@registro AND senha=@senha AND (id_acesso=1 OR id_acesso=2)";
+            comando.CommandText = "SELECT * FROM login WHERE registro=@registro AND senha=@senha AND id_acesso=1";
             comando.Parameters.AddWithValue("@registro", txtRegistro.Text);
             comando.Parameters.AddWithValue("@senha", txtSenha.Text);
             MySqlDataReader dr;
@@ -32,16 +34,33 @@ namespace GestaoManual.Login
             {
                 comando.Connection = connection;
                 dr = comando.ExecuteReader();
-                if (dr.HasRows)
+                
+                if (dr.Read())
                 {
-                    Response.Redirect("/Supervisor/Responsavel.aspx");
+                    Response.Redirect("/Supervisor/Responsavel.aspx"); //pagina da producao
                     //Response.Redirect("/Producao/EscolherSetor.aspx");
                 }
-
                 else
                 {
-                    SiteMaster.AlertPersonalizado(this, "Registro ou senha incorretos");
-                    txtRegistro.Text = "";
+                    connection2.Open();
+                    comando = new MySqlCommand();
+                    comando.CommandText = "SELECT * FROM login WHERE registro=@registro AND senha=@senha AND id_acesso=2";
+                    comando.Parameters.AddWithValue("@registro", txtRegistro.Text);
+                    comando.Parameters.AddWithValue("@senha", txtSenha.Text);
+                    comando.Connection = connection2;
+                    dr = comando.ExecuteReader();
+                    
+                    if(dr.Read())
+                    {
+                        Response.Redirect("/Supervisor/Responsavel.aspx"); //pagina do supervisor
+                        connection2.Close();
+                    }
+                    else
+                    {
+                        SiteMaster.AlertPersonalizado(this, "Registro ou senha incorretos");
+                        txtRegistro.Text = "";
+                    }
+
                 }
             }
             catch(Exception ex)
