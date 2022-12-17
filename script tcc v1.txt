@@ -105,3 +105,10 @@ INSERT INTO login VALUES(NULL, 1, "1234", 1);
 INSERT INTO login VALUES(NULL, 2, "1234", 2);
 INSERT INTO login VALUES(NULL, 3, "1234", 2);
 INSERT INTO login VALUES(NULL, 4, "1234", 2);
+
+INSERT INTO produto VALUES(NULL, "Dobradiças", 2);
+INSERT INTO produto VALUES(NULL, "Caixa de Correio", 2);
+INSERT INTO produto VALUES(NULL, "Carroceria", 2);
+INSERT INTO produto VALUES(NULL, "Fornos", 2);
+INSERT INTO produto VALUES(NULL, "Incêndio", 2);
+INSERT INTO produto VALUES(NULL, "Trincos", 2);
