@@ -37,8 +37,7 @@ namespace GestaoManual.Login
                 
                 if (dr.Read())
                 {
-                    Response.Redirect("/Supervisor/Responsavel.aspx"); //pagina da producao
-                    //Response.Redirect("/Producao/EscolherSetor.aspx");
+                    Response.Redirect("/Producao/EscolherSetor.aspx"); //pagina da producao
                 }
                 else
                 {
