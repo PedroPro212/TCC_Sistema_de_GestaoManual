@@ -146,7 +146,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Logar.Master" />
+    <Content Include="Producao\Corte\Corte.aspx" />
     <Content Include="Producao\EscolherSetor.aspx" />
+    <Content Include="Producao\PinturaImersao\PinturaImersao.aspx" />
     <Content Include="Responsavel.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login\Logar.aspx" />
@@ -243,12 +245,26 @@
     <Compile Include="Negocio\Operador.cs" />
     <Compile Include="Negocio\Setor.cs" />
     <Compile Include="Negocio\TecnicoQualidade.cs" />
+    <Compile Include="Producao\Corte\Corte.aspx.cs">
+      <DependentUpon>Corte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Producao\Corte\Corte.aspx.designer.cs">
+      <DependentUpon>Corte.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Producao\EscolherSetor.aspx.cs">
       <DependentUpon>EscolherSetor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Producao\EscolherSetor.aspx.designer.cs">
       <DependentUpon>EscolherSetor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Producao\PinturaImersao\PinturaImersao.aspx.cs">
+      <DependentUpon>PinturaImersao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Producao\PinturaImersao\PinturaImersao.aspx.designer.cs">
+      <DependentUpon>PinturaImersao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responsavel.Master.cs">

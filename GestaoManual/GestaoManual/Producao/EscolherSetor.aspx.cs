@@ -41,5 +41,25 @@ namespace GestaoManual.Producao
                 
             }
         }
+
+        protected void btnEntrar_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            int value = Convert.ToInt32(ddlSetor.SelectedValue);
+
+            if(value == 1)
+            {
+                Response.Redirect("Corte/Corte.aspx");
+            }
+            else if(value == 2)
+            {
+                Response.Redirect("PinturaImersao/PinturaImersao.aspx");
+            }
+            else
+            {
+                SiteMaster.AlertPersonalizado(this, "Tende novamente");
+            }
+            connection.Close();
+        }
     }
 }
