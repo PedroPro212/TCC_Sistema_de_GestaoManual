@@ -372,11 +372,11 @@
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <img src="/imgs/kratao.jpg" width="70" height="50" style="border-radius:50%" class="foto_perfil" alt="Foto de perfil">
+                        <a href="/Supervisor/Responsavel.aspx"><img src="/imgs/kratao.jpg" width="70" height="50" style="border-radius:50%" class="foto_perfil" alt="Foto de perfil"></a>
                     </span>
 
                     <div class="text logo-text">
-                        <span class="name"><asp:Label runat="server" ID="lblNome"></asp:Label></span>
+                        <a href="/Supervisor/Dados.aspx" style="text-decoration:none; color:black"><span class="name"><asp:Label runat="server" ID="lblNome"></asp:Label></span></a>
                     </div>
                 </div>
 

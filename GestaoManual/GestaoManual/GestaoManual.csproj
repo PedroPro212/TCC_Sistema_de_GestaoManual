@@ -182,6 +182,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Supervisor\Dados.aspx" />
     <Content Include="Supervisor\Funcionario\Funcionario.aspx" />
     <Content Include="Supervisor\Funcionario\UpdateFunc.aspx" />
     <Content Include="Supervisor\Maquina\AdicionarMaquina.aspx" />
@@ -202,6 +203,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Classes\Dados.cs" />
     <Compile Include="Classes\Encarregado.cs" />
     <Compile Include="Classes\Funcionario.cs" />
     <Compile Include="Classes\Operador.cs" />
@@ -240,6 +242,7 @@
     <Compile Include="Login\Logar.aspx.designer.cs">
       <DependentUpon>Logar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\Dados.cs" />
     <Compile Include="Negocio\Encarregado.cs" />
     <Compile Include="Negocio\Maquina.cs" />
     <Compile Include="Negocio\Operador.cs" />
@@ -287,6 +290,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Dados.aspx.cs">
+      <DependentUpon>Dados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Dados.aspx.designer.cs">
+      <DependentUpon>Dados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Supervisor\Funcionario\Funcionario.aspx.cs">
       <DependentUpon>Funcionario.aspx</DependentUpon>
