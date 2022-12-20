@@ -11,6 +11,8 @@ CREATE TABLE funcionarios(
     nome varchar(300) not null,
     data_nascimento date,
     cpf varchar(11) not null,
+    email varchar(100),
+    tel varchar(11),
     id_setor int,
     
     foreign key (id_setor) references setor(id)
@@ -96,10 +98,10 @@ INSERT INTO setor VALUES(NULL, "Viradeira");
 INSERT INTO setor VALUES(NULL, "Montagem");
 INSERT INTO setor VALUES(NULL, "Banho");
 
-INSERT INTO funcionarios VALUES(NULL, "Pedro Henrique Oliveira", "2004-01-02", "12312312312", 1);
-INSERT INTO funcionarios VALUES(NULL, "Filipe Fonseca Coura", "2005-05-16", "12312312312", 2);
-INSERT INTO funcionarios VALUES(NULL, "Matheus Henrique Carvalho", "2002-06-18", "60193219085", 6);
-INSERT INTO funcionarios VALUES(NULL, "Antônio Francisco de Joarez", "1986-12-02", "63961630046", 5);
+INSERT INTO funcionarios VALUES(NULL, "Pedro Henrique Oliveira", "2004-01-02", "12312312312", "pedro@gmail.com", "35997444848" , 1);
+INSERT INTO funcionarios VALUES(NULL, "Filipe Fonseca Coura", "2005-05-16", "12312312312", "filipe@gmail.com", "79968718272" , 2);
+INSERT INTO funcionarios VALUES(NULL, "Matheus Henrique Carvalho", "2002-06-18", "60193219085", "matheus@gmail.com", "47980171317", 6);
+INSERT INTO funcionarios VALUES(NULL, "Antônio Francisco de Joarez", "1986-12-02", "63961630046", "Antonio@gmail.com", "68989401974", 5);
 
 INSERT INTO login VALUES(NULL, 1, "1234", 1);
 INSERT INTO login VALUES(NULL, 2, "1234", 2);
