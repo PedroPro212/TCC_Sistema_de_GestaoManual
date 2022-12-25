@@ -51,13 +51,13 @@ namespace GestaoManual.Supervisor
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// Controle btnEditar.
+        /// Controle ckbEditarEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditar;
+        protected global::System.Web.UI.WebControls.CheckBox ckbEditarEmail;
 
         /// <summary>
         /// Controle txtTelefone.
@@ -69,13 +69,13 @@ namespace GestaoManual.Supervisor
         protected global::System.Web.UI.WebControls.TextBox txtTelefone;
 
         /// <summary>
-        /// Controle imgTel.
+        /// Controle ckbEditar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgTel;
+        protected global::System.Web.UI.WebControls.CheckBox ckbEditar;
 
         /// <summary>
         /// Controle ckbSenha.

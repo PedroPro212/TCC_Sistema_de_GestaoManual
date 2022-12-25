@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using GestaoManual.Negocio;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,11 @@ namespace GestaoManual
                 "MessageBox" + Guid.NewGuid(),
                 "<script language='javascript'>swal('" + mensagem + "');window.location = '" + pagina + "'</script>"
                 );
+        }
+
+        internal static void AlertPersonalizado(Dados dados, string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

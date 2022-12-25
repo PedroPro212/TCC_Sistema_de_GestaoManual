@@ -30,6 +30,7 @@
         p{
             font-size:15px;
         }
+
     </style>
 
     <div class="container">
@@ -40,13 +41,13 @@
                     <div class="container">
                         <p class="text-center" style="text-transform:uppercase; font-size:25px; margin-top:5px">Seus Dados</p>
                         <div class="col-sm-6">
-                            <p>Nome:</p><asp:Label runat="server" ID="lblNome" Font-Size="11"></asp:Label>
-                            <p>Data Nascimento:</p><asp:Label runat="server" ID="lblData" Font-Size="11"></asp:Label>
-                            <p>Setor:</p><asp:Label runat="server" ID="lblSetor" Font-Size="11"></asp:Label>
+                            <p>Nome: <asp:Label runat="server" ID="lblNome" Font-Size="11"></asp:Label></p>
+                            <p>Data Nascimento: <asp:Label runat="server" ID="lblData" Font-Size="11"></asp:Label></p>
+                            <p>Setor: </p><asp:Label runat="server" ID="lblSetor" Font-Size="11"></asp:Label>
                         </div>
                         <div class="col-sm-6">
-                            <p>E-mail:</p><asp:TextBox runat="server" ID="txtEmail" Enabled="false" Width="280" Height="30" Font-Size="11"></asp:TextBox><asp:Button runat="server" ID="btnEditar" CssClass="btnEditar" />
-                            <p>Telefone:</p><asp:TextBox runat="server" ID="txtTelefone" Enabled="false" Width="170" Height="30" Font-Size="11"></asp:TextBox><asp:Image runat="server" ID="imgTel" ImageUrl="/imgs/edit.png" Width="30" />
+                            <p>E-mail:</p><asp:TextBox runat="server" ID="txtEmail" Enabled="false" Width="280" Height="30" Font-Size="11"></asp:TextBox><asp:CheckBox runat="server" ID="ckbEditarEmail" OnCheckedChanged="ckbEditarEmail_CheckedChanged" AutoPostBack="true" />
+                            <p>Telefone:</p><asp:TextBox runat="server" ID="txtTelefone" Enabled="false" Width="170" Height="30" Font-Size="11"></asp:TextBox><asp:CheckBox runat="server" ID="ckbEditar" OnCheckedChanged="ckbEditar_CheckedChanged" AutoPostBack="true" />
                             
                             <p>Alterar Senha: 
                             <asp:CheckBox runat="server" ID="ckbSenha" OnCheckedChanged="ckbSenha_CheckedChanged" AutoPostBack="true" /></p>
