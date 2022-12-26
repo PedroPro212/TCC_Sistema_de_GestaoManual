@@ -51,12 +51,17 @@ namespace GestaoManual.Supervisor
             {
                 if (ValidarSenha() == true)
                 {
-                    if (ValidarEmail(txtEmail.Text) == false)
-                    {
-                        SiteMaster.AlertPersonalizado(this, "Insira um email válido!");
-                    }          
-                    else
-                        SiteMaster.AlertPersonalizado(this, "Até o momento tudo certo");
+                    var dados = new Classes.Dados();
+                    dados.Id = Convert.ToInt32(Session["Login"].ToString());
+                    dados.Senha = txtSenha2.Text;
+                    new Negocio.Dados().UpdateSenha(dados);
+
+                    //if (ValidarEmail(txtEmail.Text) == false)
+                    //{
+                    //    SiteMaster.AlertPersonalizado(this, "Insira um email válido!");
+                    //}          
+                    //else
+                    //    SiteMaster.AlertPersonalizado(this, "Até o momento tudo certo");
                 }
             }
             else

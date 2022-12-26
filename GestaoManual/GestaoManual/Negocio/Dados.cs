@@ -14,5 +14,22 @@ namespace GestaoManual.Negocio
             connection = new MySqlConnection(SiteMaster.ConnectionString);
         }
         
+        public bool UpdateSenha(Classes.Dados dados)
+        {
+            try
+            {
+                connection.Open();
+                var comando = new MySqlCommand($@"UPDATE login SET senha = @senha WHERE id = @id", connection);
+                comando.Parameters.Add(new MySqlParameter("senha", dados.Senha));
+                comando.Parameters.Add(new MySqlParameter("id", dados.Id));
+                comando.ExecuteNonQuery();
+                connection.Clone();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
