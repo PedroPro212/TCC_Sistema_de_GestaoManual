@@ -17,6 +17,28 @@ namespace GestaoManual.Supervisor
             txtSenha2.Enabled= false;
             txtTelefone.Enabled = false;
             txtEmail.Enabled = false;
+            txtTelefone.MaxLength=11;
+
+            if((ckbEditarEmail.Checked == true)&&(ckbEditar.Checked == true))
+            {
+                txtEmail.Enabled= true;
+                txtTelefone.Enabled= true;
+            }
+            else if((ckbEditarEmail.Checked == true)&&(ckbEditar.Checked == false))
+            {
+                txtEmail.Enabled= true;
+                txtTelefone.Enabled= false;
+            }
+            else if ((ckbEditarEmail.Checked == false) && (ckbEditar.Checked == true))
+            {
+                txtEmail.Enabled = false;
+                txtTelefone.Enabled = true;
+            }
+            else
+            {
+                txtEmail.Enabled= false;
+                txtTelefone.Enabled= false;
+            }
 
             int id = Convert.ToInt32(Session["Login"].ToString());
             try
@@ -56,6 +78,10 @@ namespace GestaoManual.Supervisor
                     dados.Senha = txtSenha2.Text;
                     new Negocio.Dados().UpdateSenha(dados);
 
+                    SiteMaster.AlertPersonalizado(this, "Sua nova senha é: " + txtSenha2.Text);
+                    txtSenha1.Text = "";
+                    txtSenha2.Text = "";
+                    ckbSenha.Checked = false;
                     //if (ValidarEmail(txtEmail.Text) == false)
                     //{
                     //    SiteMaster.AlertPersonalizado(this, "Insira um email válido!");
@@ -63,6 +89,11 @@ namespace GestaoManual.Supervisor
                     //else
                     //    SiteMaster.AlertPersonalizado(this, "Até o momento tudo certo");
                 }
+                var dados1 = new Classes.Dados();
+                dados1.Id = Convert.ToInt32(Session["Login"].ToString());
+                dados1.Tel = txtTelefone.Text;
+                new Negocio.Dados().UpdateTel(dados1);
+
             }
             else
             {
@@ -106,7 +137,11 @@ namespace GestaoManual.Supervisor
         {
             if(txtSenha1.Text == txtSenha2.Text)
             {
-                return true;
+                if((txtSenha1.Text == "") || (txtSenha2.Text == ""))
+                {
+                    return false;
+                }else
+                    return true;
             }
             else
             {

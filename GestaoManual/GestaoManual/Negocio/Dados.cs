@@ -31,5 +31,24 @@ namespace GestaoManual.Negocio
             }
             return true;
         }
+
+        public bool UpdateTel(Classes.Dados dados)
+        {
+            try
+            {
+                connection.Open();
+                var comando = new MySqlCommand($@"UPDATE funcionarios SET tel = @tel WHERE id = @id", connection);
+                comando.Parameters.Add(new MySqlParameter("tel", dados.Tel));
+                comando.Parameters.Add(new MySqlParameter("id", dados.Id));
+                comando.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+
+        }
     }
 }
