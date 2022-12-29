@@ -89,6 +89,7 @@ CREATE TABLE processo(
 insert into acesso(descricao) values ("Produção");
 insert into acesso(descricao) values ("Supervisor");
 insert into acesso(descricao) values ("Técnico de Qualidade");
+INSERT INTO acesso VALUES(NULL, "Dev");
 
 INSERT INTO setor VALUES(NULL, "Corte");
 INSERT INTO setor VALUES(NULL, "Pintura por Imersão");
