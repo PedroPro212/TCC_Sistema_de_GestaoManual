@@ -29,7 +29,7 @@ namespace GestaoManual.Supervisor
                 txtEmail.Enabled= true;
                 txtTelefone.Enabled= false;
             }
-            else if ((ckbEditarEmail.Checked == false) && (ckbEditar.Checked == true))
+            else if ((ckbEditarEmail.Checked == false)&&(ckbEditar.Checked == true))
             {
                 txtEmail.Enabled = false;
                 txtTelefone.Enabled = true;
@@ -62,13 +62,11 @@ namespace GestaoManual.Supervisor
             catch
             {
                 SiteMaster.AlertPersonalizado(this, "Não foi possível trazer os seus dados");
-            }
-            
+            }       
         }
 
         protected void btnSalvar_Click(object sender, EventArgs e)
-        {
-            
+        {   
             if((ckbSenha.Checked == true)||(ckbEditarEmail.Checked == true)||(ckbEditar.Checked == true))
             {
                 if (ValidarSenha() == true)
@@ -137,11 +135,11 @@ namespace GestaoManual.Supervisor
         {
             if(txtSenha1.Text == txtSenha2.Text)
             {
-                if((txtSenha1.Text == "") || (txtSenha2.Text == ""))
+                if ((txtSenha1.Text == "") || (txtSenha2.Text == ""))
                 {
                     return false;
-                }else
-                    return true;
+                }
+                return true;
             }
             else
             {

@@ -29,7 +29,7 @@
                 <div class="form-check text-left" style="padding-top: 8px; padding-left: 50px;">
                     <asp:CheckBox runat="server" AutoPostBack="true" ID="chkMostrarSenha" CssClass="form-check-input" Text=" Mostrar senha" OnCheckedChanged="chkMostrarSenha_CheckedChanged"/> <%--Revela os caracteres da textbox txtSenha--%>
                 </div>
-                <div class="text-right" style="padding-top: 30px; padding-right: 48px;"> 
+                <div class="text-right" style="padding-top: 30px; padding-right: 48px;">
                     <asp:Button runat="server" ID="btnLogin" Text="ENTRAR" CssClass="bg" BorderStyle="None" OnClick="btnLogin_Click"/> <%--Botão para checar login e acessar a página principal--%>
                 </div>
             </div>

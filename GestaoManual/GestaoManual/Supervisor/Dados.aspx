@@ -51,10 +51,11 @@
                             
                             <p>Alterar Senha: 
                             <asp:CheckBox runat="server" ID="ckbSenha" OnCheckedChanged="ckbSenha_CheckedChanged" AutoPostBack="true" /></p>
-                            <asp:TextBox runat="server" ID="txtSenha1" Width="170" Height="30" Font-Size="11"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtSenha1" Width="170" Height="30" Font-Size="11" TextMode="Password"></asp:TextBox>
+                            <asp:RegularExpressionValidator runat="server" ID="valSenha" ControlToValidate="txtSenha1" ErrorMessage="Mínimo de 5 caracter" ValidationExpression=".{5}.*"></asp:RegularExpressionValidator> 
 
                             <p>Confirmar Senha:</p>
-                            <asp:TextBox runat="server" ID="txtSenha2" Width="170" Height="30" Font-Size="11"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtSenha2" Width="170" Height="30" Font-Size="11" TextMode="Password"></asp:TextBox>
                         </div>
                         <div class="text-center">
                             <asp:Button runat="server" ID="btnSalvar" CssClass="btnSalvar" Text="SALVAR" OnClick="btnSalvar_Click" BorderStyle="None" />

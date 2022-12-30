@@ -96,6 +96,15 @@ namespace GestaoManual.Supervisor
         protected global::System.Web.UI.WebControls.TextBox txtSenha1;
 
         /// <summary>
+        /// Controle valSenha.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valSenha;
+
+        /// <summary>
         /// Controle txtSenha2.
         /// </summary>
         /// <remarks>

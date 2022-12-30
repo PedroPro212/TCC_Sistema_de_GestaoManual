@@ -43,7 +43,7 @@ namespace GestaoManual.Login
                 {
                     connection2.Open();
                     comando = new MySqlCommand();
-                    comando.CommandText = "SELECT * FROM login WHERE registro=@registro AND senha=@senha AND id_acesso=2";
+                    comando.CommandText = "SELECT * FROM login WHERE registro=@registro AND senha=@senha AND id_acesso=2 OR id_acesso=4";
                     comando.Parameters.AddWithValue("@registro", txtRegistro.Text);
                     comando.Parameters.AddWithValue("@senha", txtSenha.Text);
                     comando.Connection = connection2;

@@ -14,6 +14,7 @@ namespace GestaoManual
         protected void Page_Load(object sender, EventArgs e)
         {
             connection.Open();
+            
             int id = Convert.ToInt32(Session["Login"].ToString());
 
             var rdr = new MySqlCommand("select id, substring_index(nome, ' ', -1) as UltimoNome, substring_index(nome, ' ', 1) as PrimeiroNome from funcionarios WHERE id=" + id, connection).ExecuteReader();
@@ -25,6 +26,15 @@ namespace GestaoManual
                 lblNome.Text = nome;
             }
             connection.Close();
+
+            connection.Open();
+            var reader = new MySqlCommand($"SELECT * FROM login WHERE id={id} AND id_acesso=4", connection).ExecuteReader();    // Identifica se o id do funcionário possui o id_acesso=4,
+            while (reader.Read())                                                                                               // se sim, desbloqueia a opção Dev.
+            {
+                liDev.Visible=true;
+            }
+            connection.Close();                                                                                                                 
+
         }
     }
 }
