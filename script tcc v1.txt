@@ -104,10 +104,10 @@ INSERT INTO funcionarios VALUES(NULL, "Filipe Fonseca Coura", "2005-05-16", "123
 INSERT INTO funcionarios VALUES(NULL, "Matheus Henrique Carvalho", "2002-06-18", "60193219085", "matheus@gmail.com", "47980171317", 6);
 INSERT INTO funcionarios VALUES(NULL, "Antônio Francisco de Joarez", "1986-12-02", "63961630046", "Antonio@gmail.com", "68989401974", 5);
 
-INSERT INTO login VALUES(NULL, 1, "1234", 1);
+INSERT INTO login VALUES(NULL, 1, "1234", 4);
 INSERT INTO login VALUES(NULL, 2, "1234", 2);
 INSERT INTO login VALUES(NULL, 3, "1234", 2);
-INSERT INTO login VALUES(NULL, 4, "1234", 2);
+INSERT INTO login VALUES(NULL, 4, "1234", 1);
 
 INSERT INTO produto VALUES(NULL, "Dobradiças", 2);
 INSERT INTO produto VALUES(NULL, "Caixa de Correio", 2);
