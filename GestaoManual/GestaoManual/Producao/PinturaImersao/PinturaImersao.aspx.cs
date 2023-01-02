@@ -46,5 +46,11 @@ namespace GestaoManual.Producao.PinturaImersao
                 connection.Close();
             }
         }
+
+        protected void btnEntrar_Click(object sender, EventArgs e)
+        {
+            Session["Produto"] = ddlProduto.SelectedValue;
+            Response.Redirect("ProcessoPintura.aspx");
+        }
     }
 }

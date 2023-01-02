@@ -87,10 +87,14 @@ namespace GestaoManual.Supervisor
                     //else
                     //    SiteMaster.AlertPersonalizado(this, "Até o momento tudo certo");
                 }
-                var dados1 = new Classes.Dados();
-                dados1.Id = Convert.ToInt32(Session["Login"].ToString());
-                dados1.Tel = txtTelefone.Text;
-                new Negocio.Dados().UpdateTel(dados1);
+                else
+                {
+                    
+                }
+                //var dados1 = new Classes.Dados();
+                //dados1.Id = Convert.ToInt32(Session["Login"].ToString());
+                //dados1.Tel = txtTelefone.Text;
+                //new Negocio.Dados().UpdateTel(dados1);
 
             }
             else

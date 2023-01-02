@@ -12,7 +12,6 @@
             height:446px;
             border-radius:5px;
         }
-
     </style>
     
     <div class="col-sm-4"></div>
@@ -22,10 +21,10 @@
             <p class="text-center" style="font-size:18px; margin-top:25px">Selecione o produto:</p>
             <div class="text-center"><asp:DropDownList runat="server" ID="ddlProduto" Width="250" OnSelectedIndexChanged="ddlProduto_SelectedIndexChanged"></asp:DropDownList></div>
             <div style="margin-top:20px"><asp:Image runat="server" ID="imgProduto" CssClass="text-center" Width="110" /></div>
-            <div style="margin-top:100px"><asp:Button runat="server" ID="btnEntrar" CssClass="center-block" Text="ENTRAR" Width="142" /></div>
+            <div style="margin-top:100px"><asp:Button runat="server" ID="btnEntrar" CssClass="center-block" Text="ENTRAR" Width="142" OnClick="btnEntrar_Click" /></div>
         </div>
     </div>
-    
+
     <div class="col-sm-4"></div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
