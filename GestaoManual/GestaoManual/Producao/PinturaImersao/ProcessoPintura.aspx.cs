@@ -38,10 +38,5 @@ namespace GestaoManual.Producao.PinturaImersao
             connection.Close();
 
         }
-
-        protected void tmrInicio_Tick()
-        {
-            lblHoraInicio.Text = DateTime.Now.ToString("HH:mm:ss dd:MM:yy");
-        }
     }
 }

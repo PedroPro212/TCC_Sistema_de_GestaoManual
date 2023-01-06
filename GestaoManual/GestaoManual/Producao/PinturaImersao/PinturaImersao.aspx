@@ -12,6 +12,13 @@
             height:446px;
             border-radius:5px;
         }
+
+        .relogio{
+            display:flex;
+        }
+        .relogio div{
+            margin-left:2px;
+        }
     </style>
     
     <div class="col-sm-4"></div>
@@ -25,7 +32,82 @@
         </div>
     </div>
 
-    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div class="horaInicio text-center" style="display:none">
+            <p>Início do processo:</p>
+            <div class="relogio center-block">
+                <div>
+                    <span id="horasIn">00</span>
+                </div>
+
+                <div>
+                    <span id="minutosIn">00</span>
+                </div>
+
+                <div>
+                    <span id="segundosIn">00</span>
+                </div>
+
+                <div>
+                    <span id="diaIn">00</span>
+                </div>
+
+                <div>
+                    <span id="mesIn">00</span>
+                </div>
+
+                <div>
+                    <span id="anoIn">00</span>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <script>
+        const horasIn = document.getElementById('horasIn');
+        const minutosIn = document.getElementById('minutosIn');
+        const segundosIn = document.getElementById('segundosIn');
+        const diaIn = document.getElementById('diaIn');
+        const mesIn = document.getElementById('mesIn');
+        const anoIn = document.getElementById('anoIn');
+
+        const relogioIn = setTimeout(function timeIn() {
+            let dateToday = new Date();
+            let hr = dateToday.getHours();
+            let min = dateToday.getMinutes();
+            let s = dateToday.getSeconds();
+            let d = dateToday.getDate();
+            let m = dateToday.getMonth();
+            let a = dateToday.getFullYear();
+
+
+            if (hr < 10) hr = '0' + hr;
+
+            if (min < 10) min = '0' + min;
+
+            if (s < 10) s = '0' + s;
+
+            if (d < 10) d = '0' + d;
+
+            if (m < 10) {
+                m = '0' + m;
+                if (m == 0)
+                    m = 1;
+            }
+
+            hh = horasIn.textContent = hr + ':';
+            mm = minutosIn.textContent = min + ':';
+            ss = segundosIn.textContent = s + ' ';
+
+
+            dd = diaIn.textContent = d + '/';
+            me = mesIn.textContent = m + '/';
+            aa = anoIn.textContent = a;
+
+            sessionStorage.setItem('horaIn', hh + mm + ss + dd + me + aa);
+        })
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
 </asp:Content>

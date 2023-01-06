@@ -33,24 +33,6 @@ namespace GestaoManual.Producao.PinturaImersao
         protected global::System.Web.UI.WebControls.Label lblProduto;
 
         /// <summary>
-        /// Controle lblHoraInicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHoraInicio;
-
-        /// <summary>
-        /// Controle tmrInicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.Timer tmrInicio;
-
-        /// <summary>
         /// Controle lblSetor.
         /// </summary>
         /// <remarks>
