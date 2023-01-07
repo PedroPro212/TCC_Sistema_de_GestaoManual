@@ -54,6 +54,17 @@
             height:64px;
             border:solid 1px black;
         }
+
+        .btnFinalizar{
+            background-color:#F9B463;
+            color:black;
+            font-size:24px;
+            width:258px;
+            height:51px;
+            border:solid black 1px;
+            border-radius:5px;
+            box-shadow:1px 1px;
+        }
     </style>
     <div class="container">
         <div class="row">
@@ -99,10 +110,22 @@
     
                 </div>
                 <div class="col-sm-4">
-                    <asp:Label runat="server" CssClass="produto" ID="lblProduto"></asp:Label>   
+                    <asp:Label runat="server" CssClass="produto" ID="lblProduto"></asp:Label>
+                    
+                    <p>N°Lote Tinta:</p>
+                    <asp:TextBox runat="server" ID="txtLoteTinta" TextMode="Number"></asp:TextBox>
+                    <p>Quantidade produzida:</p>
+                    <asp:TextBox runat="server" ID="txtQts" TextMode="Number"></asp:TextBox><br />
+
+                    <asp:Button runat="server" ID="btnFinalizar" CssClass="btnFinalizar" Text="Finalizar Processo" OnClick="btnFinalizar_Click" />
                 </div>
                 <div class="col-sm-4">
                     <asp:Label runat="server" ID="lblSetor"></asp:Label>
+
+                    <p>Lote de Peças:</p>
+                    <asp:TextBox runat="server" ID="txtLotePeca" TextMode="Number"></asp:TextBox>
+                    <p>Quantidade peças boas:</p>
+                    <asp:TextBox runat="server" ID="txtPecasBoas" TextMode="Number"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -154,6 +177,7 @@
             mes.textContent = m + '/';
             ano.textContent = a;
         });
+        
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">

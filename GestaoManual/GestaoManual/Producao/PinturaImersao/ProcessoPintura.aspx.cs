@@ -38,5 +38,10 @@ namespace GestaoManual.Producao.PinturaImersao
             connection.Close();
 
         }
+
+        protected void btnFinalizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
