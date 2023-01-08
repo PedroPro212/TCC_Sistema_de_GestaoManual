@@ -42,6 +42,15 @@ namespace GestaoManual.Producao.PinturaImersao
         protected global::System.Web.UI.WebControls.TextBox txtLoteTinta;
 
         /// <summary>
+        /// Controle imgLoteTinta.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgLoteTinta;
+
+        /// <summary>
         /// Controle txtQts.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace GestaoManual.Producao.PinturaImersao
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLotePeca;
+
+        /// <summary>
+        /// Controle imgLotePecas.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgLotePecas;
 
         /// <summary>
         /// Controle txtPecasBoas.

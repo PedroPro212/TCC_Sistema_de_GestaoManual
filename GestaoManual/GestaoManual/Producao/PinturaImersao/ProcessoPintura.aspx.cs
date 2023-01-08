@@ -37,6 +37,16 @@ namespace GestaoManual.Producao.PinturaImersao
             }
             connection.Close();
 
+            connection.Open();
+            int idS = Convert.ToInt32(Session["Setor"].ToString());
+            var ler = new MySqlCommand($"SELECT id, descricao FROM setor WHERE id={idS}", connection).ExecuteReader();
+            while (ler.Read())
+            {
+                var setor = new ListItem(ler.GetString("descricao"), ler.GetInt32("id").ToString());
+                lblSetor.Text = setor.ToString();
+            }
+            connection.Close();
+
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@
             background-color:#FFFFFF;
         }
 
-        .Nome{
+        .informacoes {
             font-size:18px;
         }
         .produto{
@@ -64,13 +64,15 @@
             border:solid black 1px;
             border-radius:5px;
             box-shadow:1px 1px;
+            margin-top:150px;
+
         }
     </style>
     <div class="container">
         <div class="row">
             <div class="quadro">
                 <div class="col-sm-4">
-                    <asp:Label runat="server" CssClass="Nome" ID="lblNome"></asp:Label>
+                    <asp:Label runat="server" CssClass="informacoes" ID="lblNome"></asp:Label>
 
                     <div class="horas text-center">
                         <div class="horaInicio center-block">
@@ -113,17 +115,17 @@
                     <asp:Label runat="server" CssClass="produto" ID="lblProduto"></asp:Label>
                     
                     <p>N°Lote Tinta:</p>
-                    <asp:TextBox runat="server" ID="txtLoteTinta" TextMode="Number"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtLoteTinta" TextMode="Number"></asp:TextBox><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" />
                     <p>Quantidade produzida:</p>
                     <asp:TextBox runat="server" ID="txtQts" TextMode="Number"></asp:TextBox><br />
 
                     <asp:Button runat="server" ID="btnFinalizar" CssClass="btnFinalizar" Text="Finalizar Processo" OnClick="btnFinalizar_Click" />
                 </div>
                 <div class="col-sm-4">
-                    <asp:Label runat="server" ID="lblSetor"></asp:Label>
+                    <asp:Label runat="server" CssClass="informacoes" ID="lblSetor"></asp:Label>
 
                     <p>Lote de Peças:</p>
-                    <asp:TextBox runat="server" ID="txtLotePeca" TextMode="Number"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtLotePeca" TextMode="Number"></asp:TextBox><img runat="server" id="imgLotePecas" src="/imgsproducao/code.png" width="37" />
                     <p>Quantidade peças boas:</p>
                     <asp:TextBox runat="server" ID="txtPecasBoas" TextMode="Number"></asp:TextBox>
                 </div>

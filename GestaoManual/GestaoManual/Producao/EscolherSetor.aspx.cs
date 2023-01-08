@@ -44,6 +44,7 @@ namespace GestaoManual.Producao
 
         protected void btnEntrar_Click(object sender, EventArgs e)
         {
+            Session["Setor"] = ddlSetor.SelectedValue;
             connection.Open();
             int value = Convert.ToInt32(ddlSetor.SelectedValue);
 
