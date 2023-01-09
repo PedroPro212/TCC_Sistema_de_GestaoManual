@@ -11,7 +11,7 @@
 
         <div class="col-sm-4 quadro text-center">
             <div id="quadro" style="background-color: white; margin-top: 50px; border-radius: 5px; height: 330px; box-shadow: black 1px 1px 1px">
-                <p class="text-left" style="padding-top: 10px; padding-left: 18px">*LOGO</p> <%--Espaço reservado para logo do sistema--%>
+                <img class="logo" src="/imgs/SEGLogar.png" width="80" style="display:flex" /> <%--Espaço reservado para logo do sistema--%>
                 <b>
                     <p style="text-transform: uppercase; font-size: 18px;">Fazer Login</p>
                 </b>

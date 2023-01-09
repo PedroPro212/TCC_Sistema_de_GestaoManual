@@ -65,7 +65,40 @@
             border-radius:5px;
             box-shadow:1px 1px;
             margin-top:150px;
+        }
 
+        .modal1{
+            background-color:red;
+            width:500px;
+            height:500px;
+            position:absolute;
+            margin-top:150px;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+                cursor:pointer;
+                display:none;            
+                animation:animate;
+                animation-duration:400ms;
+                z-index:10;
+        }
+
+        @keyframes animate{
+            from{opacity:1;}
+            from{opacity:0;}
+        }
+
+        #fader{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,0.6);
+        }
+
+        #imgLoteTinta:hover{
+            cursor:pointer;
         }
     </style>
     <div class="container">
@@ -115,11 +148,16 @@
                     <asp:Label runat="server" CssClass="produto" ID="lblProduto"></asp:Label>
                     
                     <p>N°Lote Tinta:</p>
-                    <asp:TextBox runat="server" ID="txtLoteTinta" TextMode="Number"></asp:TextBox><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" />
+                    <asp:TextBox runat="server" ID="txtLoteTinta" TextMode="Number"></asp:TextBox><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" onclick="acao()" />
                     <p>Quantidade produzida:</p>
                     <asp:TextBox runat="server" ID="txtQts" TextMode="Number"></asp:TextBox><br />
 
                     <asp:Button runat="server" ID="btnFinalizar" CssClass="btnFinalizar" Text="Finalizar Processo" OnClick="btnFinalizar_Click" />
+
+                    
+                    <div class="modal1">
+                        <input type="button" id="btnFechar" value="Fechar" onclick="fechar()" />
+                    </div>
                 </div>
                 <div class="col-sm-4">
                     <asp:Label runat="server" CssClass="informacoes" ID="lblSetor"></asp:Label>
@@ -128,6 +166,7 @@
                     <asp:TextBox runat="server" ID="txtLotePeca" TextMode="Number"></asp:TextBox><img runat="server" id="imgLotePecas" src="/imgsproducao/code.png" width="37" />
                     <p>Quantidade peças boas:</p>
                     <asp:TextBox runat="server" ID="txtPecasBoas" TextMode="Number"></asp:TextBox>
+                    <div id="fader" style="display:none"></div>
                 </div>
             </div>
         </div>
@@ -179,6 +218,22 @@
             mes.textContent = m + '/';
             ano.textContent = a;
         });
+
+        function acao() {
+            let modal = document.querySelector('.modal1');
+            let divFadel = document.querySelector('#fader');
+
+            modal.style.display = 'block';
+            divFadel.style.display = 'block';
+        }
+
+        function fechar() {
+            let modal = document.querySelector('.modal1');
+            let divFadel = document.querySelector('#fader');
+
+            modal.style.display = 'none';
+            divFadel.style.display = 'none';
+        }
         
     </script>
 </asp:Content>

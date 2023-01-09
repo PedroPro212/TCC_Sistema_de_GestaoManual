@@ -25,6 +25,8 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
+    <link href="imgs/SEG.png" rel="shortcut icon" type="image/x-icon" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>

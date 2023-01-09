@@ -6,4 +6,9 @@
     background-color: #00C643;
     color: white;
     border-radius: 5px;
+    margin-bottom:150px;
+}
+
+.logo{
+    display:flex
 }
