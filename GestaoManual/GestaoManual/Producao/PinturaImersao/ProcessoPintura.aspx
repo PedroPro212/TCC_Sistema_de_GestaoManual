@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
+
+    <script src="../quagga.min.js"></script>
+
     <style>
         body{
             background-color: #F9B463;
@@ -68,11 +71,12 @@
         }
 
         .modal1{
-            background-color:red;
-            width:500px;
+            background-color:gray;
+            width:800px;
             height:500px;
             position:absolute;
             margin-top:150px;
+            border-radius:5px;
                 top:50%;
                 left:50%;
                 transform:translate(-50%,-50%);
@@ -81,6 +85,14 @@
                 animation:animate;
                 animation-duration:400ms;
                 z-index:10;
+        }
+
+        #camera{
+            display:flex;
+            margin-top:2%;
+            margin-left:5%;
+            border-radius:5px;
+            border:1px solid black;
         }
 
         @keyframes animate{
@@ -156,6 +168,11 @@
 
                     
                     <div class="modal1">
+
+                        <div id="camera"></div>
+                        <video id="video" autoplay></video>
+                        <input type="text" id="txtLote" />
+
                         <input type="button" id="btnFechar" value="Fechar" onclick="fechar()" />
                     </div>
                 </div>
@@ -173,6 +190,8 @@
     </div>
 
     <script>
+
+        //Relógio
         const horas = document.getElementById('horas');
         const minutos = document.getElementById('minutos');
         const segundos = document.getElementById('segundos');
@@ -219,6 +238,7 @@
             ano.textContent = a;
         });
 
+        //Abrir modal
         function acao() {
             let modal = document.querySelector('.modal1');
             let divFadel = document.querySelector('#fader');
@@ -227,6 +247,7 @@
             divFadel.style.display = 'block';
         }
 
+        //Fechar modal
         function fechar() {
             let modal = document.querySelector('.modal1');
             let divFadel = document.querySelector('#fader');
@@ -234,7 +255,46 @@
             modal.style.display = 'none';
             divFadel.style.display = 'none';
         }
-        
+
+        // Abrir WebCam e ler código de barra
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector('#camera')    // Or '#yourElement' (optional)
+            },
+            decoder: {
+                readers: ["code_128_reader"]
+            }
+        }, function (err) {
+            if (err) {
+                console.log(err);
+                return
+            }
+            console.log("Initialization finished. Ready to start");
+            Quagga.start();
+        });
+
+        Quagga.onDetected(function (data) {
+            console.log(data);
+
+            document.querySelector('#txtLote').innerHTML = data.codeResult.code;
+        });
+
+        //function startVideoFromCamera() {
+
+        //    const specs = { video: { width: 720 } };
+
+        //    navigator.mediaDevices.getUserMedia(specs).then(stream => {
+
+        //        const videoElement = document.querySelector('#video');
+        //        videoElement.srcObject = stream;
+
+        //    }).catch(Error => {console.log(Error) })
+
+        //}
+
+        //window.addEventListener("DOMContentLoaded", startVideoFromCamera);
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
