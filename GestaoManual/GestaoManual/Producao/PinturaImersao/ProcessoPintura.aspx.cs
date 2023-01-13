@@ -51,7 +51,7 @@ namespace GestaoManual.Producao.PinturaImersao
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
-
+            lblLoteTinat.Text = lblLTinta.ToString();
         }
     }
 }

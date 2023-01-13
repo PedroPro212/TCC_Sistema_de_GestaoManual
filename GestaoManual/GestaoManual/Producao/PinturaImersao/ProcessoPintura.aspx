@@ -112,6 +112,11 @@
         #imgLoteTinta:hover{
             cursor:pointer;
         }
+
+        #txtLoteTinta{
+            width:auto;
+            background-color:white
+        }
     </style>
     <div class="container">
         <div class="row">
@@ -160,18 +165,20 @@
                     <asp:Label runat="server" CssClass="produto" ID="lblProduto"></asp:Label>
                     
                     <p>N°Lote Tinta:</p>
-                    <asp:TextBox runat="server" ID="txtLoteTinta" TextMode="Number"></asp:TextBox><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" onclick="acao()" />
+                    <label id="txtLoteTinta"></label><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" onclick="acao()" />
                     <p>Quantidade produzida:</p>
                     <asp:TextBox runat="server" ID="txtQts" TextMode="Number"></asp:TextBox><br />
-
+                    
                     <asp:Button runat="server" ID="btnFinalizar" CssClass="btnFinalizar" Text="Finalizar Processo" OnClick="btnFinalizar_Click" />
 
+                    <label runat="server" id="lblLTinta" visible="false"></label>
+                    <asp:Label runat="server" ID="lblLoteTinat" Visible="false"></asp:Label>
                     
                     <div class="modal1">
 
                         <div id="camera"></div>
                         <video id="video" autoplay></video>
-                        <input type="text" id="txtLote" />
+                        <textbox id="LoteTinta"></textbox>
 
                         <input type="button" id="btnFechar" value="Fechar" onclick="fechar()" />
                     </div>
@@ -190,6 +197,8 @@
     </div>
 
     <script>
+
+        
 
         //Relógio
         const horas = document.getElementById('horas');
@@ -271,30 +280,17 @@
                 console.log(err);
                 return
             }
-            console.log("Initialization finished. Ready to start");
+            console.log("Inicialização concluída. Pronto para começar");
             Quagga.start();
         });
 
         Quagga.onDetected(function (data) {
             console.log(data);
 
-            document.querySelector('#txtLote').innerHTML = data.codeResult.code;
+            var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
+            document.querySelector('#txtLoteTinta').innerHTML = l;
         });
-
-        //function startVideoFromCamera() {
-
-        //    const specs = { video: { width: 720 } };
-
-        //    navigator.mediaDevices.getUserMedia(specs).then(stream => {
-
-        //        const videoElement = document.querySelector('#video');
-        //        videoElement.srcObject = stream;
-
-        //    }).catch(Error => {console.log(Error) })
-
-        //}
-
-        //window.addEventListener("DOMContentLoaded", startVideoFromCamera);
+        lblLTinta.textContent = txtLoteTinta.textContent;
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">

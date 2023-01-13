@@ -43,7 +43,7 @@
                         <div class="col-sm-6">
                             <p>Nome: <asp:Label runat="server" ID="lblNome" Font-Size="11"></asp:Label></p>
                             <p>Data Nascimento: <asp:Label runat="server" ID="lblData" Font-Size="11"></asp:Label></p>
-                            <p>Setor: </p><asp:Label runat="server" ID="lblSetor" Font-Size="11"></asp:Label>
+                            <p>Setor: <asp:Label runat="server" ID="lblSetor" Font-Size="11"></asp:Label></p>
                         </div>
                         <div class="col-sm-6">
                             <p>E-mail:</p><asp:TextBox runat="server" ID="txtEmail" Enabled="false" Width="280" Height="30" Font-Size="11"></asp:TextBox><asp:CheckBox runat="server" ID="ckbEditarEmail" OnCheckedChanged="ckbEditarEmail_CheckedChanged" AutoPostBack="true" />

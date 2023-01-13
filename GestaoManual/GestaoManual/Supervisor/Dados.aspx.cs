@@ -39,7 +39,7 @@ namespace GestaoManual.Supervisor
                 txtEmail.Enabled= false;
                 txtTelefone.Enabled= false;
             }
-
+            
             int id = Convert.ToInt32(Session["Login"].ToString());
             try
             {
@@ -58,7 +58,18 @@ namespace GestaoManual.Supervisor
                     txtTelefone.Text = tel.ToString();
                 }
                 connection.Close();
+
+                connection.Open();
+                var reader = new MySqlCommand($"SELECT l.id, l.registro, l.id_acesso, a.id, a.descricao FROM login as l, acesso as a WHERE a.id = l.id_acesso AND l.id={id}", connection).ExecuteReader();
+                while (reader.Read())
+                {
+                    var setor = new ListItem(reader.GetString("descricao"), reader.GetInt32("id").ToString());
+
+                    lblSetor.Text = setor.ToString();
+                }
+                connection.Close();
             }
+            
             catch
             {
                 SiteMaster.AlertPersonalizado(this, "Não foi possível trazer os seus dados");
