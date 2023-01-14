@@ -56,8 +56,8 @@
             <div class="col-sm-2">
                 <div class="quadro">
                     <div class="quadroCenter">
-                        <img runat="server" src="/imgs/ferramenta.png" width="70" />
-                        <p>Máquina</p>
+                        <a href="Maquina/GridView.aspx" style="text-decoration:none"><img runat="server" src="/imgs/ferramenta.png" width="70" />
+                        <p>Máquina</p></a>
                     </div>
                 </div>
 
