@@ -7,38 +7,29 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace GestaoManual.Supervisor
+namespace GestaoManual.Supervisor.Maquina
 {
 
 
-    public partial class Suporte
+    public partial class GridView
     {
 
         /// <summary>
-        /// Controle ddlSuporte.
+        /// Controle btnCriar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSuporte;
+        protected global::System.Web.UI.WebControls.Button btnCriar;
 
         /// <summary>
-        /// Controle txtPergunta.
+        /// Controle btnProdutividade.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPergunta;
-
-        /// <summary>
-        /// Controle btnEnviar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEnviar;
+        protected global::System.Web.UI.WebControls.Button btnProdutividade;
     }
 }

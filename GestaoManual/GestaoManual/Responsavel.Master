@@ -25,6 +25,8 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
+    <link href="imgs/SEG.png" rel="shortcut icon" type="image/x-icon" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
@@ -372,11 +374,11 @@
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <img src="/imgs/kratao.jpg" width="70" height="50" style="border-radius:50%" class="foto_perfil" alt="Foto de perfil">
+                        <a href="/Supervisor/Responsavel.aspx"><img src="/imgs/kratao.jpg" width="70" height="50" style="border-radius:50%" class="foto_perfil" alt="Foto de perfil"></a>
                     </span>
 
                     <div class="text logo-text">
-                        <span class="name"><asp:Label runat="server" ID="lblNome"></asp:Label></span>
+                        <a href="/Supervisor/Dados.aspx" style="text-decoration:none; color:black"><span class="name"><asp:Label runat="server" ID="lblNome"></asp:Label></span></a>
                     </div>
                 </div>
 
@@ -403,7 +405,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="Maquina/GridView.aspx">
                             <i class='bx bx-bar-chart-alt-2 icon' ></i>
                             <span class="text nav-text">Máquinas</span>
                         </a>
@@ -434,6 +436,13 @@
                         <a href="/Supervisor/Suporte.aspx">
                             <i class='bx bx-heart icon' ></i>
                             <span class="text nav-text">Suporte</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" runat="server" id="liDev" visible="false">
+                        <a href="#"> 
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">Dev</span>
                         </a>
                     </li>
 

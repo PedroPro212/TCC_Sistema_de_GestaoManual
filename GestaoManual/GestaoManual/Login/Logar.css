@@ -2,8 +2,16 @@
     background-color: #F9B463;
 }
 
-.bg {
+/*.bg {
     background-color: #00C643;
     color: white;
     border-radius: 5px;
+    margin-bottom:150px;
+    width:90px;
+    height:33px
+}*/
+
+.logo{
+    display:flex;
+    align-content:center
 }

@@ -7,11 +7,11 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace GestaoManual.Supervisor.Maquina
+namespace GestaoManual.Producao.Corte
 {
 
 
-    public partial class AdicionarMaquina
+    public partial class Corte
     {
     }
 }

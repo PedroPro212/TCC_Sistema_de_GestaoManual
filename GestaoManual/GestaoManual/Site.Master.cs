@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using GestaoManual.Negocio;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace GestaoManual
 {
     public partial class SiteMaster : MasterPage
     {
-        public static string ConnectionString = "Server=127.0.0.1;User ID=root;Password=;Database=metalurgicasaveiro";   //Filipe e Pedro Note
-        //public static string ConnectionString = "Server=127.0.0.1;User ID=root;Password=1234;Database=metalurgicasaveiro";  // Computador Pedro
+        /*public static string ConnectionString = "Server=127.0.0.1;User ID=root;Password=;Database=metalurgicasaveiro";*/   //Filipe e Pedro Note
+        public static string ConnectionString = "Server=127.0.0.1;User ID=root;Password=1234;Database=metalurgicasaveiro";  // Computador Pedro
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -32,6 +33,11 @@ namespace GestaoManual
                 "MessageBox" + Guid.NewGuid(),
                 "<script language='javascript'>swal('" + mensagem + "');window.location = '" + pagina + "'</script>"
                 );
+        }
+
+        internal static void AlertPersonalizado(Dados dados, string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

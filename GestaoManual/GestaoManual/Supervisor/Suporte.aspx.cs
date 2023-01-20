@@ -11,7 +11,7 @@ namespace GestaoManual.Supervisor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtPergunta.MaxLength= 3;
         }
     }
 }
