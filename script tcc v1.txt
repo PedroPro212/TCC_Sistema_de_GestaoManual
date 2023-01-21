@@ -108,6 +108,10 @@ INSERT INTO funcionarios VALUES(NULL, "Pedro Henrique Oliveira", "2004-01-02", "
 INSERT INTO funcionarios VALUES(NULL, "Filipe Fonseca Coura", "2005-05-16", "12312312312", "filipe@gmail.com", "79968718272" , 2);
 INSERT INTO funcionarios VALUES(NULL, "Matheus Henrique Carvalho", "2002-06-18", "60193219085", "matheus@gmail.com", "47980171317", 6);
 INSERT INTO funcionarios VALUES(NULL, "Antônio Francisco de Joarez", "1986-12-02", "63961630046", "Antonio@gmail.com", "68989401974", 5);
+INSERT INTO funcionarios VALUES(NULL, "Ronaldo da Silva Pinto", "1986-12-09", "12312312312", "ronaldo@gmail.com", "35997444848" , 1);
+INSERT INTO funcionarios VALUES(NULL, "Gustavo Samuel da Silva Luz", "1965-07-02", "12312312312", "gustavo@gmail.com", "35997444848" , 2);
+INSERT INTO funcionarios VALUES(NULL, "Gabrielly Castro Almeida", "2000-08-12", "14883726754", "gabrielly@gmail.com", "35997444848" , 3);
+INSERT INTO funcionarios VALUES(NULL, "Thiago Rodrigues Goncalves", "1985-11-05", "22609438109", "thiago@gmail.com", "35997444848" , 4);
 
 INSERT INTO login VALUES(NULL, 1, "1234", 4);
 INSERT INTO login VALUES(NULL, 2, "1234", 2);
