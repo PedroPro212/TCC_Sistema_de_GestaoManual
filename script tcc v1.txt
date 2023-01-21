@@ -58,8 +58,13 @@ CREATE TABLE encarregado(
 );
 
 CREATE TABLE maquina(
-    id varchar(6) PRIMARY KEY NOT null,
-    tipo varchar(200) NOT null
+    id int PRIMARY KEY NOT null,
+    nome VARCHAR(10) NOT NULL,
+    id_setor INT,
+    id_encarregado int, 
+    
+    FOREIGN KEY (id_setor) REFERENCES setor(id),
+    FOREIGN KEY (id_encarregado) REFERENCES encarregado(id)
 );
 
 CREATE TABLE produto(
@@ -79,7 +84,7 @@ CREATE TABLE processo(
     lotePecas varchar(20),
     idOperador int,
     etapaProcesso varchar(30),
-    idMaquina varchar(6),
+    idMaquina int,
     loteTinta varchar(20),
     FOREIGN KEY (idOperador) REFERENCES operador(id),
     FOREIGN KEY (idMaquina) REFERENCES maquina(id),
@@ -115,5 +120,3 @@ INSERT INTO produto VALUES(NULL, "Carroceria", 2);
 INSERT INTO produto VALUES(NULL, "Fornos", 2);
 INSERT INTO produto VALUES(NULL, "Incêndio", 2);
 INSERT INTO produto VALUES(NULL, "Trincos", 2);
-
-ALTER TABLE maquina ADD id_setor int
