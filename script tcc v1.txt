@@ -50,10 +50,9 @@ CREATE TABLE operador(
 
 CREATE TABLE encarregado(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
-    nome varchar(200) NOT null,
-    registro varchar(6) NOT null,
-    senha varchar(6) NOT null,
+    id_registro int,
     idSetor int,
+    FOREIGN KEY (id_registro) REFERENCES funcionarios(id),
     FOREIGN KEY (idSetor) REFERENCES setor(id)
 );
 
