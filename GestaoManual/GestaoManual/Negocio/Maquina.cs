@@ -42,7 +42,7 @@ namespace GestaoManual.Negocio
                 {
                     maquinas.Add(new Classes.Maquina
                     {
-                        Tipo = reader.GetString("tipo"),
+                        //Tipo = reader.GetString("tipo"),
                         Id = reader.GetInt32("id")
                     });
                 }
@@ -63,9 +63,10 @@ namespace GestaoManual.Negocio
             try
             {
                 connection.Open();
-                var comando = new MySqlCommand($@"INSERT INTO maquina (id , tipo) VALUES (@id, @tipo)", connection);
-                comando.Parameters.Add(new MySqlParameter("id", maquina.Id));
-                comando.Parameters.Add(new MySqlParameter("tipo", maquina.Tipo));
+                var comando = new MySqlCommand($@"INSERT INTO maquina (nome, id_setor, id_encarregado) VALUES (@nome, @id_setor, @id_encarregado)", connection);
+                comando.Parameters.Add(new MySqlParameter("nome", maquina.Nome));
+                comando.Parameters.Add(new MySqlParameter("id_setor", maquina.idSetor));
+                comando.Parameters.Add(new MySqlParameter("id_encarregado", maquina.idEncarregado));
                 comando.ExecuteNonQuery();
                 connection.Close();
             }
@@ -82,7 +83,7 @@ namespace GestaoManual.Negocio
             {
                 connection.Open();
                 var comando = new MySqlCommand($@"UPDATE maquina SET tipo = @tipo WHERE id = @id", connection);
-                comando.Parameters.Add(new MySqlParameter("tipo", maquina.Tipo));
+                //comando.Parameters.Add(new MySqlParameter("tipo", maquina.Tipo));
                 comando.Parameters.Add(new MySqlParameter("id", maquina.Id));
                 comando.ExecuteNonQuery();
                 connection.Close();

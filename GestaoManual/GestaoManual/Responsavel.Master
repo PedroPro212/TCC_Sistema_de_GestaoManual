@@ -405,7 +405,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="Maquina/GridView.aspx">
+                        <a href="/Supervisor/Maquina/GridView.aspx">
                             <i class='bx bx-bar-chart-alt-2 icon' ></i>
                             <span class="text nav-text">Máquinas</span>
                         </a>
