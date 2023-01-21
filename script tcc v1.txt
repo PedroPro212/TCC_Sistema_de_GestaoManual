@@ -57,7 +57,7 @@ CREATE TABLE encarregado(
 );
 
 CREATE TABLE maquina(
-    id int PRIMARY KEY NOT null,
+    id int PRIMARY KEY AUTO_INCREMENT NOT null,
     nome VARCHAR(10) NOT NULL,
     id_setor INT,
     id_encarregado int, 
