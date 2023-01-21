@@ -62,7 +62,7 @@ CREATE TABLE maquina(
     id_setor INT,
     id_encarregado int, 
     
-    FOREIGN KEY (id_encarregado) REFERENCES encarregado(id)
+    FOREIGN KEY (id_setor) REFERENCES setor(id)
 );
 
 CREATE TABLE produto(
