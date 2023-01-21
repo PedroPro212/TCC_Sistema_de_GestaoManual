@@ -134,7 +134,7 @@
                             <p>Hora em andamento:</p> 
                             <div class="relogio">
                                 <div>
-                                    <span id="horas">00</span>
+                                    <span id="horas" >00</span>
                                 </div>
 
                                 <div>
@@ -171,7 +171,7 @@
                     
                     <asp:Button runat="server" ID="btnFinalizar" CssClass="btnFinalizar" Text="Finalizar Processo" OnClick="btnFinalizar_Click" />
 
-                    <label runat="server" id="lblLTinta" visible="false"></label>
+                    <label id="lblLTinta" visible="false"></label>
                     <asp:Label runat="server" ID="lblLoteTinat" Visible="false"></asp:Label>
                     
                     <div class="modal1">
@@ -195,10 +195,11 @@
             </div>
         </div>
     </div>
-
+    <%--<p id="parTesteHora">lllllllllllllll</p>--%>
+    <asp:Label runat="server" ID="lblTeste" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"></asp:Label>
+    <asp:HiddenField runat="server" ID="teste" Value="teste1" ClientIDMode="Static" />
     <script>
 
-        
 
         //Relógio
         const horas = document.getElementById('horas');
@@ -245,6 +246,7 @@
             dia.textContent = d + '/';
             mes.textContent = m + '/';
             ano.textContent = a;
+            document.getElementById('teste').value = document.getElementById('txtLoteTinta').textContent;
         });
 
         //Abrir modal
@@ -291,6 +293,10 @@
             document.querySelector('#txtLoteTinta').innerHTML = l;
         });
         lblLTinta.textContent = txtLoteTinta.textContent;
+        
+
+        
+        
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
