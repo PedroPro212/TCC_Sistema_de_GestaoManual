@@ -115,3 +115,5 @@ INSERT INTO produto VALUES(NULL, "Carroceria", 2);
 INSERT INTO produto VALUES(NULL, "Fornos", 2);
 INSERT INTO produto VALUES(NULL, "Incêndio", 2);
 INSERT INTO produto VALUES(NULL, "Trincos", 2);
+
+ALTER TABLE maquina ADD id_setor int
