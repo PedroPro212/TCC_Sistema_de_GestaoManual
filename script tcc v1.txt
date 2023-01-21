@@ -112,6 +112,11 @@ INSERT INTO funcionarios VALUES(NULL, "Gustavo Samuel da Silva Luz", "1965-07-02
 INSERT INTO funcionarios VALUES(NULL, "Gabrielly Castro Almeida", "2000-08-12", "14883726754", "gabrielly@gmail.com", "35997444848" , 3);
 INSERT INTO funcionarios VALUES(NULL, "Thiago Rodrigues Goncalves", "1985-11-05", "22609438109", "thiago@gmail.com", "35997444848" , 4);
 
+INSERT INTO encarregado VALUES (NULL, 5, 1);
+INSERT INTO encarregado VALUES (NULL, 6, 2);
+INSERT INTO encarregado VALUES (NULL, 7, 3);
+INSERT INTO encarregado VALUES (NULL, 8, 4);
+
 INSERT INTO login VALUES(NULL, 1, "1234", 4);
 INSERT INTO login VALUES(NULL, 2, "1234", 2);
 INSERT INTO login VALUES(NULL, 3, "1234", 2);
