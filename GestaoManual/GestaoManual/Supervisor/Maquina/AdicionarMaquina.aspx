@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row">
             <div class="quadro center-block">
-                <div class="col-sm-4"><h3 class="text-left" runat="server" id="dev" visible="false">DEV</h3></div>
+                <div class="col-sm-4"><h3 class="text-left" runat="server" style="margin-top:10px" id="dev" visible="false">DEV</h3></div>
                 <div class=" col-sm-4 text-center">
                     <h1 style="font-size:25px; text-transform:uppercase">Criar Máquina</h1>
                     <p>Nome: <asp:TextBox runat="server" ID="txtNome"></asp:TextBox></p>
