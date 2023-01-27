@@ -184,6 +184,7 @@
     <Content Include="Supervisor\Funcionario\Funcionario.aspx" />
     <Content Include="Supervisor\Funcionario\UpdateFunc.aspx" />
     <Content Include="Supervisor\Maquina\AdicionarMaquina.aspx" />
+    <Content Include="Supervisor\Maquina\DadosMaquina.aspx" />
     <Content Include="Supervisor\Maquina\GridView.aspx" />
     <Content Include="Supervisor\Maquina\Produtividade.aspx" />
     <Content Include="Supervisor\Responsavel.aspx" />
@@ -304,6 +305,13 @@
     </Compile>
     <Compile Include="Supervisor\Maquina\AdicionarMaquina.aspx.designer.cs">
       <DependentUpon>AdicionarMaquina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Maquina\DadosMaquina.aspx.cs">
+      <DependentUpon>DadosMaquina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Maquina\DadosMaquina.aspx.designer.cs">
+      <DependentUpon>DadosMaquina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Supervisor\Maquina\GridView.aspx.cs">
       <DependentUpon>GridView.aspx</DependentUpon>

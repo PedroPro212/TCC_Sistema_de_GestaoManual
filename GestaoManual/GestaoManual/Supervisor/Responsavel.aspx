@@ -41,7 +41,7 @@
                 <div class="quadro">
                     <div class="quadroCenter">
                         <a href="https://www.youtube.com/"><img runat="server" src="/imgs/chave.png" width="70" />
-                        <p>Acesso</p></a>
+                        <p>Atribuir</p></a>
                     </div>
                 </div>
                 <div class="quadro">
