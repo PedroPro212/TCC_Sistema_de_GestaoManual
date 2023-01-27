@@ -12,6 +12,8 @@ namespace GestaoManual.Producao.PinturaImersao
     public partial class ProcessoPintura : System.Web.UI.Page
     {
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
+        static string dataInicio;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             connection.Open();
@@ -47,11 +49,13 @@ namespace GestaoManual.Producao.PinturaImersao
             }
             connection.Close();
 
+            dataInicio = DateTime.Now.ToString();
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
-            lblLoteTinat.Text = lblLTinta.ToString();
+            string dataFim = DateTime.Now.ToString();
+            lblTeste.Text = teste.Value;
         }
     }
 }
