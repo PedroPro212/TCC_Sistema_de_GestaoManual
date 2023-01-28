@@ -41,6 +41,7 @@ namespace GestaoManual.Supervisor
 
             int id = Convert.ToInt32(Session["Login"].ToString());
             
+            if(!IsPostBack)
             try
             {
                 connection.Open();
@@ -109,37 +110,6 @@ namespace GestaoManual.Supervisor
                 dados.Email = txtEmail.Text;
                 new Negocio.Dados().UpdateEmail(dados);
             }
-            //if((ckbSenha.Checked == true)||(ckbEditarEmail.Checked == true)||(ckbEditar.Checked == true))
-            //{
-            //    if (ValidarSenha() == true)
-            //    {
-            //        var dados = new Classes.Dados();
-            //        dados.Id = Convert.ToInt32(Session["Login"].ToString());
-            //        dados.Senha = txtSenha2.Text;
-            //        new Negocio.Dados().UpdateSenha(dados);
-
-            //        SiteMaster.AlertPersonalizado(this, "Sua nova senha é: " + txtSenha2.Text);
-            //        txtSenha1.Text = "";
-            //        txtSenha2.Text = "";
-            //        ckbSenha.Checked = false;
-            //        //if (ValidarEmail(txtEmail.Text) == false)
-            //        //{
-            //        //    SiteMaster.AlertPersonalizado(this, "Insira um email válido!");
-            //        //}          
-            //        //else
-            //        //    SiteMaster.AlertPersonalizado(this, "Até o momento tudo certo");
-            //    }
-
-
-            //    //var dados1 = new Classes.Dados();
-            //    //dados1.Id = Convert.ToInt32(Session["Login"].ToString());
-            //    //dados1.Tel = txtTelefone.Text;
-            //    //new Negocio.Dados().UpdateTel(dados1);
-
-            //}
-            //else
-            //{
-
         }
             
 
