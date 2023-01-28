@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GestaoManual</RootNamespace>
     <AssemblyName>GestaoManual</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44321</IISExpressSSLPort>
@@ -181,6 +181,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="Supervisor\Dados.aspx" />
+    <Content Include="Supervisor\Funcionario\CriarFuncionario.aspx" />
     <Content Include="Supervisor\Funcionario\Funcionario.aspx" />
     <Content Include="Supervisor\Funcionario\UpdateFunc.aspx" />
     <Content Include="Supervisor\Maquina\AdicionarMaquina.aspx" />
@@ -284,6 +285,13 @@
     </Compile>
     <Compile Include="Supervisor\Dados.aspx.designer.cs">
       <DependentUpon>Dados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Funcionario\CriarFuncionario.aspx.cs">
+      <DependentUpon>CriarFuncionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Funcionario\CriarFuncionario.aspx.designer.cs">
+      <DependentUpon>CriarFuncionario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Supervisor\Funcionario\Funcionario.aspx.cs">
       <DependentUpon>Funcionario.aspx</DependentUpon>
