@@ -47,12 +47,11 @@
                         </div>
                         <div class="col-sm-6">
                             <p>E-mail:</p><asp:TextBox runat="server" ID="txtEmail" Enabled="false" Width="280" Height="30" Font-Size="11"></asp:TextBox><asp:CheckBox runat="server" ID="ckbEditarEmail" OnCheckedChanged="ckbEditarEmail_CheckedChanged" AutoPostBack="true" />
-                            <p>Telefone:</p><asp:TextBox runat="server" ID="txtTelefone" Enabled="false" Width="170" Height="30" Font-Size="11"></asp:TextBox><asp:CheckBox runat="server" ID="ckbEditar" OnCheckedChanged="ckbEditar_CheckedChanged" AutoPostBack="true" />
+                            <p>Telefone:</p><asp:TextBox runat="server" ID="txtTelefone" Enabled="false" Width="170" Height="30" Font-Size="11"></asp:TextBox><asp:CheckBox runat="server" ID="ckbEditarTelefone" OnCheckedChanged="ckbEditar_CheckedChanged" AutoPostBack="true" />
                             
                             <p>Alterar Senha: 
                             <asp:CheckBox runat="server" ID="ckbSenha" OnCheckedChanged="ckbSenha_CheckedChanged" AutoPostBack="true" /></p>
                             <asp:TextBox runat="server" ID="txtSenha1" Width="170" Height="30" Font-Size="11" TextMode="Password"></asp:TextBox>
-                            <asp:RegularExpressionValidator runat="server" ID="valSenha" ControlToValidate="txtSenha1" ErrorMessage="Mínimo de 5 caracter" ValidationExpression=".{5}.*"></asp:RegularExpressionValidator> 
 
                             <p>Confirmar Senha:</p>
                             <asp:TextBox runat="server" ID="txtSenha2" Width="170" Height="30" Font-Size="11" TextMode="Password"></asp:TextBox>

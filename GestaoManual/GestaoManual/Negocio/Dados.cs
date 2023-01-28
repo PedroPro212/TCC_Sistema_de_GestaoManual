@@ -31,7 +31,7 @@ namespace GestaoManual.Negocio
             }
             return true;
         }
-
+        
         public bool UpdateTel(Classes.Dados dados)
         {
             try
@@ -48,7 +48,25 @@ namespace GestaoManual.Negocio
                 return false;
             }
             return true;
+        }
 
+        public bool UpdateEmail(Classes.Dados dados)
+        {
+            try
+            {
+                connection.Open();
+                var comando = new MySqlCommand($"UPDATE funcionarios SET email = @email WHERE id = @id", connection);
+                comando.Parameters.Add(new MySqlParameter("email", dados.Email));
+                comando.Parameters.Add(new MySqlParameter("id", dados.Id));
+                comando.ExecuteNonQuery();
+                connection.Close();
+                
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
