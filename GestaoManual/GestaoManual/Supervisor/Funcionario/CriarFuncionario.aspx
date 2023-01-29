@@ -8,7 +8,7 @@
         }
 
         .quadro{
-            margin-top:50px;
+            margin-top:120px;
             background-color:white;
             border-radius:5px;
             box-shadow:2px 2px 2px;
@@ -32,8 +32,20 @@
             width:80%;
         }
 
+        .DataN{
+            margin-left:23px
+        }
+
+        .cpf{
+            margin-left:21px
+        }
+
         .tel{
             margin-left:37px;
+        }
+
+        .setor{
+            margin-left:12px
         }
 
         .btn{
@@ -41,7 +53,8 @@
             height:44px;
             background-color:#00A3FF;
             font-size:23px;
-            margin-top:150px
+            margin-top:150px;
+            color:black;
         }
     </style>
     <div class="container">
@@ -50,16 +63,16 @@
                 <h1 class="titulo text-center">Cadastrar Funcionário</h1>
                 <div class="col-sm-5">
                     <p>Nome: <asp:TextBox runat="server" ID="txtNome" CssClass="txt"></asp:TextBox></p>
-                    <p>Data Nascimento: <asp:TextBox runat="server" ID="txtNascimento" TextMode="Date"></asp:TextBox></p>
-                    <p>CPF: <asp:TextBox runat="server" ID="txtCPF" TextMode="Number" CssClass="txt"></asp:TextBox></p>
+                    <p>Data Nascimento: <asp:TextBox runat="server" ID="txtNascimento" CssClass="DataN" TextMode="Date"></asp:TextBox></p>
+                    <p>CPF: <asp:TextBox runat="server" ID="txtCPF" CssClass="txt cpf"></asp:TextBox></p>
                 </div>
                 <div class="col-sm-2"></div>
                 <div class="col-sm-5">
                     <p>E-mail: <asp:TextBox runat="server" ID="txtEmail"></asp:TextBox></p>
                     <p>Tel: <asp:TextBox runat="server" ID="txtTel" TextMode="Number" CssClass="tel"></asp:TextBox></p>
-                    <p>Setor: <asp:DropDownList runat="server" ID="ddlSetor"></asp:DropDownList></p>
+                    <p>Setor: <asp:DropDownList runat="server" ID="ddlSetor" CssClass="setor"></asp:DropDownList></p>
                 </div>
-                <asp:Button runat="server" ID="btnCadastrar" CssClass="btn col-sm-12 center-block" Text="CADASTRAR" />
+                <asp:Button runat="server" ID="btnCadastrar" CssClass="btn col-sm-12 center-block" Text="CADASTRAR" OnClick="btnCadastrar_Click" />
             </div>
         </div>
     </div>

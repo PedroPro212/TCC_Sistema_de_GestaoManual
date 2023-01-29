@@ -142,6 +142,21 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="imgsproducao\code.png" />
+    <Content Include="imgsproducao\correio.png" />
+    <Content Include="imgsproducao\dobradicas.png" />
+    <Content Include="imgs\chave.png" />
+    <Content Include="imgs\check.png" />
+    <Content Include="imgs\edit.png" />
+    <Content Include="imgs\ferramenta.png" />
+    <Content Include="imgs\kratao.jpg" />
+    <Content Include="imgs\qualidade.png" />
+    <Content Include="imgs\SEG.png" />
+    <Content Include="imgs\SEGLogar.png" />
+    <Content Include="imgs\suporte.png" />
+    <Content Include="imgs\user.png" />
+    <Content Include="imgs\user_sair.png" />
+    <Content Include="imgs\vazio.png" />
     <Content Include="Logar.Master" />
     <Content Include="Producao\Corte\Corte.aspx" />
     <Content Include="Producao\EscolherSetor.aspx" />
@@ -225,6 +240,7 @@
     </Compile>
     <Compile Include="Negocio\Dados.cs" />
     <Compile Include="Negocio\Encarregado.cs" />
+    <Compile Include="Negocio\Funcionario.cs" />
     <Compile Include="Negocio\Maquina.cs" />
     <Compile Include="Negocio\Operador.cs" />
     <Compile Include="Negocio\Setor.cs" />

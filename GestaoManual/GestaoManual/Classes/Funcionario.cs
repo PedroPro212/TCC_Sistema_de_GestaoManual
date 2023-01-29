@@ -9,7 +9,10 @@ namespace GestaoManual.Classes
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Registro { get; set; }
-        public string Senha { get; set; }
+        public string DataN { get; set; }
+        public string Cpf { get; set; }
+        public string Email { get; set; }
+        public string Tel { get; set; }
+        public int Setor { get; set; }
     }
 }
