@@ -7,119 +7,101 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace GestaoManual.Producao.PinturaImersao
+namespace GestaoManual.Supervisor.Funcionario
 {
 
 
-    public partial class ProcessoPintura
+    public partial class CriarFuncionario
     {
 
         /// <summary>
-        /// Controle lblNome.
+        /// Controle dev.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNome;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dev;
 
         /// <summary>
-        /// Controle lblProduto.
+        /// Controle txtNome.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProduto;
+        protected global::System.Web.UI.WebControls.TextBox txtNome;
 
         /// <summary>
-        /// Controle imgLoteTinta.
+        /// Controle txtNascimento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgLoteTinta;
+        protected global::System.Web.UI.WebControls.TextBox txtNascimento;
 
         /// <summary>
-        /// Controle txtQts.
+        /// Controle txtCPF.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQts;
+        protected global::System.Web.UI.WebControls.TextBox txtCPF;
 
         /// <summary>
-        /// Controle btnFinalizar.
+        /// Controle lblInvisivel.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFinalizar;
+        protected global::System.Web.UI.WebControls.Label lblInvisivel;
 
         /// <summary>
-        /// Controle lblLoteTinat.
+        /// Controle txtEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoteTinat;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// Controle lblSetor.
+        /// Controle txtTel.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSetor;
+        protected global::System.Web.UI.WebControls.TextBox txtTel;
 
         /// <summary>
-        /// Controle txtLotePeca.
+        /// Controle setor.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLotePeca;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl setor;
 
         /// <summary>
-        /// Controle imgLotePecas.
+        /// Controle ddlSetor.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgLotePecas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSetor;
 
         /// <summary>
-        /// Controle txtPecasBoas.
+        /// Controle btnCadastrar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPecasBoas;
-
-        /// <summary>
-        /// Controle lblTeste.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTeste;
-
-        /// <summary>
-        /// Controle teste.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField teste;
+        protected global::System.Web.UI.WebControls.Button btnCadastrar;
     }
 }

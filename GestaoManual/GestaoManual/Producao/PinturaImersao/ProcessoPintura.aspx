@@ -196,7 +196,7 @@
         </div>
     </div>
     <%--<p id="parTesteHora">lllllllllllllll</p>--%>
-    <asp:Label runat="server" ID="lblTeste" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"></asp:Label>
+    <asp:Label runat="server" ID="lblTeste"></asp:Label>
     <asp:HiddenField runat="server" ID="teste" Value="teste1" ClientIDMode="Static" />
     <script>
 

@@ -13,5 +13,10 @@ namespace GestaoManual.Supervisor.Funcionario
         {
 
         }
+
+        protected void btnCriarFuncionario_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CriarFuncionario.aspx");
+        }
     }
 }
