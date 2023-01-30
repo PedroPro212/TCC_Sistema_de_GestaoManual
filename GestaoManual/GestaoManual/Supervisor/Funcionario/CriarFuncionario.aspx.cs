@@ -44,6 +44,7 @@ namespace GestaoManual.Supervisor.Funcionario
         {
             int id = Convert.ToInt32(Session["Login"].ToString());
 
+            // Caso o usuario tiver o nível de acesso como dev
             if(dev.Visible == true)
             {
                 var funcionario = new Classes.Funcionario();
@@ -55,13 +56,13 @@ namespace GestaoManual.Supervisor.Funcionario
                 funcionario.Setor = Convert.ToInt32(ddlSetor.SelectedValue);
                 new Negocio.Funcionario().Create(funcionario);
             }
-            else
+            else // Para outros acessos
             {
                 connection.Open();
                 var rdr = new MySqlCommand($"SELECT id, id_registro, idsetor FROM encarregado WHERE id_registro={id}", connection).ExecuteReader();
                 while (rdr.Read())
                 {
-                    var setor = new ListItem(rdr.GetInt32("idsetor").ToString(), rdr.GetInt32("id").ToString());
+                    var setor = new ListItem(rdr.GetInt32("idsetor").ToString(), rdr.GetInt32("id_registro").ToString());
                     lblInvisivel.Text = setor.ToString();
                 }
                 connection.Close();
@@ -72,7 +73,7 @@ namespace GestaoManual.Supervisor.Funcionario
                 funcionario.Cpf = txtCPF.Text;
                 funcionario.Email = txtEmail.Text;
                 funcionario.Tel = txtTel.Text;
-                funcionario.Setor = lblInvisivel.Text;
+                funcionario.Setor = Convert.ToInt32(lblInvisivel.Text);
             }
 
 
