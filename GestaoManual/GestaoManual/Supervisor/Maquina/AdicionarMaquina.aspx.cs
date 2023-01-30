@@ -56,7 +56,7 @@ namespace GestaoManual.Supervisor.Maquina
                 connection.Close();
 
                 var maquina = new Classes.Maquina();
-                maquina.Nome = txtNome.Text;
+                maquina.Nome = txtNome.Text;    
                 maquina.idSetor = Convert.ToInt32(ddlSetor.SelectedValue);
                 maquina.idEncarregado = Convert.ToInt32(lblinvisivel.Text);
                 new Negocio.Maquina().Create(maquina);

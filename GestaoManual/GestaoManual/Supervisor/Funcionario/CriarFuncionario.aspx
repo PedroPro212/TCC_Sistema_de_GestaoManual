@@ -60,17 +60,18 @@
     <div class="container">
         <div class="row">
             <div class="quadro">
+                <p runat="server" id="dev" visible="false">DEV</p>
                 <h1 class="titulo text-center">Cadastrar Funcionário</h1>
                 <div class="col-sm-5">
                     <p>Nome: <asp:TextBox runat="server" ID="txtNome" CssClass="txt"></asp:TextBox></p>
                     <p>Data Nascimento: <asp:TextBox runat="server" ID="txtNascimento" CssClass="DataN" TextMode="Date"></asp:TextBox></p>
                     <p>CPF: <asp:TextBox runat="server" ID="txtCPF" CssClass="txt cpf"></asp:TextBox></p>
                 </div>
-                <div class="col-sm-2"></div>
+                <div class="col-sm-2"><asp:Label runat="server" ID="lblInvisivel" Visible="false"></asp:Label></div>
                 <div class="col-sm-5">
                     <p>E-mail: <asp:TextBox runat="server" ID="txtEmail"></asp:TextBox></p>
                     <p>Tel: <asp:TextBox runat="server" ID="txtTel" TextMode="Number" CssClass="tel"></asp:TextBox></p>
-                    <p>Setor: <asp:DropDownList runat="server" ID="ddlSetor" CssClass="setor"></asp:DropDownList></p>
+                    <p runat="server" id="setor" visible="false">Setor: <asp:DropDownList runat="server" ID="ddlSetor" CssClass="setor"></asp:DropDownList></p>
                 </div>
                 <asp:Button runat="server" ID="btnCadastrar" CssClass="btn col-sm-12 center-block" Text="CADASTRAR" OnClick="btnCadastrar_Click" />
             </div>
