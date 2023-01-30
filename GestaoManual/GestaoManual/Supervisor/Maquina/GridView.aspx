@@ -54,7 +54,8 @@
 
                         <Columns>
                             <asp:BoundField DataField="nome" HeaderText="NOME:" />
-                            <asp:BoundField DataField="tel" HeaderText="SETOR:" />
+                            <asp:BoundField DataField="setor" HeaderText="SETOR:" />
+                            <asp:BoundField DataField="setor" HeaderText="SETOR:" />
                             <asp:ButtonField ButtonType="Link" CommandName="VER" ControlStyle-CssClass="btn btn-primary" Text="VER" ItemStyle-HorizontalAlign="Center" />
                         </Columns>
 
