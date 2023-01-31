@@ -59,11 +59,11 @@ namespace GestaoManual.Supervisor.Funcionario
             else // Para outros acessos
             {
                 connection.Open();
-                var rdr = new MySqlCommand($"SELECT id, id_registro, idsetor FROM encarregado WHERE id_registro={id}", connection).ExecuteReader();
-                while (rdr.Read())
+                var reader = new MySqlCommand($"SELECT id, id_setor FROM funcionarios WHERE id={id}", connection).ExecuteReader();
+                while (reader.Read())
                 {
-                    var setor = new ListItem(rdr.GetInt32("idsetor").ToString(), rdr.GetInt32("id_registro").ToString());
-                    lblInvisivel.Text = setor.ToString();
+                    var setor = new ListItem(reader.GetInt32("id_setor").ToString(), reader.GetInt32("id").ToString());
+                    lblInvisivel2.Text = setor.ToString();
                 }
                 connection.Close();
 
@@ -73,11 +73,9 @@ namespace GestaoManual.Supervisor.Funcionario
                 funcionario.Cpf = txtCPF.Text;
                 funcionario.Email = txtEmail.Text;
                 funcionario.Tel = txtTel.Text;
-                funcionario.Setor = Convert.ToInt32(lblInvisivel.Text);
+                funcionario.Setor = Convert.ToInt32(lblInvisivel2.Text);
+                new Negocio.Funcionario().Create(funcionario);
             }
-
-
-
 
             txtNome.Text = "";
             txtNascimento.Text = "";
