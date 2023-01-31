@@ -62,16 +62,13 @@ CREATE TABLE operador(
     registro int NOT null,
     idSetor int,
     idMaquina int,
-    
+    FOREIGN KEY (registro) REFERENCES funcionarios(id),
     FOREIGN KEY (idSetor) REFERENCES setor(id),
     FOREIGN KEY (idMaquina) REFERENCES maquina(id)
 );
 CREATE TABLE produto(
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    descricao varchar(100) NOT NULL,
-    id_setor int,
-    
-    FOREIGN KEY (id_setor) REFERENCES setor(id)
+    descricao varchar(100) NOT NULL
 );
 
 CREATE TABLE processo(
