@@ -17,10 +17,12 @@ namespace GestaoManual.Supervisor.Maquina
             {
                 connection.Open();
                 ddlSetor.Items.Clear();
+                var setor = new ListItem("Escolher Setor", "0");
+                ddlSetor.Items.Add(setor);
                 var reader = new MySqlCommand($"SELECT id, descricao FROM setor WHERE id!=0", connection).ExecuteReader();
                 while (reader.Read())
                 {
-                    var setor = new ListItem(reader.GetString("descricao"), reader.GetInt32("id").ToString());
+                    setor = new ListItem(reader.GetString("descricao"), reader.GetInt32("id").ToString());
                     ddlSetor.Items.Add(setor);
                 }
                 connection.Close();
@@ -44,19 +46,25 @@ namespace GestaoManual.Supervisor.Maquina
 
         protected void grdMaquina_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            /*if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Attributes.Add("onMouseOver", "this.style.backgroundColor='#171f25'; this.style.cursor='hand';");
                 e.Row.Attributes.Add("onMouseOut", "this.style.backgroundColor='#212529'");
-            }
+            }*/
         }
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
             int setor = Convert.ToInt32(ddlSetor.SelectedValue);
-            var maquina = new Negocio.Maquina().Read(Convert.ToInt32(""), "", setor);
-            grdMaquina.DataSource= maquina;
+            var gridmaquina = new Negocio.GridMaquina().Read(txtPesquisar.Text, setor, txtPesquisarOp.Text);
+            Session["dados2"] = gridmaquina;
+            grdMaquina.DataSource= gridmaquina;
             grdMaquina.DataBind();
+        }
+
+        protected void ddlSetor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnPesquisar_Click(null, null);
         }
     }
 }
