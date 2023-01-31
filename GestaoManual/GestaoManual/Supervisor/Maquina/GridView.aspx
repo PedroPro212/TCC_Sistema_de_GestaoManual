@@ -53,9 +53,9 @@
                         AllowPaging="false" OnRowDataBound="grdMaquina_RowDataBound">
 
                         <Columns>
-                            <asp:BoundField DataField="nome" HeaderText="NOME:" />
-                            <asp:BoundField DataField="setor" HeaderText="SETOR:" />
-                            <asp:BoundField DataField="setor" HeaderText="SETOR:" />
+                            <asp:BoundField DataField="NomeMaquina" HeaderText="MÁQUINA:" />
+                            <asp:BoundField DataField="NomeSetor" HeaderText="SETOR:" />
+                            <asp:BoundField DataField="NomeOperador" HeaderText="OPERADOR:" />
                             <asp:ButtonField ButtonType="Link" CommandName="VER" ControlStyle-CssClass="btn btn-primary" Text="VER" ItemStyle-HorizontalAlign="Center" />
                         </Columns>
 

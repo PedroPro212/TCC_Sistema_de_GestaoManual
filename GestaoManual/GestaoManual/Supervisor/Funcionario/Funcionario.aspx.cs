@@ -18,5 +18,23 @@ namespace GestaoManual.Supervisor.Funcionario
         {
             Response.Redirect("CriarFuncionario.aspx");
         }
+
+        protected void grdFuncionario_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void grdFuncionario_DataBound(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            var funcionarios = new Negocio.Funcionario().Read("", txtPesquisar.Text, "");
+            Session["dados"] = funcionarios;
+            grdFuncionario.DataSource = funcionarios;
+            grdFuncionario.DataBind();
+        }
     }
 }
