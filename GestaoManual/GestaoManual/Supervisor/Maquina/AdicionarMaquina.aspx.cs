@@ -46,48 +46,66 @@ namespace GestaoManual.Supervisor.Maquina
 
             if(dev.Visible == true)
             {
-                connection.Open();
-                var reader = new MySqlCommand($"SELECT id, id_registro, idsetor FROM encarregado WHERE idsetor=" + ddlSetor.SelectedValue, connection).ExecuteReader();
-                while (reader.Read())
+                try
                 {
-                    var encarregado = new ListItem(reader.GetInt32("id_registro").ToString(), reader.GetInt32("id").ToString());
-                    lblinvisivel.Text = encarregado.ToString();
-                }
-                connection.Close();
+                    connection.Open();
+                    var reader = new MySqlCommand($"SELECT id, id_registro, idsetor FROM encarregado WHERE idsetor=" + ddlSetor.SelectedValue, connection).ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var encarregado = new ListItem(reader.GetInt32("id_registro").ToString(), reader.GetInt32("id").ToString());
+                        lblinvisivel.Text = encarregado.ToString();
+                    }
+                    connection.Close();
 
-                var maquina = new Classes.Maquina();
-                maquina.Nome = txtNome.Text;    
-                maquina.idSetor = Convert.ToInt32(ddlSetor.SelectedValue);
-                maquina.idEncarregado = Convert.ToInt32(lblinvisivel.Text);
-                new Negocio.Maquina().Create(maquina);
+                    var maquina = new Classes.Maquina();
+                    maquina.Nome = txtNome.Text;    
+                    maquina.idSetor = Convert.ToInt32(ddlSetor.SelectedValue);
+                    maquina.idEncarregado = Convert.ToInt32(lblinvisivel.Text);
+                    new Negocio.Maquina().Create(maquina);
+
+                    SiteMaster.AlertPersonalizado(this, "Funcionário cadastrado com sucesso");
+                }
+                catch
+                {
+                    SiteMaster.AlertPersonalizado(this, "Não foi possível cadastrar o funcionário no momento, se o erro persistir contate o suporte");
+                }
             }
             else
             {
-                // Capturar setor
-                connection.Open();
-                var rdr = new MySqlCommand($"SELECT id, id_setor FROM funcionarios WHERE id={id}", connection).ExecuteReader();
-                while (rdr.Read())
+                try
                 {
-                    var setor = new ListItem(rdr.GetInt32("id_setor").ToString(), rdr.GetInt32("id").ToString());
-                    lblinvisivel2.Text = setor.ToString();
-                }
-                connection.Close();
+                    // Capturar setor
+                    connection.Open();
+                    var rdr = new MySqlCommand($"SELECT id, id_setor FROM funcionarios WHERE id={id}", connection).ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        var setor = new ListItem(rdr.GetInt32("id_setor").ToString(), rdr.GetInt32("id").ToString());
+                        lblinvisivel2.Text = setor.ToString();
+                    }
+                    connection.Close();
 
-                // Capturar encarregado
-                connection.Open();
-                var reader = new MySqlCommand($"SELECT id, registro, id_acesso FROM login WHERE id={id}", connection).ExecuteReader();
-                while (reader.Read())
+                    // Capturar encarregado
+                    connection.Open();
+                    var reader = new MySqlCommand($"SELECT id, registro, id_acesso FROM login WHERE id={id}", connection).ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var encarregado = new ListItem(reader.GetInt32("registro").ToString(), reader.GetInt32("id").ToString());
+                        lblinvisivel.Text = encarregado.ToString();
+                    }
+                    connection.Close();
+
+                    var maquina = new Classes.Maquina();
+                    maquina.Nome = txtNome.Text;
+                    maquina.idSetor = Convert.ToInt32(lblinvisivel2.Text);
+                    maquina.idEncarregado = Convert.ToInt32(lblinvisivel.Text);
+                    new Negocio.Maquina().Create(maquina);
+
+                    SiteMaster.AlertPersonalizado(this, "Funcionário cadastrado com sucesso");
+                }
+                catch
                 {
-                    var encarregado = new ListItem(reader.GetInt32("registro").ToString(), reader.GetInt32("id").ToString());
-                    lblinvisivel.Text = encarregado.ToString();
+                    SiteMaster.AlertPersonalizado(this, "Não foi possível cadastrar o funcionário no momento, se o erro persistir contate o suporte");
                 }
-                connection.Close();
-
-                var maquina = new Classes.Maquina();
-                maquina.Nome = txtNome.Text;
-                maquina.idSetor = Convert.ToInt32(lblinvisivel2.Text);
-                maquina.idEncarregado = Convert.ToInt32(lblinvisivel.Text);
-                new Negocio.Maquina().Create(maquina);
             }
         }
     }

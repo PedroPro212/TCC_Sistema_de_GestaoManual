@@ -47,43 +47,83 @@ namespace GestaoManual.Supervisor.Funcionario
             // Caso o usuario tiver o nível de acesso como dev
             if(dev.Visible == true)
             {
-                var funcionario = new Classes.Funcionario();
-                funcionario.Nome = txtNome.Text;
-                funcionario.DataN = txtNascimento.Text;
-                funcionario.Cpf = txtCPF.Text;
-                funcionario.Email = txtEmail.Text;
-                funcionario.Tel = txtTel.Text;
-                funcionario.Setor = Convert.ToInt32(ddlSetor.SelectedValue);
-                new Negocio.Funcionario().Create(funcionario);
+                try
+                {
+                    if(TxtVazia() == false)
+                    {
+                        SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estarem preenchidos");
+                    }
+                    else
+                    {
+                        var funcionario = new Classes.Funcionario();
+                        funcionario.Nome = txtNome.Text;
+                        funcionario.DataN = txtNascimento.Text;
+                        funcionario.Cpf = txtCPF.Text;
+                        funcionario.Email = txtEmail.Text;
+                        funcionario.Tel = txtTel.Text;
+                        funcionario.Setor = Convert.ToInt32(ddlSetor.SelectedValue);
+                        new Negocio.Funcionario().Create(funcionario);
+
+                        SiteMaster.AlertPersonalizado(this, "Cadastrado com sucesso");
+                    }
+
+                }
+                catch(Exception ex)
+                {
+                    SiteMaster.AlertPersonalizado(this, "Aconteceu um erro: " + ex);
+                }
             }
             else // Para outros acessos
             {
-                connection.Open();
-                var rdr = new MySqlCommand($"SELECT id, id_registro, idsetor FROM encarregado WHERE id_registro={id}", connection).ExecuteReader();
-                while (rdr.Read())
+                try
                 {
-                    var setor = new ListItem(rdr.GetInt32("idsetor").ToString(), rdr.GetInt32("id_registro").ToString());
-                    lblInvisivel.Text = setor.ToString();
+                    if(TxtVazia() == false)
+                    {
+                        SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estarem preenchidos");
+                    }
+                    else
+                    {
+                        connection.Open();
+                        var reader = new MySqlCommand($"SELECT id, id_setor FROM funcionarios WHERE id={id}", connection).ExecuteReader();
+                        while (reader.Read())
+                        {
+                            var setor = new ListItem(reader.GetInt32("id_setor").ToString(), reader.GetInt32("id").ToString());
+                            lblInvisivel2.Text = setor.ToString();
+                        }
+                        connection.Close();
+
+                        var funcionario = new Classes.Funcionario();
+                        funcionario.Nome = txtNome.Text;
+                        funcionario.DataN = txtNascimento.Text;
+                        funcionario.Cpf = txtCPF.Text;
+                        funcionario.Email = txtEmail.Text;
+                        funcionario.Tel = txtTel.Text;
+                        funcionario.Setor = Convert.ToInt32(lblInvisivel2.Text);
+                        new Negocio.Funcionario().Create(funcionario);
+                    }
+
                 }
-                connection.Close();
+                catch(Exception ex)
+                {
+                    SiteMaster.AlertPersonalizado(this, "Ops, aconteceu um erro ao cadastrar:\n" + ex);
+                }
 
-                var funcionario = new Classes.Funcionario();
-                funcionario.Nome = txtNome.Text;
-                funcionario.DataN = txtNascimento.Text;
-                funcionario.Cpf = txtCPF.Text;
-                funcionario.Email = txtEmail.Text;
-                funcionario.Tel = txtTel.Text;
-                funcionario.Setor = Convert.ToInt32(lblInvisivel.Text);
             }
-
-
-
 
             txtNome.Text = "";
             txtNascimento.Text = "";
             txtCPF.Text = "";
             txtEmail.Text = "";
             txtTel.Text = "";
+        }
+
+        public bool TxtVazia()
+        {
+            if((txtNome.Text == "")||(txtNascimento.Text == "")||(txtCPF.Text == "")||(txtEmail.Text == "")||(txtTel.Text == ""))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

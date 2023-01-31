@@ -8,7 +8,7 @@
         }
 
         .quadro{
-            margin-top:120px;
+            margin-top:100px;
             background-color:white;
             border-radius:5px;
             box-shadow:2px 2px 2px;
@@ -67,7 +67,10 @@
                     <p>Data Nascimento: <asp:TextBox runat="server" ID="txtNascimento" CssClass="DataN" TextMode="Date"></asp:TextBox></p>
                     <p>CPF: <asp:TextBox runat="server" ID="txtCPF" CssClass="txt cpf"></asp:TextBox></p>
                 </div>
-                <div class="col-sm-2"><asp:Label runat="server" ID="lblInvisivel" Visible="false"></asp:Label></div>
+                <div class="col-sm-2">
+                    <asp:Label runat="server" ID="lblInvisivel" Visible="false"></asp:Label>
+                    <Asp:Label runat="server" ID="lblInvisivel2" Visible="false"></Asp:Label>
+                </div>
                 <div class="col-sm-5">
                     <p>E-mail: <asp:TextBox runat="server" ID="txtEmail"></asp:TextBox></p>
                     <p>Tel: <asp:TextBox runat="server" ID="txtTel" TextMode="Number" CssClass="tel"></asp:TextBox></p>
