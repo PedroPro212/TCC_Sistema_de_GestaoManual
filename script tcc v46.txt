@@ -40,15 +40,7 @@ CREATE TABLE TecnicoQualidade(
     senha varchar(6) NOT null
 );
 
-CREATE TABLE operador(
-    id int PRIMARY KEY AUTO_INCREMENT NOT null,
-    registro int NOT null,
-    idSetor int,
-    id_maquina int,
-    
-    FOREIGN KEY (idSetor) REFERENCES setor(id),
-    FOREIGN KEY (id_maquina) REFERENCES maquina(id)
-);
+
 
 CREATE TABLE encarregado(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
@@ -65,7 +57,15 @@ CREATE TABLE maquina(
     
     FOREIGN KEY (id_setor) REFERENCES setor(id)
 );
-
+CREATE TABLE operador(
+    id int PRIMARY KEY AUTO_INCREMENT NOT null,
+    registro int NOT null,
+    idSetor int,
+    idMaquina int,
+    
+    FOREIGN KEY (idSetor) REFERENCES setor(id),
+    FOREIGN KEY (idMaquina) REFERENCES maquina(id)
+);
 CREATE TABLE produto(
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     descricao varchar(100) NOT NULL,
