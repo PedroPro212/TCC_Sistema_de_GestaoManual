@@ -14,5 +14,6 @@ namespace GestaoManual.Classes
         public string Email { get; set; }
         public string Tel { get; set; }
         public int Setor { get; set; }
+        public string NomeSetor { get; set; }
     }
 }

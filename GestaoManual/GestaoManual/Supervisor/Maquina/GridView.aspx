@@ -46,16 +46,17 @@
                     <asp:Button runat="server" CssClass="btn btn2" ID="btnProdutividade" Text="PRODUTIVIDADE" OnClick="btnProdutividade_Click" />
 
                     <p class="text-center">Pesquisar: <asp:TextBox runat="server" ID="txtPesquisar"></asp:TextBox> <asp:Button runat="server" ID="btnPesquisar" CssClass="btnPesquisar" Text="PESQUISAR" OnClick="btnPesquisar_Click" /></p>
-                    <asp:DropDownList runat="server" ID="ddlSetor" CssClass="ddlSetor center-block" Width="170" Height="25" Font-Size="11"></asp:DropDownList>
+                    <p><asp:TextBox runat="server" ID="txtPesquisarOp"></asp:TextBox></p>
+                    <asp:DropDownList runat="server" ID="ddlSetor" CssClass="ddlSetor center-block" Width="170" Height="25" Font-Size="11" AutoPostBack="true" OnSelectedIndexChanged="ddlSetor_SelectedIndexChanged"></asp:DropDownList>
 
                     <asp:GridView runat="server" ID="grdMaquina" Width="80%" AutoGenerateColumns="false" 
                         CssClass="table table-condensed" OnRowCommand="grdMaquina_RowCommand"
                         AllowPaging="false" OnRowDataBound="grdMaquina_RowDataBound">
 
                         <Columns>
-                            <asp:BoundField DataField="nome" HeaderText="NOME:" />
-                            <asp:BoundField DataField="setor" HeaderText="SETOR:" />
-                            <asp:BoundField DataField="setor" HeaderText="SETOR:" />
+                            <asp:BoundField DataField="NomeMaquina" HeaderText="MÁQUINA:" />
+                            <asp:BoundField DataField="NomeSetor" HeaderText="SETOR:" />
+                            <asp:BoundField DataField="NomeOperador" HeaderText="OPERADOR:" />
                             <asp:ButtonField ButtonType="Link" CommandName="VER" ControlStyle-CssClass="btn btn-primary" Text="VER" ItemStyle-HorizontalAlign="Center" />
                         </Columns>
 

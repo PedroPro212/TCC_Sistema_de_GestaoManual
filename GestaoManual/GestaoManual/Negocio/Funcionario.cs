@@ -35,6 +35,55 @@ namespace GestaoManual.Negocio
                 return false;
             }
             return true;
+        }  
+
+        public List<Classes.Funcionario> Read(string id, string nome, string email)
+        {
+            var funcionarios = new List<Classes.Funcionario>();
+            try
+            {
+                connection.Open();
+                var comando = new MySqlCommand($"SELECT f.nome, f.data_nascimento, f.cpf, f.email, f.tel, f.id_setor, f.id, s.descricao FROM funcionarios AS f, setor AS s WHERE f.id_setor = s.id", connection);
+                if (nome.Equals("") == false)
+                {
+                    comando.CommandText += $" AND f.nome like @nome";
+                    comando.Parameters.Add(new MySqlParameter("nome", $"%{nome}%"));
+                }
+                if (email.Equals("") == false)
+                {
+                    comando.CommandText += $" AND f.email = @email";
+                    comando.Parameters.Add(new MySqlParameter("email", $"%{email}%"));
+                }
+                if (id.Equals("") == false)
+                {
+                    comando.CommandText += $" AND f.id = @id";
+                    comando.Parameters.Add(new MySqlParameter("id", id));
+                }
+                var reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    funcionarios.Add(new Classes.Funcionario
+                    {
+                        Nome = reader.GetString("nome"),
+                        DataN = reader.GetDateTime("data_nascimento").ToString("dd/MM/yyyy"),
+                        Cpf = reader.GetString("cpf"),
+                        Email = reader.GetString("email"),
+                        Tel = reader.GetString("tel"),
+                        Setor = reader.GetInt32("id_setor"),
+                        Id = reader.GetInt32("id"),
+                        NomeSetor = reader.GetString("descricao")
+                    });
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return funcionarios;
         }
     }
 }
