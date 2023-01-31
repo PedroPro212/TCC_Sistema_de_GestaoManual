@@ -63,7 +63,7 @@ CREATE TABLE maquina(
     nome VARCHAR(10) NOT NULL,
     id_setor INT,
     
-    FOREIGN KEY (id_setor) REFERENCES setor(id),
+    FOREIGN KEY (id_setor) REFERENCES setor(id)
 );
 
 CREATE TABLE produto(
