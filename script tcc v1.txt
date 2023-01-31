@@ -44,8 +44,10 @@ CREATE TABLE operador(
     id int PRIMARY KEY AUTO_INCREMENT NOT null,
     registro int NOT null,
     idSetor int,
+    id_maquina int,
+    
     FOREIGN KEY (idSetor) REFERENCES setor(id),
-    FOREIGN KEY (registro) REFERENCES funcionarios(id)
+    FOREIGN KEY (id_maquina) REFERENCES maquina(id)
 );
 
 CREATE TABLE encarregado(
@@ -60,9 +62,8 @@ CREATE TABLE maquina(
     id int PRIMARY KEY AUTO_INCREMENT NOT null,
     nome VARCHAR(10) NOT NULL,
     id_setor INT,
-    id_encarregado int, 
     
-    FOREIGN KEY (id_setor) REFERENCES setor(id)
+    FOREIGN KEY (id_setor) REFERENCES setor(id),
 );
 
 CREATE TABLE produto(
