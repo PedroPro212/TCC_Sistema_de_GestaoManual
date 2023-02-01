@@ -60,10 +60,9 @@ namespace GestaoManual.Supervisor.Maquina
                     var maquina = new Classes.Maquina();
                     maquina.Nome = txtNome.Text;    
                     maquina.idSetor = Convert.ToInt32(ddlSetor.SelectedValue);
-                    maquina.idEncarregado = Convert.ToInt32(lblinvisivel.Text);
                     new Negocio.Maquina().Create(maquina);
 
-                    SiteMaster.AlertPersonalizado(this, "Funcionário cadastrado com sucesso");
+                    SiteMaster.AlertPersonalizado(this, "Maquina cadastrada com sucesso");
                 }
                 catch
                 {
@@ -97,14 +96,14 @@ namespace GestaoManual.Supervisor.Maquina
                     var maquina = new Classes.Maquina();
                     maquina.Nome = txtNome.Text;
                     maquina.idSetor = Convert.ToInt32(lblinvisivel2.Text);
-                    maquina.idEncarregado = Convert.ToInt32(lblinvisivel.Text);
+                    //maquina.idEncarregado = Convert.ToInt32(lblinvisivel.Text);
                     new Negocio.Maquina().Create(maquina);
 
                     SiteMaster.AlertPersonalizado(this, "Funcionário cadastrado com sucesso");
                 }
-                catch
+                catch(Exception ex)
                 {
-                    SiteMaster.AlertPersonalizado(this, "Não foi possível cadastrar o funcionário no momento, se o erro persistir contate o suporte");
+                    SiteMaster.AlertPersonalizado(this, "Não foi possível cadastrar a máquina no momento, se o erro persistir contate o suporte\n" + ex);
                 }
             }
         }

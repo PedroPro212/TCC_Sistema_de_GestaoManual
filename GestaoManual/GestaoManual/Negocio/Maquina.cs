@@ -71,10 +71,9 @@ namespace GestaoManual.Negocio
             try
             {
                 connection.Open();
-                var comando = new MySqlCommand($@"INSERT INTO maquina (nome, id_setor, id_encarregado) VALUES (@nome, @id_setor, @id_encarregado)", connection);
+                var comando = new MySqlCommand($@"INSERT INTO maquina (nome, id_setor) VALUES (@nome, @id_setor)", connection);
                 comando.Parameters.Add(new MySqlParameter("nome", maquina.Nome));
                 comando.Parameters.Add(new MySqlParameter("id_setor", maquina.idSetor));
-                comando.Parameters.Add(new MySqlParameter("id_encarregado", maquina.idEncarregado));
                 comando.ExecuteNonQuery();
                 connection.Close();
             }
