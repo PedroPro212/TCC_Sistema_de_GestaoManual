@@ -203,6 +203,8 @@
     <Content Include="Supervisor\Maquina\DadosMaquina.aspx" />
     <Content Include="Supervisor\Maquina\GridView.aspx" />
     <Content Include="Supervisor\Maquina\Produtividade.aspx" />
+    <Content Include="Supervisor\Produtos\AdicionarProduto.aspx" />
+    <Content Include="Supervisor\Produtos\GridViewProduto.aspx" />
     <Content Include="Supervisor\Responsavel.aspx" />
     <Content Include="Supervisor\Suporte.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -219,6 +221,7 @@
     <Compile Include="Classes\GridMaquina.cs" />
     <Compile Include="Classes\Operador.cs" />
     <Compile Include="Classes\Processo.cs" />
+    <Compile Include="Classes\Produto.cs" />
     <Compile Include="Classes\Setor.cs" />
     <Compile Include="Classes\Maquina.cs" />
     <Compile Include="Classes\TecnicoQualidade.cs" />
@@ -245,6 +248,7 @@
     <Compile Include="Negocio\GridMaquina.cs" />
     <Compile Include="Negocio\Maquina.cs" />
     <Compile Include="Negocio\Operador.cs" />
+    <Compile Include="Negocio\Produto.cs" />
     <Compile Include="Negocio\Setor.cs" />
     <Compile Include="Negocio\TecnicoQualidade.cs" />
     <Compile Include="Producao\Corte\Corte.aspx.cs">
@@ -352,6 +356,20 @@
     </Compile>
     <Compile Include="Supervisor\Maquina\Produtividade.aspx.designer.cs">
       <DependentUpon>Produtividade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Produtos\AdicionarProduto.aspx.cs">
+      <DependentUpon>AdicionarProduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Produtos\AdicionarProduto.aspx.designer.cs">
+      <DependentUpon>AdicionarProduto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Produtos\GridViewProduto.aspx.cs">
+      <DependentUpon>GridViewProduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Produtos\GridViewProduto.aspx.designer.cs">
+      <DependentUpon>GridViewProduto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Supervisor\Responsavel.aspx.cs">
       <DependentUpon>Responsavel.aspx</DependentUpon>
