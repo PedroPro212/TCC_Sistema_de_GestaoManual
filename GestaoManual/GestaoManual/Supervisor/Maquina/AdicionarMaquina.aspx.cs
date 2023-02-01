@@ -97,7 +97,7 @@ namespace GestaoManual.Supervisor.Maquina
                     var maquina = new Classes.Maquina();
                     maquina.Nome = txtNome.Text;
                     maquina.idSetor = Convert.ToInt32(lblinvisivel2.Text);
-                    maquina.idEncarregado = Convert.ToInt32(lblinvisivel.Text);
+                    
                     new Negocio.Maquina().Create(maquina);
 
                     SiteMaster.AlertPersonalizado(this, "Funcionário cadastrado com sucesso");
