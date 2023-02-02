@@ -31,7 +31,7 @@ namespace GestaoManual.Producao.PinturaImersao
 
             connection.Open();
             int idP = Convert.ToInt32(Session["Produto"].ToString());
-            var rdr = new MySqlCommand($"SELECT id, descricao FROM produto WHERE id={idP} AND id_setor=2", connection).ExecuteReader();
+            var rdr = new MySqlCommand($"SELECT id, descricao FROM produto WHERE id={idP}", connection).ExecuteReader();
             while(rdr.Read())
             {
                 var produto = new ListItem(rdr.GetString("descricao"), rdr.GetInt32("id").ToString());

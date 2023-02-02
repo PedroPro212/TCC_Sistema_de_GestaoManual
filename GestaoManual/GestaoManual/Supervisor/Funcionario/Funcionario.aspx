@@ -73,12 +73,12 @@
                         AllowPaging="false" OnDataBound="grdFuncionario_DataBound">
 
                         <Columns>
-                            <asp:BoundField DataField="Nome" HeaderText="NOME:" />
-                            <asp:BoundField DataField="DataN" HeaderText="SATANAS:" />
-                            <asp:BoundField DataField="Cpf" HeaderText="CPF:" />
-                            <asp:BoundField DataField="Email" HeaderText="EMAIL:" />
-                            <asp:BoundField DataField="Tel" HeaderText="TELEFONE:" />
-                            <asp:BoundField DataField="NomeSetor" HeaderText="SETOR:" />
+                            <asp:BoundField DataField="Nome" HeaderText="NOME:" HeaderStyle-CssClass="text-center" />
+                            <asp:BoundField DataField="DataN" HeaderText="DATA NASCIMENTO:" HeaderStyle-CssClass="text-center" />
+                            <asp:BoundField DataField="Cpf" HeaderText="CPF:" HeaderStyle-CssClass="text-center" />
+                            <asp:BoundField DataField="Email" HeaderText="EMAIL:" HeaderStyle-CssClass="text-center" />
+                            <asp:BoundField DataField="Tel" HeaderText="TELEFONE:" HeaderStyle-CssClass="text-center" />
+                            <asp:BoundField DataField="NomeSetor" HeaderText="SETOR:" HeaderStyle-CssClass="text-center" />
                             <asp:ButtonField ButtonType="Link" CommandName="VER" ControlStyle-CssClass="btn btn-primary" Text="VER" ItemStyle-HorizontalAlign="Center" />
                         </Columns>
 

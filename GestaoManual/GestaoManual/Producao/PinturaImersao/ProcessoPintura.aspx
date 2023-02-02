@@ -182,12 +182,21 @@
 
                         <input type="button" id="btnFechar" value="Fechar" onclick="fechar()" />
                     </div>
+
+                    <div class="modal2">
+
+                        <div id="camera2"></div>
+                        <video id="video2" autoplay></video>
+                        <textbox id="LotePecas"></textbox>
+
+                        <input type="button" id="btnFechar2" value="Fechar" onclick="fechar()" />
+                    </div>
                 </div>
                 <div class="col-sm-4">
                     <asp:Label runat="server" CssClass="informacoes" ID="lblSetor"></asp:Label>
 
                     <p>Lote de Peças:</p>
-                    <asp:TextBox runat="server" ID="txtLotePeca" TextMode="Number"></asp:TextBox><img runat="server" id="imgLotePecas" src="/imgsproducao/code.png" width="37" />
+                    <label id="txtLotePecas"></label><img runat="server" id="imgLotePecas" src="/imgsproducao/code.png" width="37" onclick="acao()" />
                     <p>Quantidade peças boas:</p>
                     <asp:TextBox runat="server" ID="txtPecasBoas" TextMode="Number"></asp:TextBox>
                     <div id="fader" style="display:none"></div>
@@ -289,8 +298,19 @@
         Quagga.onDetected(function (data) {
             console.log(data);
 
-            var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
-            document.querySelector('#txtLoteTinta').innerHTML = l;
+            var img1 = document.querySelector('#imgLoteTinta');
+            var img2 = document.querySelector('#imgLotePecas');
+                var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
+                document.querySelector('#txtLoteTinta').innerHTML = l;
+            //img1.addEventListener('click', function (event) {
+
+            //}, true);
+
+            //img2.addEventListener('click', function (event) {
+            //    var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
+            //    document.querySelector('#txtLotePecas').innerHTML = l;
+            //}, true);
+
         });
         lblLTinta.textContent = txtLoteTinta.textContent;
         
