@@ -87,6 +87,19 @@ CREATE TABLE processo(
     FOREIGN KEY (id_produto) REFERENCES produto(id)
 );
 
+CREATE TABLE suporte(
+    id int AUTO_INCREMENT PRIMARY KEY NOT null,
+    idRegistro int,
+    idSetor int,
+    dataEnvio datetime,
+    problema varchar(50),
+    descricao varchar(300),
+    resolvido boolean,
+    FOREIGN KEY (idRegistro) REFERENCES funcionarios(id),
+    FOREIGN KEY (idSetor) REFERENCES setor(id)
+);
+    
+
 insert into acesso(descricao) values ("Produção");
 insert into acesso(descricao) values ("Supervisor");
 insert into acesso(descricao) values ("Técnico de Qualidade");
