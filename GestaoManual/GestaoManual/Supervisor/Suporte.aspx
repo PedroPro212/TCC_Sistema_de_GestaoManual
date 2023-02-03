@@ -46,7 +46,7 @@
                     <p class="text-center">Selecione a opção que melhor descreve seu problema:</p>
                     <asp:DropDownList runat="server" ID="ddlSuporte" CssClass="text-center center-block ddlSuporte">
                         <asp:ListItem Value="optNCarrega">Página não carrega</asp:ListItem>
-                        <asp:ListItem Value="optPermissao">Perdi minha permissão</asp:ListItem>
+                        <asp:ListItem Value="optPermissao">Permissão perdida</asp:ListItem>
                     </asp:DropDownList>
                     <p class="text-center">Descreva em poucas palavras o problema encontrado</p>
                     <div class="text-center"><asp:TextBox runat="server" ID="txtPergunta" TextMode="MultiLine" CssClass="UpperBox"></asp:TextBox></div>
