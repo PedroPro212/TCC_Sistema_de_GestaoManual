@@ -41,7 +41,7 @@ namespace GestaoManual.Negocio
             try
             {
                 connection.Open();
-                var comando = new MySqlCommand($"SELECT * FROM suporte WHERE (1=1)", connection);
+                var comando = new MySqlCommand($"SELECT * FROM suporte WHERE resolvido = 0", connection);
                 if (registro.Equals("") == false)
                 {
                     comando.CommandText += $" AND idRegistro = @registro";
@@ -83,13 +83,13 @@ namespace GestaoManual.Negocio
             return problemas;
         }
 
-        /*public bool Update(Classes.Maquina maquina)
+        public bool MarcarConcluido(int id)
         {
             try 
             {
                 connection.Open();
-                var comando = new MySqlCommand($@"UPDATE maquina SET tipo = @tipo WHERE id = @id", connection);
-                comando.Parameters.Add(new MySqlParameter("id", maquina.Id));
+                var comando = new MySqlCommand($@"UPDATE suporte SET resolvido = 1 WHERE id = @id", connection);
+                comando.Parameters.Add(new MySqlParameter("id", id));
                 comando.ExecuteNonQuery();
                 connection.Close();
             }
@@ -98,6 +98,6 @@ namespace GestaoManual.Negocio
                 return false;
             }
             return true;
-        }*/
+        }
     }
 }
