@@ -6,11 +6,11 @@
     <asp:TextBox runat="server" ID="txtPesquisar"></asp:TextBox>
     <asp:Button runat="server" ID="btnPesquisar" Text="PESQUISAR" OnClick="btnPesquisar_Click"/>
     <asp:GridView runat="server" ID="grdProduto" Width="80%" AutoGenerateColumns="false" 
-                        CssClass="table table-condensed" OnRowCommand="grdMaquina_RowCommand"
+                        CssClass="table table-condensed" OnRowCommand="grdProduto_RowCommand"
                         AllowPaging="false">
                         <Columns>
                             <asp:BoundField DataField="Descricao" HeaderText="DESCRIÇÃO:" />
-                            <asp:ButtonField ButtonType="Link" CommandName="VER" ControlStyle-CssClass="btn btn-primary" Text="VER" ItemStyle-HorizontalAlign="Center" />
+                            <asp:ButtonField ButtonType="Link" CommandName="excluir" ControlStyle-CssClass="btn btn-primary" Text="EXCLUIR" ItemStyle-HorizontalAlign="Center" />
                         </Columns>
         </asp:GridView>
 </asp:Content>

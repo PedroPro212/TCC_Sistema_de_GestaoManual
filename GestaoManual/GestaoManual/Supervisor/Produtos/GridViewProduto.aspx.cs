@@ -18,18 +18,25 @@ namespace GestaoManual.Supervisor.Produtos
         {
             Response.Redirect("AdicionarProduto.aspx");
         }
-
-        protected void grdMaquina_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-
-        }
-
+        
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
             var produtos = new Negocio.Produto().Read(txtPesquisar.Text);
             Session["dados3"] = produtos;
             grdProduto.DataSource = produtos;
             grdProduto.DataBind();
+        }
+
+        protected void grdProduto_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            var produtos = (List<Classes.Produto>)Session["dados3"];
+
+            if (e.CommandName == "excluir")
+            {
+                new Negocio.Produto().Delete(produtos[index].Id);
+                Response.Redirect("GridViewProduto.aspx");
+            }
         }
     }
 }
