@@ -447,7 +447,7 @@
                     </li>
 
                     <li class="nav-link" runat="server" id="liDev" visible="false">
-                        <a href="#"> 
+                        <a href="Dev/ChamadoSuporte.aspx"> 
                             <i class='bx bx-heart icon' ></i>
                             <span class="text nav-text">Dev</span>
                         </a>
