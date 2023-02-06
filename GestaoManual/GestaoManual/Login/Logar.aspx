@@ -128,12 +128,11 @@
 
         .seg p{
             display:flex;
-            left: 42%;
+            left: 44%;
             position: absolute;
             bottom: 68%;
-            font-size: 26px;
+            font-size: 20px;
             font-family: 'Anton', sans-serif;
-            filter:drop-shadow(black 1px 1px 1px);
         }
     </style>
 
@@ -149,7 +148,7 @@
                     <div class="col-3"></div>
                     <div class="col-4"></div>
                 </div>
-                <div class="seg"><p style="color:#FDD04C">S</p><p style="color:#3C6A98; margin-left: 20px;">E</p><p style="color:#38B6FF; margin-left: 38px;">G</p></div>
+                <div class="seg"><p style="color:#FDD04C">S</p><p style="color:#3C6A98; margin-left: 13px;">E</p><p style="color:#38B6FF; margin-left: 23px;">G</p></div>
                 <b>
                     <p style="text-transform: uppercase; font-size: 25px;padding-top:130px; margin-bottom:15px">Fazer Login</p>
                 </b>
