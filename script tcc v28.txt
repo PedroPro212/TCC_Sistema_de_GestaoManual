@@ -138,3 +138,5 @@ INSERT INTO produto VALUES(NULL, "Carroceria");
 INSERT INTO produto VALUES(NULL, "Fornos");
 INSERT INTO produto VALUES(NULL, "Incêndio");
 INSERT INTO produto VALUES(NULL, "Trincos");
+
+INSERT INTO operador VALUES(NULL, 8, 1, 1);
