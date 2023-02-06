@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="Logar.css"/> <%--Conexão ao arquivo de estilo css--%>
 
     <style>
- 
+
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
         body{
             width:100%;
             min-height:100vh;
@@ -37,16 +39,119 @@
             .bg:hover{
                 background-color:darkgreen
             }
+
+
+        @keyframes barra1{
+            0% {height: 20px;}
+            100% {height: 60px;}
+        }
+        @keyframes barra2{
+            0% {height: 35px;}
+            100% {height: 60px;}
+            0% {height: 0px;}
+        }
+        @keyframes barra3{
+            0% {height: 35px;}
+            100% {height: 60px;}
+            0% {height: 0px;}
+        }
+        @keyframes barra4{
+            0% {height: 35px;}
+            100% {height: 60px;}
+            0% {height: 0px;}
+        }
+
+        .container2{
+            display: flex;
+        }
+
+        .col-1{
+            width: 20px;
+            height: 20px;
+            background-color:#FDD04C;
+            margin-left: -20px;
+            border-radius: 2px;
+            animation-name: barra1;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            position: absolute;
+            bottom: 75%;
+            box-shadow:1px 1px 1px;
+        }
+        .col-2{
+            width: 20px;
+            height: 35px;
+            background-color:#38B6FF;
+            margin-left: 5px;
+            border-radius: 2px;
+            animation-name: barra2;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            position: absolute;
+            bottom: 75%;
+            box-shadow:1px 1px 1px;
+        }
+        .col-3{
+            width: 20px;
+            height: 30px;
+            background-color:#3C6A98;
+            margin-left: 33px;
+            border-radius: 2px;
+            animation-name: barra3;
+            animation-duration: 1.8s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            position: absolute;
+            bottom: 75%;
+            box-shadow:1px 1px 1px;
+        }
+        .col-4{
+            width: 20px;
+            height: 45px;
+            background-color:#ffbd59;
+            margin-left: 60px;
+            border-radius: 2px;
+            animation-name: barra4;
+            animation-duration: 0.9s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            position: absolute;
+            bottom:75%;
+            box-shadow:1px 1px 1px;
+        }
+
+        .seg p{
+            display:flex;
+            left: 42%;
+            position: absolute;
+            bottom: 68%;
+            font-size: 26px;
+            font-family: 'Anton', sans-serif;
+            filter:drop-shadow(black 1px 1px 1px);
+        }
     </style>
 
     <div class="container">
         <div class="col-sm-4"></div>
 
         <div class="col-sm-4 quadro text-center">
-            <div id="quadro" style="background-color: white; margin-top: 50px; border-radius: 5px; height: 450px; box-shadow: black 1px 1px 1px">
-                <img class="logo center-block" src="/imgs/SEGLogar.png" width="80" style="display:flex; padding-top:15px; padding-bottom:15px" /> <%--Espaço reservado para logo do sistema--%>
+            <div id="quadro" style="background-color: white; margin-top: 50px; border-radius: 5px; height: 500px; box-shadow: black 1px 1px 1px">
+<%--                <img class="logo center-block" src="/imgs/SEGLogar.png" width="80" style="display:flex; padding-top:15px; padding-bottom:15px" /> <%--Espaço reservado para logo do sistema--%>
+                <div class="conatiner2" style="margin-left:140px;">
+                    <div class="col-1"></div>
+                    <div class="col-2"></div>
+                    <div class="col-3"></div>
+                    <div class="col-4"></div>
+                </div>
+                <div class="seg"><p style="color:#FDD04C">S</p><p style="color:#3C6A98; margin-left: 20px;">E</p><p style="color:#38B6FF; margin-left: 38px;">G</p></div>
                 <b>
-                    <p style="text-transform: uppercase; font-size: 25px; margin-bottom:15px">Fazer Login</p>
+                    <p style="text-transform: uppercase; font-size: 25px;padding-top:130px; margin-bottom:15px">Fazer Login</p>
                 </b>
                 <div style="padding-top: 20px; padding-left: 50px;">
                     <div class="text-left">
