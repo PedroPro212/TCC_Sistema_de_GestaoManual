@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace GestaoManual.Login
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         private MySqlConnection connection2 = new MySqlConnection(SiteMaster.ConnectionString);
 
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             txtSenha.MaxLength = 6;
@@ -23,6 +26,20 @@ namespace GestaoManual.Login
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            Log.Logger = new LoggerConfiguration().WriteTo.File("C:\\Users\\lab201\\Desktop\\LOGREGISTRO.txt",
+                restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information, rollingInterval: RollingInterval.Hour).CreateLogger();
+
+            try
+            {
+                int valReg = Convert.ToInt32(txtRegistro.Text);
+                Log.Information("Registro sucedido");
+            }
+            catch
+            {
+                Log.Error("Ocorreu inserção inadequada de registro.");
+                SiteMaster.AlertPersonalizado(this, "O registro não pode possuir uma letra.");
+                return;
+            }
             if (ValidarSenha() == true)
             {
                 connection.Open();

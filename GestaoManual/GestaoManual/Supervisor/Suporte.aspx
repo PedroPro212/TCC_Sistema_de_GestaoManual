@@ -50,7 +50,7 @@
                     </asp:DropDownList>
                     <p class="text-center">Descreva em poucas palavras o problema encontrado</p>
                     <div class="text-center"><asp:TextBox runat="server" ID="txtPergunta" TextMode="MultiLine" CssClass="UpperBox"></asp:TextBox></div>
-                    <asp:Button runat="server" CssClass="btnEnviar center-block" ID="btnEnviar" Text="ENVIAR" Width="88%" Height="30" />
+                    <asp:Button runat="server" CssClass="btnEnviar center-block" ID="btnEnviar" Text="ENVIAR" Width="88%" Height="30" OnClick="btnEnviar_Click"/>
                 </div> 
             </div>
             <div class="col-sm-4"></div>
