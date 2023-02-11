@@ -20,8 +20,8 @@ namespace GestaoManual.Negocio
             {
                 connection.Open();
                 var comando = new MySqlCommand($"INSERT INTO suporte(idRegistro, idSetor, dataEnvio, problema, descricao, resolvido) " +
-                                               $"VALUES ('@registro','@setor',NOW(),'@problema','@descricao',false)", connection);
-                comando.Parameters.Add(new MySqlParameter("registro", problema.IdRegistro));
+                                               $"VALUES (@idRegistro,@setor,NOW(),@problema,@descricao,false)", connection);
+                comando.Parameters.Add(new MySqlParameter("idRegistro", problema.IdRegistro));
                 comando.Parameters.Add(new MySqlParameter("setor", problema.IdSetor));
                 comando.Parameters.Add(new MySqlParameter("problema", problema.NomeProblema));
                 comando.Parameters.Add(new MySqlParameter("descricao", problema.Descricao));
