@@ -260,6 +260,7 @@
     <Compile Include="Negocio\Maquina.cs" />
     <Compile Include="Negocio\Operador.cs" />
     <Compile Include="Negocio\Problema.cs" />
+    <Compile Include="Negocio\Producao.cs" />
     <Compile Include="Negocio\Produto.cs" />
     <Compile Include="Negocio\Setor.cs" />
     <Compile Include="Negocio\TecnicoQualidade.cs" />

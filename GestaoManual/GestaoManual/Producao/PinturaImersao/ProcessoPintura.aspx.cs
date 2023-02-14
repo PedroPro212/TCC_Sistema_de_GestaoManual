@@ -56,6 +56,7 @@ namespace GestaoManual.Producao.PinturaImersao
         {
             string dataFim = DateTime.Now.ToString();
             lblTeste.Text = teste.Value;
+
         }
     }
 }
