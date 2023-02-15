@@ -232,6 +232,7 @@
     <Compile Include="Classes\Operador.cs" />
     <Compile Include="Classes\Problema.cs" />
     <Compile Include="Classes\Processo.cs" />
+    <Compile Include="Classes\Producao.cs" />
     <Compile Include="Classes\Produto.cs" />
     <Compile Include="Classes\Setor.cs" />
     <Compile Include="Classes\Maquina.cs" />

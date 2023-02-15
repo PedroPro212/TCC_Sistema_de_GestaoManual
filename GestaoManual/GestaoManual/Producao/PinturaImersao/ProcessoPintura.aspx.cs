@@ -54,8 +54,19 @@ namespace GestaoManual.Producao.PinturaImersao
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(Session["Login"].ToString());
+
             string dataFim = DateTime.Now.ToString();
             lblTeste.Text = teste.Value;
+
+            var producao = new Classes.Producao();
+            producao.IdProduto = Convert.ToInt32(Session["produto"].ToString());
+            producao.DataHoraIni = Convert.ToDateTime(dataInicio.ToString());
+            producao.DataHoraIni = Convert.ToDateTime(dataFim.ToString());
+            producao.NumPecas = Convert.ToInt32(txtQts.Text);
+            producao.IDOperador = id;
+            producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
+
 
         }
     }

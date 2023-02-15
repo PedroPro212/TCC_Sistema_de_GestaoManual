@@ -175,6 +175,9 @@
 
                     <label id="lblLTinta" visible="false"></label>
                     <asp:Label runat="server" ID="lblLoteTinat" Visible="false"></asp:Label>
+
+                    <label id="lblLPecas" visible="false"></label>
+                    <asp:Label runat="server" ID="lblLotePecas" Visible="false"></asp:Label>
                     
                     <div class="modal1">
 
