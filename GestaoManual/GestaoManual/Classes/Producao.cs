@@ -15,6 +15,7 @@ namespace GestaoManual.Classes
         public DateTime DataHoraIni  { get; set;}
         public DateTime DataHoraFin  { get; set;}
         public int NumPecas  { get; set;}
+        public int NumPecasBoas { get; set;}
         public string LotePecas  { get; set;}
         public string LoteTinta  { get; set;}
     }

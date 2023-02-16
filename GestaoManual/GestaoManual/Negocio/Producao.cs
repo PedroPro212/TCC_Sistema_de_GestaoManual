@@ -19,11 +19,12 @@ namespace GestaoManual.Negocio
             try
             {
                 connection.Open();
-                var comando = new MySqlCommand($"INSERT INTO (id_produto, datahoraIni, datahoraFin, noPecas, lotePecas, idOperador, id_setor, loteTinta) VALUES (@id_produto, @datahoraIni, @datahoraFin, @noPecas, @lotePecas, @idOperador, @id_setor, @loteTinta)", connection);
+                var comando = new MySqlCommand($"INSERT INTO processo (id_produto, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, idOperador, id_setor, loteTinta) VALUES (@id_produto, @datahoraIni, @datahoraFin, @NPecas, @NPecasBoas, @lotePecas, @idOperador, @id_setor, @loteTinta)", connection);
                 comando.Parameters.Add(new MySqlParameter("id_produto", producao.IdProduto));
                 comando.Parameters.Add(new MySqlParameter("datahoraIni", producao.DataHoraIni));
                 comando.Parameters.Add(new MySqlParameter("datahoraFin", producao.DataHoraFin));
-                comando.Parameters.Add(new MySqlParameter("noPecas", producao.NumPecas));
+                comando.Parameters.Add(new MySqlParameter("NPecas", producao.NumPecas));
+                comando.Parameters.Add(new MySqlParameter("NPecasBoas", producao.NumPecasBoas));
                 comando.Parameters.Add(new MySqlParameter("lotePecas", producao.LotePecas));
                 comando.Parameters.Add(new MySqlParameter("idOperador", producao.IDOperador));
                 comando.Parameters.Add(new MySqlParameter("id_setor", producao.IdSetor));

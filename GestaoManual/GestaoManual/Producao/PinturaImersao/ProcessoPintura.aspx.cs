@@ -12,7 +12,7 @@ namespace GestaoManual.Producao.PinturaImersao
     public partial class ProcessoPintura : System.Web.UI.Page
     {
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
-        static string dataInicio;
+        static string dataHoraIni;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,12 +49,14 @@ namespace GestaoManual.Producao.PinturaImersao
             }
             connection.Close();
 
-            dataInicio = DateTime.Now.ToString();
+            //dataInicio = DateTime.Now.ToString();
+            dataHoraIni = Request.Form["lblDataHoraInicio"];
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(Session["Login"].ToString());
+
 
             string dataFim = DateTime.Now.ToString();
             lblTeste.Text = teste.Value;
@@ -63,9 +65,10 @@ namespace GestaoManual.Producao.PinturaImersao
 
             var producao = new Classes.Producao();
             producao.IdProduto = Convert.ToInt32(Session["produto"].ToString());
-            producao.DataHoraIni = Convert.ToDateTime(dataInicio.ToString());
-            producao.DataHoraFin = Convert.ToDateTime(dataFim.ToString());
+            producao.DataHoraIni = Convert.ToDateTime(Request.Form["dataInicio"].ToString());
+            producao.DataHoraFin = Convert.ToDateTime(dataHoraIni);
             producao.NumPecas = Convert.ToInt32(txtQts.Text);
+            producao.NumPecasBoas = Convert.ToInt32(txtPecasBoas.Text);
             producao.LotePecas = LabelLotePecas.Text;
             producao.IDOperador = id;
             producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
