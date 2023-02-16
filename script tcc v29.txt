@@ -77,14 +77,15 @@ CREATE TABLE processo(
     datahoraIni datetime,
     datahoraFin DATETIME,
     noPecas int,
-    lotePecas varchar(20),
+    lotePecas varchar(200),
     idOperador int,
-    etapaProcesso varchar(30),
+    id_setor INT,
     idMaquina int,
-    loteTinta varchar(20),
+    loteTinta varchar(200),
     FOREIGN KEY (idOperador) REFERENCES operador(id),
     FOREIGN KEY (idMaquina) REFERENCES maquina(id),
-    FOREIGN KEY (id_produto) REFERENCES produto(id)
+    FOREIGN KEY (id_produto) REFERENCES produto(id),
+    FOREIGN KEY (id_setor) REFERENCES setor(id)
 );
 
 CREATE TABLE suporte(
@@ -138,5 +139,3 @@ INSERT INTO produto VALUES(NULL, "Carroceria");
 INSERT INTO produto VALUES(NULL, "Fornos");
 INSERT INTO produto VALUES(NULL, "Incêndio");
 INSERT INTO produto VALUES(NULL, "Trincos");
-
-INSERT INTO operador VALUES(NULL, 8, 1, 1);
