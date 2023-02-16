@@ -204,6 +204,9 @@
     <%--<p id="parTesteHora">lllllllllllllll</p>--%>
     <asp:Label runat="server" ID="lblTeste"></asp:Label>
     <asp:HiddenField runat="server" ID="teste" Value="teste1" ClientIDMode="Static" />
+
+    <asp:Label runat="server" ID="LabelLotePecas"></asp:Label>
+    <asp:HiddenField runat="server" ID="lblLoteP" Value="teste2" ClientIDMode="Static" />
     <script>
 
 
@@ -253,6 +256,7 @@
             mes.textContent = m + '/';
             ano.textContent = a;
             document.getElementById('teste').value = document.getElementById('txtLoteTinta').textContent;
+            document.getElementById('lblLoteP').value = document.getElementById('txtLotePecas').textContent;
         });
 
         //Abrir modal
@@ -307,6 +311,7 @@
 
         });
         lblLTinta.textContent = txtLoteTinta.textContent;
+        lblLPecas.textContent = txtLotePecas.textContent;
         
    
     </script>
