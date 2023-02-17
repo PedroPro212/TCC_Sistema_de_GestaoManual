@@ -12,7 +12,7 @@ namespace GestaoManual.Producao.PinturaImersao
     public partial class ProcessoPintura : System.Web.UI.Page
     {
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
-        static string dataInicio;
+        static string dataHoraIni;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,13 +49,52 @@ namespace GestaoManual.Producao.PinturaImersao
             }
             connection.Close();
 
-            dataInicio = DateTime.Now.ToString();
+            //dataHoraIni = Request.Form["lblDataHoraInicio"];
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
-            string dataFim = DateTime.Now.ToString();
+            int id = Convert.ToInt32(Session["Login"].ToString());
+
+
+            DateTime dataFim = DateTime.Now;
             lblTeste.Text = teste.Value;
+            LabelLotePecas.Text = lblLoteP.Value;
+
+            if(TodosPreenchidos() == true)
+            {
+                var producao = new Classes.Producao();
+                producao.IdProduto = Convert.ToInt32(Session["produto"].ToString());
+                producao.DataHoraIni = Convert.ToDateTime(Session["DataHoraInicio"].ToString());
+                producao.DataHoraFin = dataFim;
+                producao.NumPecas = Convert.ToInt32(txtQts.Text);
+                producao.NumPecasBoas = Convert.ToInt32(txtPecasBoas.Text);
+                producao.LotePecas = LabelLotePecas.Text;
+                producao.IDOperador = id;
+                producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
+                //
+                producao.LoteTinta = lblTeste.Text;
+                new Negocio.Producao().FinalizarProcesso(producao);
+            }
+            else
+            {
+                SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estar preenchidos!");
+            }
+
+
+        }
+
+        public bool TodosPreenchidos()
+        {
+            if((txtQts.Text == "")||(txtPecasBoas.Text == "")||(LabelLotePecas.Text == "")||(lblTeste.Text == ""))
+            {
+                SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estar preenchidos!");
+                return false;
+            }
+            else
+            {
+                return true;
+            }       
         }
     }
 }

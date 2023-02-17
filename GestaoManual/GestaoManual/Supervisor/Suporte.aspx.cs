@@ -35,8 +35,6 @@ namespace GestaoManual.Supervisor
             problema.NomeProblema = ddlSuporte.SelectedItem.Text;
             problema.Descricao = txtPergunta.Text;
             new Negocio.Problema().Create(problema);
-
-
         }
     }
 }

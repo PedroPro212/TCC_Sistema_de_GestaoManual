@@ -69,6 +69,15 @@ namespace GestaoManual.Producao.PinturaImersao
         protected global::System.Web.UI.WebControls.Label lblLoteTinat;
 
         /// <summary>
+        /// Controle lblLotePecas.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLotePecas;
+
+        /// <summary>
         /// Controle lblSetor.
         /// </summary>
         /// <remarks>
@@ -112,5 +121,23 @@ namespace GestaoManual.Producao.PinturaImersao
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField teste;
+
+        /// <summary>
+        /// Controle LabelLotePecas.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelLotePecas;
+
+        /// <summary>
+        /// Controle lblLoteP.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField lblLoteP;
     }
 }

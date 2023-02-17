@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,7 @@ namespace GestaoManual.Producao.PinturaImersao
     public partial class PinturaImersao : System.Web.UI.Page
     {
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
+        //public static string dataInicio;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -48,9 +50,14 @@ namespace GestaoManual.Producao.PinturaImersao
         }
 
         protected void btnEntrar_Click(object sender, EventArgs e)
-        {
+        {            
+            DateTime dataInicio = DateTime.Now;
+            Session["DataHoraInicio"] = dataInicio;
+
             Session["Produto"] = ddlProduto.SelectedValue;
-            Response.Redirect("ProcessoPintura.aspx");
+            Response.Redirect("ProcessoPintura.aspx");          
+            
+
         }
     }
 }

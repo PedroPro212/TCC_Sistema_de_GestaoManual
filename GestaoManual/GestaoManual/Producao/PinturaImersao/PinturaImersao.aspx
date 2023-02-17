@@ -33,6 +33,7 @@
     </div>
 
     <div class="col-sm-4">
+        <asp:Label runat="server" ID="lblDataHoraInicio" Visible="false"></asp:Label>
         <div class="horaInicio text-center" style="display:none">
             <p>Início do processo:</p>
             <div class="relogio center-block">

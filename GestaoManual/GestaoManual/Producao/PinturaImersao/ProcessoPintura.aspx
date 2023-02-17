@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 
     <script src="../quagga.min.js"></script>
+   <%-- <script src="ProcessoPintura.js"></script>--%>
 
     <style>
         body{
@@ -166,6 +167,7 @@
                     
                     <p>N°Lote Tinta:</p>
                     <label id="txtLoteTinta"></label><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" onclick="acao()" />
+                    <p>Inverter Leitura: <input type="checkbox" id="cckTrocar" onclick="" /></p>
                     <p>Quantidade produzida:</p>
                     <asp:TextBox runat="server" ID="txtQts" TextMode="Number"></asp:TextBox><br />
                     
@@ -173,6 +175,9 @@
 
                     <label id="lblLTinta" visible="false"></label>
                     <asp:Label runat="server" ID="lblLoteTinat" Visible="false"></asp:Label>
+
+                    <label id="lblLPecas" visible="false"></label>
+                    <asp:Label runat="server" ID="lblLotePecas" Visible="false"></asp:Label>
                     
                     <div class="modal1">
 
@@ -183,14 +188,6 @@
                         <input type="button" id="btnFechar" value="Fechar" onclick="fechar()" />
                     </div>
 
-                    <div class="modal2">
-
-                        <div id="camera2"></div>
-                        <video id="video2" autoplay></video>
-                        <textbox id="LotePecas"></textbox>
-
-                        <input type="button" id="btnFechar2" value="Fechar" onclick="fechar()" />
-                    </div>
                 </div>
                 <div class="col-sm-4">
                     <asp:Label runat="server" CssClass="informacoes" ID="lblSetor"></asp:Label>
@@ -207,6 +204,9 @@
     <%--<p id="parTesteHora">lllllllllllllll</p>--%>
     <asp:Label runat="server" ID="lblTeste"></asp:Label>
     <asp:HiddenField runat="server" ID="teste" Value="teste1" ClientIDMode="Static" />
+
+    <asp:Label runat="server" ID="LabelLotePecas"></asp:Label>
+    <asp:HiddenField runat="server" ID="lblLoteP" Value="teste2" ClientIDMode="Static" />
     <script>
 
 
@@ -256,6 +256,7 @@
             mes.textContent = m + '/';
             ano.textContent = a;
             document.getElementById('teste').value = document.getElementById('txtLoteTinta').textContent;
+            document.getElementById('lblLoteP').value = document.getElementById('txtLotePecas').textContent;
         });
 
         //Abrir modal
@@ -298,25 +299,21 @@
         Quagga.onDetected(function (data) {
             console.log(data);
 
-            var img1 = document.querySelector('#imgLoteTinta');
-            var img2 = document.querySelector('#imgLotePecas');
+            var checkBox = document.getElementById('cckTrocar');    
+            if (checkBox.checked == false) {
                 var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
                 document.querySelector('#txtLoteTinta').innerHTML = l;
-            //img1.addEventListener('click', function (event) {
-
-            //}, true);
-
-            //img2.addEventListener('click', function (event) {
-            //    var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
-            //    document.querySelector('#txtLotePecas').innerHTML = l;
-            //}, true);
+            }
+            else {
+                var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
+                document.querySelector('#txtLotePecas').innerHTML = l;
+            }
 
         });
         lblLTinta.textContent = txtLoteTinta.textContent;
+        lblLPecas.textContent = txtLotePecas.textContent;
         
-
-        
-        
+   
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
