@@ -49,8 +49,7 @@ namespace GestaoManual.Producao.PinturaImersao
             }
             connection.Close();
 
-            //dataInicio = DateTime.Now.ToString();
-            dataHoraIni = Request.Form["lblDataHoraInicio"];
+            //dataHoraIni = Request.Form["lblDataHoraInicio"];
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
@@ -58,24 +57,44 @@ namespace GestaoManual.Producao.PinturaImersao
             int id = Convert.ToInt32(Session["Login"].ToString());
 
 
-            string dataFim = DateTime.Now.ToString();
+            DateTime dataFim = DateTime.Now;
             lblTeste.Text = teste.Value;
             LabelLotePecas.Text = lblLoteP.Value;
 
+            if(TodosPreenchidos() == true)
+            {
+                var producao = new Classes.Producao();
+                producao.IdProduto = Convert.ToInt32(Session["produto"].ToString());
+                producao.DataHoraIni = Convert.ToDateTime(Session["DataHoraInicio"].ToString());
+                producao.DataHoraFin = dataFim;
+                producao.NumPecas = Convert.ToInt32(txtQts.Text);
+                producao.NumPecasBoas = Convert.ToInt32(txtPecasBoas.Text);
+                producao.LotePecas = LabelLotePecas.Text;
+                producao.IDOperador = id;
+                producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
+                //
+                producao.LoteTinta = lblTeste.Text;
+                new Negocio.Producao().FinalizarProcesso(producao);
+            }
+            else
+            {
+                SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estar preenchidos!");
+            }
 
-            var producao = new Classes.Producao();
-            producao.IdProduto = Convert.ToInt32(Session["produto"].ToString());
-            producao.DataHoraIni = Convert.ToDateTime(Request.Form["dataInicio"].ToString());
-            producao.DataHoraFin = Convert.ToDateTime(dataHoraIni);
-            producao.NumPecas = Convert.ToInt32(txtQts.Text);
-            producao.NumPecasBoas = Convert.ToInt32(txtPecasBoas.Text);
-            producao.LotePecas = LabelLotePecas.Text;
-            producao.IDOperador = id;
-            producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
-            //
-            producao.LoteTinta = lblTeste.Text;
-            new Negocio.Producao().FinalizarProcesso(producao);
 
+        }
+
+        public bool TodosPreenchidos()
+        {
+            if((txtQts.Text == "")||(txtPecasBoas.Text == "")||(LabelLotePecas.Text == "")||(lblTeste.Text == ""))
+            {
+                SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estar preenchidos!");
+                return false;
+            }
+            else
+            {
+                return true;
+            }       
         }
     }
 }

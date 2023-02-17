@@ -12,7 +12,7 @@ namespace GestaoManual.Producao.PinturaImersao
     public partial class PinturaImersao : System.Web.UI.Page
     {
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
-        public static string dataInicio;
+        //public static string dataInicio;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -50,12 +50,14 @@ namespace GestaoManual.Producao.PinturaImersao
         }
 
         protected void btnEntrar_Click(object sender, EventArgs e)
-        {
+        {            
+            DateTime dataInicio = DateTime.Now;
+            Session["DataHoraInicio"] = dataInicio;
+
             Session["Produto"] = ddlProduto.SelectedValue;
             Response.Redirect("ProcessoPintura.aspx");          
             
-            dataInicio = DateTime.Now.ToString();
-            lblDataHoraInicio.Text = dataInicio;
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Responsavel.Master" AutoEventWireup="true" CodeBehind="Funcionario.aspx.cs" Inherits="GestaoManual.Supervisor.Funcionario.Funcionario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Responsavel.Master" AutoEventWireup="true" CodeBehind="Funcionario.aspx.cs" Inherits="GestaoManual.Supervisor.Funcionario.Funcionario" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -56,6 +56,11 @@
                 height:30px;
                 font-size:15px
             }
+
+        .btn-excel{
+            margin-bottom:15px;
+            font-size:12px;
+        }
     </style>
     <div class="container">
         <div class="row">
@@ -67,6 +72,7 @@
 
                     <p class="text-center">Pesquisar: <asp:TextBox runat="server" ID="txtPesquisar"></asp:TextBox></p> 
                     <asp:Button runat="server" ID="btnPesquisar" CssClass="btnPesquisar center-block" Width="150" Height="23" Text="PESQUISAR" OnClick="btnPesquisar_Click"/>
+                    
 
                     <asp:GridView runat="server" ID="grdFuncionario" Width="80%" AutoGenerateColumns="false"
                         CssClass="table table-condensed center-block" OnRowCommand="grdFuncionario_RowCommand"
@@ -83,6 +89,7 @@
                         </Columns>
 
                     </asp:GridView>
+                    <asp:Button runat="server" ID="btnExportarExcel" Text="Excel" CssClass="btn btn-success btn-excel" Width="100" Height="23" OnClick="btnExportarExcel_Click" />
                 </div>
                 <%--<div class="col-sm-1"></div>--%>
 
