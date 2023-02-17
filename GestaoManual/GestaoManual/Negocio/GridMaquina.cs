@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,7 @@ namespace GestaoManual.Negocio
             try
             {
                 connection.Open();
-                var comando = new MySqlCommand($@"SELECT m.id AS mId, m.nome AS mNome, s.id AS sId, s.descricao AS sNome, o.idRegistro AS oId, f.nome AS fNome
-                                                  FROM maquina AS m, setor AS s, operador AS o, funcionarios AS f 
-                                                  WHERE m.id = o.idMaquina AND m.id_setor = s.id AND o.idRegistro = f.id", connection);
+                var comando = new MySqlCommand($"SELECT m.id AS mId, m.nome AS mNome, s.id AS sId, s.descricao AS sNome, o.registro AS oId, f.nome AS fNome FROM maquina AS m, setor AS s, operador AS o, funcionarios AS f WHERE m.id = o.idMaquina AND m.id_setor = s.id AND o.registro = f.id", connection);
                 if (maquina.Equals("") == false)
                 {
                     comando.CommandText += $" AND m.nome like @maquina";
@@ -52,9 +51,9 @@ namespace GestaoManual.Negocio
                     });
                 }
             }
-            catch
+            catch(Exception e)
             {
-
+               
             }
             finally
             {
