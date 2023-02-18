@@ -11,7 +11,7 @@ namespace GestaoManual.Classes
         public int IdSetor  { get; set;}
         public int IdProduto { get; set; }
         public int IDOperador  { get; set;}
-        public int IDMaquina  { get; set;}
+        public string IDMaquina  { get; set;}
         public DateTime DataHoraIni  { get; set;}
         public DateTime DataHoraFin  { get; set;}
         public int NumPecas  { get; set;}

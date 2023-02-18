@@ -50,11 +50,28 @@ namespace GestaoManual.Producao.PinturaImersao
             connection.Close();
 
             //dataHoraIni = Request.Form["lblDataHoraInicio"];
+            try
+            {
+                connection.Open();
+                var reader2 = new MySqlCommand($"SELECT op.id, op.registro, op.idMaquina, ma.id, ma.nome FROM operador AS op, maquina AS ma WHERE op.id = ma.id AND op.registro={id}", connection).ExecuteReader();
+                while (reader2.Read())
+                {
+                    var maquina = new ListItem(reader2.GetString("nome"), reader2.GetInt32("registro").ToString());
+                    lblMaquina.Text = maquina.ToString();
+                }
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+
+            }
+
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(Session["Login"].ToString());
+
 
 
             DateTime dataFim = DateTime.Now;
@@ -72,7 +89,7 @@ namespace GestaoManual.Producao.PinturaImersao
                 producao.LotePecas = LabelLotePecas.Text;
                 producao.IDOperador = id;
                 producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
-                //
+                producao.IDMaquina = lblMaquina.Text;
                 producao.LoteTinta = lblTeste.Text;
                 new Negocio.Producao().FinalizarProcesso(producao);
             }

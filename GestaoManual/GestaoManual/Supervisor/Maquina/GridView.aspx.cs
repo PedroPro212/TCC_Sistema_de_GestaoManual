@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -60,11 +61,30 @@ namespace GestaoManual.Supervisor.Maquina
             Session["dados2"] = gridmaquina;
             grdMaquina.DataSource= gridmaquina;
             grdMaquina.DataBind();
+            btnExportarExcel.Enabled = true;
         }
 
         protected void ddlSetor_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnPesquisar_Click(null, null);
+        }
+
+        protected void btnExportarExcel_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", "attachment; filename=UserInfo.xls");
+            Response.Charset = "";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            grdMaquina.RenderControl(htw);
+            Response.Output.Write(sw.ToString());
+            Response.End();
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
         }
     }
 }
