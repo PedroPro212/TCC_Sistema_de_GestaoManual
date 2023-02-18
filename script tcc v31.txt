@@ -72,19 +72,20 @@ CREATE TABLE produto(
 );
 
 CREATE TABLE processo(
-    id int,
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     id_produto INT NOT NULL,
     datahoraIni datetime,
     datahoraFin DATETIME,
-    noPecas int,
-    lotePecas varchar(20),
+    NPecas int,
+    NPecasBoas int,
+    lotePecas varchar(200),
     idOperador int,
-    etapaProcesso varchar(30),
-    idMaquina int,
-    loteTinta varchar(20),
-    FOREIGN KEY (idOperador) REFERENCES operador(id),
-    FOREIGN KEY (idMaquina) REFERENCES maquina(id),
-    FOREIGN KEY (id_produto) REFERENCES produto(id)
+    id_setor INT,
+    idMaquina varchar(10),
+    loteTinta varchar(200),
+    FOREIGN KEY (idOperador) REFERENCES operador(registro),
+    FOREIGN KEY (id_produto) REFERENCES produto(id),
+    FOREIGN KEY (id_setor) REFERENCES setor(id)
 );
 
 CREATE TABLE suporte(
@@ -138,3 +139,7 @@ INSERT INTO produto VALUES(NULL, "Carroceria");
 INSERT INTO produto VALUES(NULL, "Fornos");
 INSERT INTO produto VALUES(NULL, "Incêndio");
 INSERT INTO produto VALUES(NULL, "Trincos");
+
+INSERT INTO maquina VALUES(NULL, "K0555", 1);
+
+INSERT INTO operador VALUES (NULL, 4, 1, 1);
