@@ -19,7 +19,7 @@ namespace GestaoManual.Negocio
             try
             {
                 connection.Open();
-                var comando = new MySqlCommand($"INSERT INTO processo (id_produto, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, idOperador, id_setor, loteTinta) VALUES (@id_produto, @datahoraIni, @datahoraFin, @NPecas, @NPecasBoas, @lotePecas, @idOperador, @id_setor, @loteTinta)", connection);
+                var comando = new MySqlCommand($"INSERT INTO processo (id_produto, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, idOperador, id_setor, idMaquina, loteTinta) VALUES (@id_produto, @datahoraIni, @datahoraFin, @NPecas, @NPecasBoas, @lotePecas, @idOperador, @id_setor, @idMaquina, @loteTinta)", connection);
                 comando.Parameters.Add(new MySqlParameter("id_produto", producao.IdProduto));
                 comando.Parameters.Add(new MySqlParameter("datahoraIni", producao.DataHoraIni));
                 comando.Parameters.Add(new MySqlParameter("datahoraFin", producao.DataHoraFin));
@@ -28,7 +28,7 @@ namespace GestaoManual.Negocio
                 comando.Parameters.Add(new MySqlParameter("lotePecas", producao.LotePecas));
                 comando.Parameters.Add(new MySqlParameter("idOperador", producao.IDOperador));
                 comando.Parameters.Add(new MySqlParameter("id_setor", producao.IdSetor));
-                //comando.Parameters.Add(new MySqlParameter("idMaquina", producao.IDMaquina));
+                comando.Parameters.Add(new MySqlParameter("idMaquina", producao.IDMaquina));
                 comando.Parameters.Add(new MySqlParameter("loteTinta", producao.LoteTinta));
                 comando.ExecuteNonQuery();
                 connection.Close();

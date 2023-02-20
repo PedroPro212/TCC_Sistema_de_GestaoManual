@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Responsavel.Master" AutoEventWireup="true" CodeBehind="GridView.aspx.cs" Inherits="GestaoManual.Supervisor.Maquina.GridView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Responsavel.Master" AutoEventWireup="true" CodeBehind="GridView.aspx.cs" Inherits="GestaoManual.Supervisor.Maquina.GridView" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
@@ -33,6 +33,11 @@
             border-radius:5px;
             border:none;
         }
+        
+        .btn-excel{
+            margin-bottom:15px;
+            font-size:12px;
+        }
 
     </style>
 
@@ -49,6 +54,7 @@
                     <p><asp:TextBox runat="server" ID="txtPesquisarOp"></asp:TextBox></p>
                     <asp:DropDownList runat="server" ID="ddlSetor" CssClass="ddlSetor center-block" Width="170" Height="25" Font-Size="11" AutoPostBack="true" OnSelectedIndexChanged="ddlSetor_SelectedIndexChanged"></asp:DropDownList>
 
+                    <asp:Button runat="server" ID="btnExportarExcel" Text="Excel" CssClass="btn btn-success btn-excel" Width="100" Height="23" Enabled="false" OnClick="btnExportarExcel_Click" />
                     <asp:GridView runat="server" ID="grdMaquina" Width="80%" AutoGenerateColumns="false" 
                         CssClass="table table-condensed" OnRowCommand="grdMaquina_RowCommand"
                         AllowPaging="false" OnRowDataBound="grdMaquina_RowDataBound">

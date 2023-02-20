@@ -58,6 +58,7 @@
             }
 
         .btn-excel{
+            margin-left:110px;
             margin-bottom:15px;
             font-size:12px;
         }
@@ -73,7 +74,7 @@
                     <p class="text-center">Pesquisar: <asp:TextBox runat="server" ID="txtPesquisar"></asp:TextBox></p> 
                     <asp:Button runat="server" ID="btnPesquisar" CssClass="btnPesquisar center-block" Width="150" Height="23" Text="PESQUISAR" OnClick="btnPesquisar_Click"/>
                     
-
+                    <asp:Button runat="server" ID="btnExportarExcel" Text="Excel" CssClass="btn btn-success btn-excel" Width="100" Height="23" Enabled="false" OnClick="btnExportarExcel_Click" />
                     <asp:GridView runat="server" ID="grdFuncionario" Width="80%" AutoGenerateColumns="false"
                         CssClass="table table-condensed center-block" OnRowCommand="grdFuncionario_RowCommand"
                         AllowPaging="false" OnDataBound="grdFuncionario_DataBound">
@@ -89,19 +90,11 @@
                         </Columns>
 
                     </asp:GridView>
-                    <asp:Button runat="server" ID="btnExportarExcel" Text="Excel" CssClass="btn btn-success btn-excel" Width="100" Height="23" OnClick="btnExportarExcel_Click" />
                 </div>
                 <%--<div class="col-sm-1"></div>--%>
-
             </div>
-
         </div>
-
-    </div>
-    
-
-
-    
+    </div>  
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
 </asp:Content>

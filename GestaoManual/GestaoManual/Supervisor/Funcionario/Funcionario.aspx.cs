@@ -39,6 +39,7 @@ namespace GestaoManual.Supervisor.Funcionario
             Session["dados"] = funcionarios;
             grdFuncionario.DataSource = funcionarios;
             grdFuncionario.DataBind();
+            btnExportarExcel.Enabled = true;
         }
 
         protected void btnExportarExcel_Click(object sender, EventArgs e)
