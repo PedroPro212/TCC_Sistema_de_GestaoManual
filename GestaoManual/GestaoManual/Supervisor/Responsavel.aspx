@@ -25,6 +25,10 @@
                 color:black;
                 filter:drop-shadow(1px 1px 1px);
             }
+                .quadro:hover{
+                    margin-top:40px;
+                    transition:0.2s;
+                }
         .quadroCenter{
             position: relative;
             top: 50%;
@@ -35,7 +39,7 @@
 
     <div class="container text-center">
         <div class="row">
-            <div class="col-sm-12 text-center" style="text-transform:uppercase;margin-top:20px  ;margin-left:20px;"><h1>Aplicativos</h1></div>
+            <div class="col-sm-12 text-center" style="text-transform:uppercase;margin-top:20px  ;margin-left:20px;"><h1>Opções</h1></div>
             <div class="col-sm-2"></div>
             <div class="col-sm-2">
                 <div class="quadro">
@@ -46,7 +50,7 @@
                 </div>
                 <div class="quadro">
                     <div class="quadroCenter">
-                        <a href="Funcionario/Funcionario.aspx"><img runat="server" src="/imgs/user.png" width="70" />
+                        <a href="Funcionario/Funcionario.aspx" style="text-decoration:none"><img runat="server" src="/imgs/user.png" width="70" />
                         <p>Funcionários</p></a>
                     </div>
                 </div>

@@ -13,6 +13,13 @@
 
         .quadro{
             background-color:#FFFFFF;
+            width:100%;
+            height:450px;
+            margin-top:70px;
+            padding-top:15px;
+            padding-left:15px;
+            border-radius:10px;
+            box-shadow:2px 2px 2px;
         }
 
         .informacoes {
@@ -88,6 +95,40 @@
                 z-index:10;
         }
 
+        .modalFinalizar{
+            background-color:gray;
+            width:800px;
+            height:200px;
+            position:absolute;
+            margin-top:150px;
+            border-radius:5px;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+                cursor:pointer;
+                display:none;      
+                animation:animate;
+                animation-duration:400ms;
+                z-index:10;
+        }
+            .modalFinalizar h1{
+                font-size:30px;
+                color:black;
+                margin-bottom:40px;
+            }
+            .modalFinalizar .btn{
+                width:150px;
+                margin-left:5px
+            }
+            .btnCancelar{
+                background-color:#f3214e;
+                color:black
+            }
+            .btnConfirmar{
+                background-color:#a0c55f;
+                color:white
+            }
+
         #camera{
             display:flex;
             margin-top:2%;
@@ -135,7 +176,7 @@
                             <p>Hora em andamento:</p> 
                             <div class="relogio">
                                 <div>
-                                    <span id="horas" >00</span>
+                                    <span id="horas">00</span>
                                 </div>
 
                                 <div>
@@ -167,11 +208,12 @@
                     
                     <p>N°Lote Tinta:</p>
                     <label id="txtLoteTinta"></label><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" onclick="acao()" />
-                    <p>Inverter Leitura: <input type="checkbox" id="cckTrocar" onclick="" /></p>
+                    <p style="margin-left:210px">Inverter Leitura: <input type="checkbox" id="cckTrocar" onclick="" /></p>
                     <p>Quantidade produzida:</p>
                     <asp:TextBox runat="server" ID="txtQts" TextMode="Number"></asp:TextBox><br />
                     
-                    <asp:Button runat="server" ID="btnFinalizar" CssClass="btnFinalizar" Text="Finalizar Processo" OnClick="btnFinalizar_Click" />
+                    <%--<asp:Button runat="server" ID="btnFinalizar" CssClass="btnFinalizar" Text="Finalizar Processo" OnClick="btnFinalizar_Click" />--%>
+                    <input type="button" id="btnFinalizar" class="btnFinalizar" value="Finalizar Processo" onclick="abrirFinalizar()" />
 
                     <label id="lblLTinta" visible="false"></label>
                     <asp:Label runat="server" ID="lblLoteTinat" Visible="false"></asp:Label>
@@ -188,15 +230,22 @@
                         <input type="button" id="btnFechar" value="Fechar" onclick="fechar()" />
                     </div>
 
+                    <div class="modalFinalizar text-center">
+                        <h1 class="text-center">Tem certeza que deseja finalizar esse processo?</h1>
+                        <input type="button" id="btnCancelar" class="btn btnCancelar" value="CANCELAR" onclick="cancelarFinalizar()" />
+                        <asp:Button runat="server" ID="btnConfirmar" CssClass="btn btnConfirmar" Text="CONFIRMAR" OnClick="btnConfirmar_Click" />
+                    </div>
+
                 </div>
                 <div class="col-sm-4">
                     <asp:Label runat="server" CssClass="informacoes" ID="lblSetor"></asp:Label>
 
                     <p>Lote de Peças:</p>
                     <label id="txtLotePecas"></label><img runat="server" id="imgLotePecas" src="/imgsproducao/code.png" width="37" onclick="acao()" />
-                    <p>Quantidade peças boas:</p>
+                    <p style="margin-top:45px">Quantidade peças boas:</p>
                     <asp:TextBox runat="server" ID="txtPecasBoas" TextMode="Number"></asp:TextBox>
                     <div id="fader" style="display:none"></div>
+                    <div id="fader2" style="display:none"></div>
                 </div>
             </div>
         </div>
@@ -260,7 +309,7 @@
             document.getElementById('lblLoteP').value = document.getElementById('txtLotePecas').textContent;
         });
 
-        //Abrir modal
+        //Abrir modal camera
         function acao() {
             let modal = document.querySelector('.modal1');
             let divFadel = document.querySelector('#fader');
@@ -269,7 +318,7 @@
             divFadel.style.display = 'block';
         }
 
-        //Fechar modal
+        //Fechar modal camera
         function fechar() {
             let modal = document.querySelector('.modal1');
             let divFadel = document.querySelector('#fader');
@@ -277,6 +326,23 @@
             modal.style.display = 'none';
             divFadel.style.display = 'none';
         }
+
+        function abrirFinalizar() {
+            let modal = document.querySelector('.modalFinalizar');
+            let divFadel = document.querySelector('#fader');
+
+            modal.style.display = 'block';
+            divFadel.style.display = 'block';
+        }
+
+        function cancelarFinalizar() {
+            let modal = document.querySelector('.modalFinalizar');
+            let divFadel = document.querySelector('#fader');
+
+            modal.style.display = 'none';
+            divFadel.style.display = 'none';
+        }
+
 
         // Abrir WebCam e ler código de barra
         Quagga.init({
