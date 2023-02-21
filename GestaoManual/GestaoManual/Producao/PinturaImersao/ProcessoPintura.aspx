@@ -96,12 +96,13 @@
         }
 
         .modalFinalizar{
-            background-color:gray;
+            background-color:white;
             width:800px;
             height:200px;
             position:absolute;
             margin-top:150px;
             border-radius:5px;
+            box-shadow:2px 2px 2px;
                 top:50%;
                 left:50%;
                 transform:translate(-50%,-50%);
@@ -114,11 +115,11 @@
             .modalFinalizar h1{
                 font-size:30px;
                 color:black;
-                margin-bottom:40px;
+                margin-bottom:60px;
             }
             .modalFinalizar .btn{
                 width:150px;
-                margin-left:5px
+                margin-left:5px;
             }
             .btnCancelar{
                 background-color:#f3214e;
@@ -126,7 +127,7 @@
             }
             .btnConfirmar{
                 background-color:#a0c55f;
-                color:white
+                color:white;
             }
 
         #camera{
