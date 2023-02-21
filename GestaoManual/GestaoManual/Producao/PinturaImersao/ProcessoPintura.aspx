@@ -11,10 +11,17 @@
             background-color: #F9B463;
         }
 
+        .btnVoltar{
+            background-color:yellow;
+            border:solid 1px;
+            border-radius:4px;
+            margin-bottom:15px
+        }
+
         .quadro{
             background-color:#FFFFFF;
             width:100%;
-            height:450px;
+            height:500px;
             margin-top:70px;
             padding-top:15px;
             padding-left:15px;
@@ -164,6 +171,7 @@
     <div class="container">
         <div class="row">
             <div class="quadro">
+                <div class="col-sm-12 text-left"><asp:Button runat="server" ID="btnVoltar" CssClass="btnVoltar" Text="VOLTAR" Font-Size="8" OnClick="btnVoltar_Click" /></div>
                 <div class="col-sm-4">
                     <asp:Label runat="server" CssClass="informacoes" ID="lblNome"></asp:Label>
 

@@ -67,26 +67,6 @@ namespace GestaoManual.Producao.PinturaImersao
 
         }
 
-        //protected void btnFinalizar_Click(object sender, EventArgs e)
-        //{
-
-
-
-        //}
-
-        public bool TodosPreenchidos()
-        {
-            if((txtQts.Text == "")||(txtPecasBoas.Text == "")||(LabelLotePecas.Text == "")||(lblTeste.Text == ""))
-            {
-                SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estar preenchidos!");
-                return false;
-            }
-            else
-            {
-                return true;
-            }       
-        }
-
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(Session["Login"].ToString());
@@ -109,11 +89,33 @@ namespace GestaoManual.Producao.PinturaImersao
                 producao.IDMaquina = lblMaquina.Text;
                 producao.LoteTinta = lblTeste.Text;
                 new Negocio.Producao().FinalizarProcesso(producao);
+
+                SiteMaster.AlertPersonalizado(this, "Processo finalizado com sucesso");
+
+                Response.Redirect("../EscolherSetor.aspx");
             }
             else
             {
                 SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estar preenchidos!");
             }
+        }
+
+        public bool TodosPreenchidos()
+        {
+            if ((txtQts.Text == "") || (txtPecasBoas.Text == "") || (LabelLotePecas.Text == "") || (lblTeste.Text == ""))
+            {
+                SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estar preenchidos!");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../EscolherSetor.aspx");
         }
     }
 }
