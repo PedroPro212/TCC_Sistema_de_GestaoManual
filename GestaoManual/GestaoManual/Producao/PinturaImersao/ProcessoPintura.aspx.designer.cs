@@ -15,6 +15,15 @@ namespace GestaoManual.Producao.PinturaImersao
     {
 
         /// <summary>
+        /// Controle btnVoltar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVoltar;
+
+        /// <summary>
         /// Controle lblNome.
         /// </summary>
         /// <remarks>
@@ -51,15 +60,6 @@ namespace GestaoManual.Producao.PinturaImersao
         protected global::System.Web.UI.WebControls.TextBox txtQts;
 
         /// <summary>
-        /// Controle btnFinalizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFinalizar;
-
-        /// <summary>
         /// Controle lblLoteTinat.
         /// </summary>
         /// <remarks>
@@ -76,6 +76,15 @@ namespace GestaoManual.Producao.PinturaImersao
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLotePecas;
+
+        /// <summary>
+        /// Controle btnConfirmar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConfirmar;
 
         /// <summary>
         /// Controle lblSetor.
