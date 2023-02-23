@@ -35,7 +35,7 @@
             transform: translateY(-50%);
         }
     </style>    
-
+    
 
     <div class="container text-center">
         <div class="row">
@@ -78,7 +78,7 @@
                 <div class="quadro">
                     <div class="quadroCenter">
                         <img runat="server" src="/imgs/check.png" width="70" />
-                        <p>Enviar Dados</p>
+                        <p>Gerar Relatório</p>
                     </div>
 
                 </div>
