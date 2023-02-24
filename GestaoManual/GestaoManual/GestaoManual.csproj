@@ -219,6 +219,7 @@
     <Content Include="Supervisor\Maquina\Produtividade.aspx" />
     <Content Include="Supervisor\Produtos\AdicionarProduto.aspx" />
     <Content Include="Supervisor\Produtos\GridViewProduto.aspx" />
+    <Content Include="Supervisor\Relatorio\GerarRelatorio.aspx" />
     <Content Include="Supervisor\Responsavel.aspx" />
     <Content Include="Supervisor\Suporte.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -395,6 +396,13 @@
     </Compile>
     <Compile Include="Supervisor\Produtos\GridViewProduto.aspx.designer.cs">
       <DependentUpon>GridViewProduto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supervisor\Relatorio\GerarRelatorio.aspx.cs">
+      <DependentUpon>GerarRelatorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor\Relatorio\GerarRelatorio.aspx.designer.cs">
+      <DependentUpon>GerarRelatorio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Supervisor\Responsavel.aspx.cs">
       <DependentUpon>Responsavel.aspx</DependentUpon>

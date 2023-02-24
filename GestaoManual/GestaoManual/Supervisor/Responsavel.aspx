@@ -77,8 +77,8 @@
             <div class="col-sm-2">
                 <div class="quadro">
                     <div class="quadroCenter">
-                        <img runat="server" src="/imgs/check.png" width="70" />
-                        <p>Gerar Relatório</p>
+                        <a href="Relatorio/GerarRelatorio.aspx"><img runat="server" src="/imgs/check.png" width="70" />
+                        <p>Gerar Relatório</p></a>
                     </div>
 
                 </div>
