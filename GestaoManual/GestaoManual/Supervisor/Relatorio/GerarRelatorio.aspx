@@ -31,6 +31,9 @@
                     <p>Data Final</p>
                     <asp:Calendar runat="server" ID="cldFinal"></asp:Calendar>
                 </div>
+                <div class="col-sm-12 text-center">
+                    <asp:Button runat="server" ID="btnGerar" Text="GERAR RELATÓRIO" OnClick="btnGerar_Click" />
+                </div>
             </div>
         </div>
     </div>

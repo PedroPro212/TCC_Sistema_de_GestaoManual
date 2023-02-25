@@ -13,5 +13,11 @@ namespace GestaoManual.Supervisor.Relatorio
         {
 
         }
+
+        protected void btnGerar_Click(object sender, EventArgs e)
+        {
+            DateTime DataInicio = cldInicio.SelectedDate;
+            DateTime DataFinal = cldFinal.SelectedDate;
+        }
     }
 }
