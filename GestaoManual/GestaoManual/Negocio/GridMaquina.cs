@@ -15,7 +15,7 @@ namespace GestaoManual.Negocio
             connection = new MySqlConnection(SiteMaster.ConnectionString);
         }
 
-        public List<Classes.GridMaquina> Read(string maquina, int setor, string operador)
+        public List<Classes.GridMaquina> Read(string maquina, int setor, string operador) 
         {
             var gridmaquinas = new List<Classes.GridMaquina>();
             try

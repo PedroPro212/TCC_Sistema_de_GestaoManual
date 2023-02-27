@@ -77,7 +77,7 @@ namespace GestaoManual.Negocio
                 comando.ExecuteNonQuery();
                 connection.Close();
             }
-            catch
+            catch(Exception e)
             {
                 return false;
             }

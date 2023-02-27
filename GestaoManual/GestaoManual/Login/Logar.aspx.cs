@@ -48,7 +48,7 @@ namespace GestaoManual.Login
                 comando.Parameters.AddWithValue("@registro", txtRegistro.Text);
                 comando.Parameters.AddWithValue("@senha", txtSenha.Text);
                 MySqlDataReader dr;
-                Session["Login"] = txtRegistro.Text;
+                
                 try
                 {
                     comando.Connection = connection;
@@ -56,6 +56,7 @@ namespace GestaoManual.Login
                 
                     if (dr.Read())
                     {
+                        Session["Login"] = txtRegistro.Text;
                         Response.Redirect("/Producao/EscolherSetor.aspx"); //pagina da producao
                     }
                     else
@@ -70,6 +71,7 @@ namespace GestaoManual.Login
                     
                         if(dr.Read())
                         {
+                            Session["Login"] = txtRegistro.Text;
                             Response.Redirect("/Supervisor/Responsavel.aspx"); //pagina do supervisor
                             connection2.Close();
                         }
