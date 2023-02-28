@@ -20,26 +20,22 @@ namespace GestaoManual.Negocio
             try
             {
                 connection.Open();
-                var comando = new MySqlCommand($@"SELECT pro.descricao AS produto, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, se.descricao AS setor, idMaquina, loteTinta
-                                                    FROM processo, produto as pro, setor as se
-                                                    WHERE DATE(datahoraIni) BETWEEN datahoraIni AND datahoraFin AND id_produto = pro.id AND id_setor = se.id", connection);
-                if(dataInicio != null)
-                {
-                    comando.CommandText += " AND datahoraIni = @dataInicio";
-                    comando.Parameters.Add(new MySqlParameter("dataInicio", dataInicio));
-                }
-                if(dataFim != null)
-                {
-                    comando.CommandText += " AND datahoraFin = @dataFim";
-                    comando.Parameters.Add(new MySqlParameter("dataFim", dataFim));
-                }
+                var comando = new MySqlCommand($@"SELECT pro.descricao AS produto, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, se.descricao AS setor, idMaquina, loteTinta FROM processo, produto as pro, setor as se WHERE DATE(datahoraIni) BETWEEN '{dataInicio.ToString("dd/MM/yyyy")}' AND '{dataFim.ToString("dd/MM/yyyy")}' AND id_produto = pro.id AND id_setor = se.id", connection);
+
+                    //comando.CommandText += " AND datahoraIni = @dataInicio";
+                    //comando.Parameters.Add(new MySqlParameter("dataInicio", dataInicio));
+
+
+                    //comando.CommandText += " AND datahoraFin = @dataFim";
+                    //comando.Parameters.Add(new MySqlParameter("dataFim", dataFim));
+
                 var reader = comando.ExecuteReader();
                 while(reader.Read())
                 {
                     grdRelatorio.Add(new Classes.Relatorio
                     {
-                        DataInicio = reader.GetDateTime("datahoraIni"),
-                        DataFinal = reader.GetDateTime("datahoraFin"),
+                        DataInicio = reader.GetDateTime("datahoraIni").Date,
+                        DataFinal = reader.GetDateTime("datahoraFin").Date,
                         Produto = reader.GetString("produto"),
                         QtsPecas = reader.GetInt32("NPecas"),
                         TotalPecasBoas = reader.GetInt32("NPecasBoas"),
