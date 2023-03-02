@@ -38,7 +38,7 @@ namespace GestaoManual.Supervisor.Relatorio
         {
             DateTime dataInicio = cldInicio.SelectedDate.Date;
             DateTime dataFim = cldFinal.SelectedDate.Date;
-            var relatorio = new Negocio.Relatorio().Read(dataInicio, dataFim);
+            var relatorio = new Negocio.Relatorio().Read(dataInicio.Date, dataFim.Date);
             grdRelatorio.DataSource = relatorio;
             grdRelatorio.DataBind();
         }

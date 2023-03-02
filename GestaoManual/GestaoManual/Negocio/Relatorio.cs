@@ -17,10 +17,15 @@ namespace GestaoManual.Negocio
         public List<Classes.Relatorio> Read(DateTime dataInicio, DateTime dataFim)
         {
             var grdRelatorio = new List<Classes.Relatorio>();
+            var sqlDataIni = dataInicio.ToString("yyyy-MM-dd");
+            var sqlDataFim = dataFim.ToString("yyyy-MM-dd");
+
             try
             {
                 connection.Open();
-                var comando = new MySqlCommand($@"SELECT pro.descricao AS produto, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, se.descricao AS setor, idMaquina, loteTinta FROM processo, produto as pro, setor as se WHERE DATE(datahoraIni) BETWEEN '{dataInicio.ToString("dd/MM/yyyy")}' AND '{dataFim.ToString("dd/MM/yyyy")}' AND id_produto = pro.id AND id_setor = se.id", connection);
+                var comando = new MySqlCommand($@"SELECT pro.descricao AS produto, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, se.descricao AS setor, idMaquina, loteTinta 
+                                                    FROM processo, produto as pro, setor as se 
+                                                    WHERE DATE(datahoraIni) BETWEEN '{sqlDataIni}' AND '{sqlDataFim}' AND id_produto = pro.id AND id_setor = se.id", connection);
 
                     //comando.CommandText += " AND datahoraIni = @dataInicio";
                     //comando.Parameters.Add(new MySqlParameter("dataInicio", dataInicio));
@@ -44,7 +49,6 @@ namespace GestaoManual.Negocio
                         Maquina = reader.GetString("idMaquina"),
                         LoteTinta = reader.GetString("loteTinta")
                     });
-
                 }
             }
             catch(Exception ex)

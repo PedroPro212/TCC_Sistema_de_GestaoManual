@@ -43,8 +43,8 @@
                         <Columns>
                             <asp:BoundField DataField="Produto" HeaderText="PRODUTO:" />
                             <asp:BoundField DataField="DataInicio" HeaderText="DATA HORA INICIO:" />
-                            <asp:BoundField DataField="DataFim" HeaderText="DATA HORA FINAL:" />
-                            <asp:BoundField DataField="NPecas" HeaderText="QTS PEÇAS:" />
+                            <asp:BoundField DataField="DataFinal" HeaderText="DATA HORA FINAL:" />
+                            <asp:BoundField DataField="QtsPecas" HeaderText="QTS PEÇAS:" />
                             <asp:BoundField DataField="LotePecas" HeaderText="LOTE PEÇAS:" />
                             <asp:BoundField DataField="Setor" HeaderText="SETOR:" />
                             <asp:BoundField DataField="Maquina" HeaderText="MÁQUINA:" />
