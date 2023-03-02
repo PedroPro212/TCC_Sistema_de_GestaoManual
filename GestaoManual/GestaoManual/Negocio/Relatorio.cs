@@ -27,12 +27,12 @@ namespace GestaoManual.Negocio
                                                     FROM processo, produto as pro, setor as se 
                                                     WHERE DATE(datahoraIni) BETWEEN '{sqlDataIni}' AND '{sqlDataFim}' AND id_produto = pro.id AND id_setor = se.id", connection);
 
-                    //comando.CommandText += " AND datahoraIni = @dataInicio";
-                    //comando.Parameters.Add(new MySqlParameter("dataInicio", dataInicio));
+                //comando.CommandText += " AND datahoraIni = @dataInicio";
+                //comando.Parameters.Add(new MySqlParameter("dataInicio", dataInicio));
 
 
-                    //comando.CommandText += " AND datahoraFin = @dataFim";
-                    //comando.Parameters.Add(new MySqlParameter("dataFim", dataFim));
+                //comando.CommandText += " AND datahoraFin = @dataFim";
+                //comando.Parameters.Add(new MySqlParameter("dataFim", dataFim));
 
                 var reader = comando.ExecuteReader();
                 while(reader.Read())

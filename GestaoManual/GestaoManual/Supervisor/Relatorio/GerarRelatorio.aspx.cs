@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,9 +19,19 @@ namespace GestaoManual.Supervisor.Relatorio
 
         protected void btnGerar_Click(object sender, EventArgs e)
         {
-            DateTime DataInicio = cldInicio.SelectedDate;
-            DateTime DataFinal = cldFinal.SelectedDate;
-
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", "attachment; filename=UserInfo.xls");
+            Response.Charset = "";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            grdRelatorio.RenderControl(htw);
+            Response.Output.Write(sw.ToString());
+            Response.End();
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
 
         }
 

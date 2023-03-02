@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Responsavel.Master" AutoEventWireup="true" CodeBehind="GerarRelatorio.aspx.cs" Inherits="GestaoManual.Supervisor.Relatorio.GerarRelatorio" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Responsavel.Master" AutoEventWireup="true" CodeBehind="GerarRelatorio.aspx.cs" Inherits="GestaoManual.Supervisor.Relatorio.GerarRelatorio" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
@@ -41,14 +41,14 @@
                         AllowPaging="false" OnRowDataBound="grdRelatorio_RowDataBound">
 
                         <Columns>
-                            <asp:BoundField DataField="Produto" HeaderText="PRODUTO:" />
                             <asp:BoundField DataField="DataInicio" HeaderText="DATA HORA INICIO:" />
-                            <asp:BoundField DataField="DataFinal" HeaderText="DATA HORA FINAL:" />
+                            <asp:BoundField DataField="Produto" HeaderText="PRODUTO:" />
                             <asp:BoundField DataField="QtsPecas" HeaderText="QTS PEÇAS:" />
                             <asp:BoundField DataField="LotePecas" HeaderText="LOTE PEÇAS:" />
                             <asp:BoundField DataField="Setor" HeaderText="SETOR:" />
                             <asp:BoundField DataField="Maquina" HeaderText="MÁQUINA:" />
                             <asp:BoundField DataField="LoteTinta" HeaderText="LOTE TINTA:" />
+                            <asp:BoundField DataField="DataFinal" HeaderText="DATA HORA FINAL:" />
                             <%--<asp:ButtonField ButtonType="Link" CommandName="VER" ControlStyle-CssClass="btn btn-primary" Text="VER" ItemStyle-HorizontalAlign="Center" />--%>
                         </Columns>
 
