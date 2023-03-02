@@ -59,7 +59,7 @@ namespace GestaoManual.Supervisor.Maquina
             int setor = Convert.ToInt32(ddlSetor.SelectedValue);
             var gridmaquina = new Negocio.GridMaquina().Read(txtPesquisar.Text, setor, txtPesquisarOp.Text);
             Session["dados2"] = gridmaquina;
-            grdMaquina.DataSource= gridmaquina;
+            grdMaquina.DataSource = gridmaquina;
             grdMaquina.DataBind();
             btnExportarExcel.Enabled = true;
         }

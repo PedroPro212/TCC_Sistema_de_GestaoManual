@@ -75,24 +75,35 @@ namespace GestaoManual.Producao.PinturaImersao
             lblTeste.Text = teste.Value;
             LabelLotePecas.Text = lblLoteP.Value;
 
+            int Qts = Convert.ToInt32(txtQts.Text);
+            int PecasBoas = Convert.ToInt32(txtPecasBoas.Text);
+
             if (TodosPreenchidos() == true)
             {
-                var producao = new Classes.Producao();
-                producao.IdProduto = Convert.ToInt32(Session["produto"].ToString());
-                producao.DataHoraIni = Convert.ToDateTime(Session["DataHoraInicio"].ToString());
-                producao.DataHoraFin = dataFim;
-                producao.NumPecas = Convert.ToInt32(txtQts.Text);
-                producao.NumPecasBoas = Convert.ToInt32(txtPecasBoas.Text);
-                producao.LotePecas = LabelLotePecas.Text;
-                producao.IDOperador = id;
-                producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
-                producao.IDMaquina = lblMaquina.Text;
-                producao.LoteTinta = lblTeste.Text;
-                new Negocio.Producao().FinalizarProcesso(producao);
+                if(PecasBoas <= Qts)
+                {
+                    var producao = new Classes.Producao();
+                    producao.IdProduto = Convert.ToInt32(Session["produto"].ToString());
+                    producao.DataHoraIni = Convert.ToDateTime(Session["DataHoraInicio"].ToString());
+                    producao.DataHoraFin = dataFim;
+                    producao.NumPecas = Convert.ToInt32(txtQts.Text);
+                    producao.NumPecasBoas = Convert.ToInt32(txtPecasBoas.Text);
+                    producao.LotePecas = LabelLotePecas.Text;
+                    producao.IDOperador = id;
+                    producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
+                    producao.IDMaquina = lblMaquina.Text;
+                    producao.LoteTinta = lblTeste.Text;
+                    new Negocio.Producao().FinalizarProcesso(producao);
 
-                SiteMaster.AlertPersonalizado(this, "Processo finalizado com sucesso");
+                    SiteMaster.AlertPersonalizado(this, "Processo finalizado com sucesso");
 
-                Response.Redirect("../EscolherSetor.aspx");
+                    Response.Redirect("../EscolherSetor.aspx");
+                }
+                else
+                {
+                    SiteMaster.AlertPersonalizado(this, "Quantidade de peças boas é maior que a quantidade de peças produzidas!");
+                }
+
             }
             else
             {
