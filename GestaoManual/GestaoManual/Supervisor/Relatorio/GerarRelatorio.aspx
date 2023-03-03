@@ -15,6 +15,25 @@
         h1{
             text-transform:uppercase;
             font-size:25px;
+            margin-top:15px
+        }
+
+        .table{
+            margin-left:80px;
+        }
+
+        .btnExcel{
+            background-color:#00c16c;
+            font-size:12px;
+            color:white;
+            width:100px;
+            height:23px;
+            border-radius:3px;
+            border-style:none;
+            margin-bottom:15px
+        }
+        .btnPesquisar{
+            margin-bottom:15px
         }
     </style>
 
@@ -24,18 +43,19 @@
                 <div class="col-sm-12 text-center"><h1>Gerar Relatório</h1></div>
                 <div class="col-sm-6">
                     <p>Data Início:</p>
-                    <asp:Calendar runat="server" ID="cldInicio"></asp:Calendar>
+                    <asp:Calendar runat="server" CssClass="right" ID="cldInicio"></asp:Calendar>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-6" style="padding-left:300px">
                     <p>Data Final</p>
                     <asp:Calendar runat="server" ID="cldFinal"></asp:Calendar>
                 </div>
                 <div class="col-sm-12 text-center">
-                    <asp:Button runat="server" ID="btnGerar" Text="GERAR RELATÓRIO" OnClick="btnGerar_Click" />
+                    <asp:Button runat="server" ID="btnPesquisar" CssClass="btnPesquisar" Text="PESQUISAR" OnClick="btnPesquisar_Click" />
                 </div>
-                <div class="col-sm-12">
-                    <asp:Button runat="server" ID="btnPesquisar" Text="PESQUISAR" OnClick="btnPesquisar_Click" />
+
+                <div class="col-sm-12 text-center">
+                    
                     <asp:GridView runat="server" ID="grdRelatorio" Width="80%" AutoGenerateColumns="false" 
                         CssClass="table table-condensed" OnRowCommand="grdRelatorio_RowCommand"
                         AllowPaging="false" OnRowDataBound="grdRelatorio_RowDataBound">
@@ -53,6 +73,9 @@
                         </Columns>
 
                     </asp:GridView>
+                </div>
+                <div class="col-sm-12 text-left">
+                    <asp:Button runat="server" ID="btnGerar" CssClass="btnExcel" Text="Excel" OnClick="btnGerar_Click" />
                 </div>
             </div>
         </div>
