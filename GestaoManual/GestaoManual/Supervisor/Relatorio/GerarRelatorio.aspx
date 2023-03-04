@@ -18,6 +18,10 @@
             margin-top:15px
         }
 
+        p{
+            font-size:12px;
+        }
+
         .table{
             margin-left:80px;
         }
@@ -33,22 +37,34 @@
             margin-bottom:15px
         }
         .btnPesquisar{
-            margin-bottom:15px
+            width:200px;
+            height:25px;
+            font-size:15px;
+            background-color:#00A3FF;
+            color:white;
+            margin-top:40px;
+            margin-bottom:15px;
+            border-style:none;
+            border-radius:3px;
+            box-shadow:1px 1px 1px;
         }
     </style>
 
     <div class="container">
         <div class="row">
             <div class="quadro">
-                <div class="col-sm-12 text-center"><h1>Gerar Relatório</h1></div>
-                <div class="col-sm-6">
+                <div class="col-sm-4"></div>
+
+                <div class="col-sm-4"><h1>Gerar Relatório</h1></div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-6" style="padding-left:260px">
                     <p>Data Início:</p>
-                    <asp:Calendar runat="server" CssClass="right" ID="cldInicio"></asp:Calendar>
+                    <asp:Calendar runat="server" CssClass="calendario right" ID="cldInicio" Width="200" Height="150" Font-Size="8"></asp:Calendar>
                 </div>
 
-                <div class="col-sm-6" style="padding-left:300px">
+                <div class="col-sm-6" style="padding-left:100px">
                     <p>Data Final</p>
-                    <asp:Calendar runat="server" ID="cldFinal"></asp:Calendar>
+                    <asp:Calendar runat="server" ID="cldFinal" CssClass="calendario" Width="200" Height="150" Font-Size="8"></asp:Calendar>
                 </div>
                 <div class="col-sm-12 text-center">
                     <asp:Button runat="server" ID="btnPesquisar" CssClass="btnPesquisar" Text="PESQUISAR" OnClick="btnPesquisar_Click" />

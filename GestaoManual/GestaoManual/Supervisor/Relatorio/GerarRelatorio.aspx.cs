@@ -14,7 +14,7 @@ namespace GestaoManual.Supervisor.Relatorio
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            btnGerar.Enabled = false;
         }
 
         protected void btnGerar_Click(object sender, EventArgs e)
@@ -22,7 +22,7 @@ namespace GestaoManual.Supervisor.Relatorio
             Response.Clear();
             Response.Buffer = true;
             Response.ContentType = "application/ms-excel";
-            Response.AddHeader("content-disposition", "attachment; filename=UserInfo.xls");
+            Response.AddHeader("content-disposition", "attachment; filename=RelatorioProducao.xls");
             Response.Charset = "";
             StringWriter sw = new StringWriter();
             HtmlTextWriter htw = new HtmlTextWriter(sw);
@@ -49,9 +49,18 @@ namespace GestaoManual.Supervisor.Relatorio
         {
             DateTime dataInicio = cldInicio.SelectedDate.Date;
             DateTime dataFim = cldFinal.SelectedDate.Date;
-            var relatorio = new Negocio.Relatorio().Read(dataInicio.Date, dataFim.Date);
-            grdRelatorio.DataSource = relatorio;
-            grdRelatorio.DataBind();
+
+            if(dataFim < dataInicio)
+            {
+                SiteMaster.AlertPersonalizado(this, "A data do calendário de Finalização é menor que a do calendário de Início! \nRevise sua consulta");
+            }
+            else
+            {
+                btnGerar.Enabled = true;
+                var relatorio = new Negocio.Relatorio().Read(dataInicio.Date, dataFim.Date);
+                grdRelatorio.DataSource = relatorio;
+                grdRelatorio.DataBind();
+            }
         }
     }
 }
