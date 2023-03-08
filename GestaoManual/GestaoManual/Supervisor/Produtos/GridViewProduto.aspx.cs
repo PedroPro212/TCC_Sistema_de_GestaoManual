@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,8 @@ namespace GestaoManual.Supervisor.Produtos
 {
     public partial class GridViewProduto : System.Web.UI.Page
     {
+        private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,6 +28,24 @@ namespace GestaoManual.Supervisor.Produtos
             Session["dados3"] = produtos;
             grdProduto.DataSource = produtos;
             grdProduto.DataBind();
+
+            var reader = new MySqlCommand("SELECT COUNT(descricao) AS qts FROM produto", connection);
+
+            try
+            {
+                connection.Open();
+                lblQTS.Text = "";
+                MySqlDataReader dataReader;
+                dataReader = reader.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    lblQTS.Text += dataReader.GetInt32("qts");
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         protected void grdProduto_RowCommand(object sender, GridViewCommandEventArgs e)

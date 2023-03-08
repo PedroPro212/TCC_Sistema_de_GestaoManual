@@ -52,8 +52,8 @@
                     <asp:DropDownList runat="server" ID="ddlSuporte" CssClass="text-center center-block ddlSuporte">
                         <asp:ListItem Value="optNCarrega">Página Não Carrega</asp:ListItem>
                         <asp:ListItem Value="optPermissao">Permissão Perdida</asp:ListItem>
-                        <asp:ListItem Value="optPermissao">Erro no Envio</asp:ListItem>
-                        <asp:ListItem Value="optPermissao">Outros...</asp:ListItem>
+                        <asp:ListItem Value="optErro">Erro no Envio</asp:ListItem>
+                        <asp:ListItem Value="optOutros">Outros...</asp:ListItem>
                     </asp:DropDownList>
                     <p class="text-center">Descreva em poucas palavras o problema encontrado</p>
                     <div class="text-center"><asp:TextBox runat="server" ID="txtPergunta" TextMode="MultiLine" CssClass="UpperBox"></asp:TextBox></div>

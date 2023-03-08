@@ -35,6 +35,7 @@
                         <asp:Button runat="server" ID="btnPesquisar" CssClass="btn btn-primary" Text="PESQUISAR" OnClick="btnPesquisar_Click"/>
                     </div>
                     <div class="text-center" style="margin-left:76px;margin-top:50px; margin-bottom:50px">
+                        <asp:Label runat="server" ID="lblQTS"></asp:Label>
                         <asp:GridView runat="server" ID="grdProduto" Width="80%" AutoGenerateColumns="false" 
                             CssClass="table table-condensed" OnRowCommand="grdProduto_RowCommand"
                             AllowPaging="false">
