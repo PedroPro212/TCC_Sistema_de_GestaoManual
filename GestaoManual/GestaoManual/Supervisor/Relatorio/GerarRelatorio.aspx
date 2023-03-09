@@ -53,9 +53,9 @@
     <div class="container">
         <div class="row">
             <div class="quadro">
-                <div class="col-sm-4"></div>
+                <div class="col-sm-4"><h3 runat="server" class="text-left" id="dev" style="margin-top:10px" id="dev" visible="false">Dev</h3></div>
 
-                <div class="col-sm-4"><h1>Gerar Relatório</h1></div>
+                <div class="col-sm-4 text-center"><h1>Gerar Relatório</h1></div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6" style="padding-left:260px">
                     <p>Data Início:</p>
