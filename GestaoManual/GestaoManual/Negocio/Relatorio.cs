@@ -25,7 +25,7 @@ namespace GestaoManual.Negocio
                 connection.Open();
                 var comando = new MySqlCommand($@"SELECT pro.descricao AS produto, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, se.descricao AS setor, idMaquina, loteTinta 
                                                     FROM processo, produto as pro, setor as se 
-                                                    WHERE DATE(datahoraIni) BETWEEN '{sqlDataIni}' AND '{sqlDataFim}' AND id_produto = pro.id AND id_setor = se.id", connection);
+                                                    WHERE DATE(datahoraIni) BETWEEN '{sqlDataIni}' AND '{sqlDataFim}' AND id_produto = pro.id AND id_setor = se.id AND se.id = 0=0", connection);
 
                 //comando.CommandText += " AND datahoraIni = @dataInicio";
                 //comando.Parameters.Add(new MySqlParameter("dataInicio", dataInicio));
@@ -39,8 +39,8 @@ namespace GestaoManual.Negocio
                 {
                     grdRelatorio.Add(new Classes.Relatorio
                     {
-                        DataInicio = reader.GetDateTime("datahoraIni").Date,
-                        DataFinal = reader.GetDateTime("datahoraFin").Date,
+                        DataInicio = reader.GetDateTime("datahoraIni"),
+                        DataFinal = reader.GetDateTime("datahoraFin"),
                         Produto = reader.GetString("produto"),
                         QtsPecas = reader.GetInt32("NPecas"),
                         TotalPecasBoas = reader.GetInt32("NPecasBoas"),

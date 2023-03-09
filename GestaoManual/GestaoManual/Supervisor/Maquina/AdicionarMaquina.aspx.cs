@@ -26,7 +26,7 @@ namespace GestaoManual.Supervisor.Maquina
                     ddlSetor.Items.Add(setor);
                 }
                 connection.Close();
-
+                
                 connection.Open();
                 var reader = new MySqlCommand($"SELECT * FROM login WHERE id={id} AND id_acesso=4", connection).ExecuteReader();
                 while(reader.Read())

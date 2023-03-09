@@ -25,10 +25,6 @@
                 color:black;
                 filter:drop-shadow(1px 1px 1px);
             }
-                .quadro:hover{
-                    margin-top:40px;
-                    transition:0.2s;
-                }
         .quadroCenter{
             position: relative;
             top: 50%;
@@ -67,8 +63,8 @@
 
                 <div class="quadro">
                     <div class="quadroCenter">
-                        <img runat="server" src="/imgs/qualidade.png" width="70" />
-                        <p>Técnico de Qualidade</p>
+                        <a href="Produtos/GridViewProduto.aspx" style="text-decoration:none"><img runat="server" src="/imgs/engrenagem.png" width="70" />
+                        <p>Produtos</p></a>
                     </div>
                 </div>
             </div>
@@ -77,7 +73,7 @@
             <div class="col-sm-2">
                 <div class="quadro">
                     <div class="quadroCenter">
-                        <a href="Relatorio/GerarRelatorio.aspx"><img runat="server" src="/imgs/check.png" width="70" />
+                        <a href="Relatorio/GerarRelatorio.aspx" style="text-decoration:none"><img runat="server" src="/imgs/check.png" width="70" />
                         <p>Gerar Relatório</p></a>
                     </div>
 
