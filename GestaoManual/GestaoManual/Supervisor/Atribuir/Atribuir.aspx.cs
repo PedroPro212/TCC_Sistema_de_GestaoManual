@@ -13,6 +13,8 @@ namespace GestaoManual.Supervisor.Atribuir
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         int acesso;
         int idSetor;
+        static int setor;
+        static int idMaquina;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -75,10 +77,13 @@ namespace GestaoManual.Supervisor.Atribuir
 
             connection.Open();
             ddlMaquina.Items.Clear();
-            reader = new MySqlCommand($"SELECT id, nome FROM maquina WHERE id_setor={idSetor}", connection).ExecuteReader();
+            var maquina = new ListItem("", "0");
+            //ddlmAQUINA.Items.Add(maquina);
+            reader = new MySqlCommand($"SELECT id, nome, id_setor FROM maquina WHERE id_setor={idSetor}", connection).ExecuteReader();
+            setor = idSetor;
             while (reader.Read())
             {
-                var maquina = new ListItem(reader.GetString("nome"), reader.GetInt32("id").ToString());
+                maquina = new ListItem(reader.GetString("nome"), reader.GetInt32("id").ToString());
                 ddlMaquina.Items.Add(maquina);
             }
             connection.Close();
@@ -94,7 +99,16 @@ namespace GestaoManual.Supervisor.Atribuir
 
         protected void btnAtribuir_Click(object sender, EventArgs e)
         {
-            //dfkçhkjasdkjsdlkjkjasdklbdskjdfkbjçdçjkkjdfkbdfçlkasdfkjlkjasdklkjsdlçjdsjkiiii.ldskjkjjjdjjklçjakjjkkkkkkkakjçjkjdssoiencnhhOIIIIIIIIOoijcjjiiuliukdkkkkkkkçljfnncvjkidsichlalhghkldjdddddsppapappppppppppenahfjdkjpedrogaydjhasdifbhvueuuuhauuchhhhhhhjjjjjjjjjjççççççççivvvvvuhfkljsdsdsdlkjsdkjhewwwwwwwwwwwwwwwwwwwwpoioiuipoiiiiiiouijhcv  bkbcvvkjhkjhhhfudsiucahuadsufhlkjksdauhuiouekjjjjjjjjhvkoiiiiiidhccccccccccccçacjbvnzkakduflallllllllllllllllkdhfhdiuo
+            var operador = new Classes.Operador();
+            operador.IdMaquina = idMaquina;
+            operador.IdSetor = setor;
+            operador.IdRegistro = Convert.ToInt32(ddlOperador.SelectedValue);
+            new Negocio.Operador().Create(operador);
+        }
+
+        protected void ddlMaquina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            idMaquina = Convert.ToInt32(ddlMaquina.SelectedValue);
         }
     }
 }
