@@ -78,7 +78,7 @@ namespace GestaoManual.Supervisor.Atribuir
             connection.Open();
             ddlMaquina.Items.Clear();
             var maquina = new ListItem("", "0");
-            //ddlmAQUINA.Items.Add(maquina);
+            ddlMaquina.Items.Add(maquina);
             reader = new MySqlCommand($"SELECT id, nome, id_setor FROM maquina WHERE id_setor={idSetor}", connection).ExecuteReader();
             setor = idSetor;
             while (reader.Read())
@@ -95,6 +95,11 @@ namespace GestaoManual.Supervisor.Atribuir
             }
             else
                 ddlMaquina.Enabled = true;
+
+            if ((ddlOperador.SelectedValue == "0") || (ddlMaquina.SelectedValue == "0"))
+                btnAtribuir.Enabled = false;
+            else
+                btnAtribuir.Enabled = true;
         }
 
         protected void btnAtribuir_Click(object sender, EventArgs e)
@@ -109,6 +114,11 @@ namespace GestaoManual.Supervisor.Atribuir
         protected void ddlMaquina_SelectedIndexChanged(object sender, EventArgs e)
         {
             idMaquina = Convert.ToInt32(ddlMaquina.SelectedValue);
+
+            if ((ddlOperador.SelectedValue == "0") || (ddlMaquina.SelectedValue == "0"))
+                btnAtribuir.Enabled = false;
+            else
+                btnAtribuir.Enabled = true;
         }
     }
 }
