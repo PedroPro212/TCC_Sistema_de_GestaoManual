@@ -16,6 +16,10 @@
             border-radius:5px;
             box-shadow:1px 1px 1px black;
         }
+/*            .quadro:hover{
+                background-color:lightgray;
+                transition: 
+            }*/
             .quadro img{
                 filter:drop-shadow(2px 2px 2px black);
             }
@@ -29,6 +33,16 @@
             position: relative;
             top: 50%;
             transform: translateY(-50%);
+        }
+
+        .quadroEngr .engrenagem
+
+        .engrenagem:hover{
+            animation:girar 6s linear infinite;
+        }
+
+        @keyframes girar{
+            to{transform:rotate(360deg);}
         }
     </style>    
     
@@ -61,9 +75,9 @@
                     </div>
                 </div>
 
-                <div class="quadro">
+                <div class="quadro quadroEngr">
                     <div class="quadroCenter">
-                        <a href="Produtos/GridViewProduto.aspx" style="text-decoration:none"><img runat="server" src="/imgs/engrenagem.png" width="70" />
+                        <a href="Produtos/GridViewProduto.aspx" style="text-decoration:none"><img runat="server" class="engrenagem" src="/imgs/engrenagem.png" width="70" />
                         <p>Produtos</p></a>
                     </div>
                 </div>
