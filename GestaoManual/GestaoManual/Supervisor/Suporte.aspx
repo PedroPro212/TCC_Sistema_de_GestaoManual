@@ -38,6 +38,7 @@
             border-style:none;
             border-radius:2px;
             font-size:13px;
+            color:white;
         }
 
 

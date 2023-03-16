@@ -15,17 +15,18 @@
             height:32px;
             border-radius:5px;
             font-size:15px;
+            color:white;
         }
         .btn1{
             background-color:#00A3FF;
             margin-right:10%;
-            margin-left:40%;
+            margin-left:23%;
             margin-bottom:20px;
             
         }
         .btn2{
             background-color:#F9B463;
-            margin-left:50%
+            margin-bottom:20px;
         }
 
         p{
