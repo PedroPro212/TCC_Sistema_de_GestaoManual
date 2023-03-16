@@ -88,6 +88,8 @@ CREATE TABLE processo(
     FOREIGN KEY (id_setor) REFERENCES setor(id)
 );
 
+ALTER TABLE processo ADD CdBarrasIdentificacao varchar(40) after id_produto;
+
 CREATE TABLE suporte(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
     idRegistro int,
