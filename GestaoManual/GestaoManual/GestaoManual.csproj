@@ -173,8 +173,9 @@
     <Content Include="Producao\PinturaImersao\PinturaImersao.aspx" />
     <Content Include="Producao\PinturaImersao\ProcessoPintura.aspx" />
     <Content Include="Responsavel.Master" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Login\Logar.aspx" />
+    <Content Include="Login\index.aspx" />
     <Content Include="Login\Logar.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -251,12 +252,12 @@
     <Compile Include="Logar.Master.designer.cs">
       <DependentUpon>Logar.Master</DependentUpon>
     </Compile>
-    <Compile Include="Login\Logar.aspx.cs">
-      <DependentUpon>Logar.aspx</DependentUpon>
+    <Compile Include="Login\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login\Logar.aspx.designer.cs">
-      <DependentUpon>Logar.aspx</DependentUpon>
+    <Compile Include="Login\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Negocio\Dados.cs" />
     <Compile Include="Negocio\Encarregado.cs" />

@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 
+
      <style>
             .quadro{
             width:400px;
@@ -52,6 +53,7 @@
             </div>
          </div>
         
+
 
 
 </asp:Content>
