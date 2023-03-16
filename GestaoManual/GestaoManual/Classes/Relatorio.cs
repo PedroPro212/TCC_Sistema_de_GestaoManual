@@ -7,6 +7,7 @@ namespace GestaoManual.Classes
 {
     public class Relatorio
     {
+        public string CdBarrasIdentificacao { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFinal { get; set; }
         public string Produto { get; set; }
