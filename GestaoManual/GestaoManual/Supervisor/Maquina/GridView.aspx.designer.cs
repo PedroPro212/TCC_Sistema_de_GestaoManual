@@ -22,6 +22,15 @@ namespace GestaoManual.Supervisor.Maquina {
         protected global::System.Web.UI.WebControls.Button btnCriar;
         
         /// <summary>
+        /// Controle btnProdutividade.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnProdutividade;
+        
+        /// <summary>
         /// Controle txtPesquisar.
         /// </summary>
         /// <remarks>

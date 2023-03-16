@@ -56,7 +56,7 @@
                 <div class="col-sm-8">
                     <p class="text-center col-sm-12" style="font-size:25px; text-transform:uppercase; margin-top:15px;">Seção de Máquinas</p>
                     <asp:Button runat="server" CssClass="btn btn1" ID="btnCriar" Text="CRIAR MÁQUINA" OnClick="btnCriar_Click" />
-<%--                    <asp:Button runat="server" CssClass="btn btn2" ID="btnProdutividade" Text="PRODUTIVIDADE" OnClick="btnProdutividade_Click" />--%>
+                   <asp:Button runat="server" CssClass="btn btn2" ID="btnProdutividade" Text="PRODUTIVIDADE" OnClick="btnProdutividade_Click"/>
 
                     <p class="text-center">Pesquisar: <asp:TextBox runat="server" ID="txtPesquisar"></asp:TextBox> <asp:Button runat="server" ID="btnPesquisar" CssClass="btnPesquisar" Text="PESQUISAR" OnClick="btnPesquisar_Click" /></p>
                     <p class="p2"><asp:TextBox runat="server" ID="txtPesquisarOp" CssClass="txtPesquisarOp"></asp:TextBox></p>
