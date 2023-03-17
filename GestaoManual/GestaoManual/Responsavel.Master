@@ -458,7 +458,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="/Login/Logar.aspx">
+                    <a href="/Login/index.aspx">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Sair</span>
                     </a>

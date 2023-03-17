@@ -79,6 +79,7 @@
                         <Columns>
                             <asp:BoundField DataField="DataInicio" HeaderText="DATA HORA INICIO:" />
                             <asp:BoundField DataField="Produto" HeaderText="PRODUTO:" />
+                            <asp:BoundField DataField="CdBarrasIdentificacao" HeaderText="CÓDIGO DE BARRAS IDENTIFICAÇÃO:" />
                             <asp:BoundField DataField="QtsPecas" HeaderText="QTS PEÇAS:" />
                             <asp:BoundField DataField="LotePecas" HeaderText="LOTE PEÇAS:" />
                             <asp:BoundField DataField="Setor" HeaderText="SETOR:" />
