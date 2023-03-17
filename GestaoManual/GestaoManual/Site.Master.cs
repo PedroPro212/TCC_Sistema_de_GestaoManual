@@ -12,9 +12,8 @@ namespace GestaoManual
     public partial class SiteMaster : MasterPage
     {
 
-        //public static string ConnectionString = "Server=127.0.0.1;User ID=root;Password=;Database=metalurgicasaveiro";   //Filipe e Pedro Note
-
         //public static string ConnectionString = "Server=mysql5025.site4now.net;User ID=a95df3_metal;Password=Pe212004ho;Database=db_a95df3_metal";  // Computador Pedro
+
 
         public static string ConnectionString = "Server=127.0.0.1;User ID=root;Password=;Database=metalurgicasaveiro";   //Filipe e Pedro Note
         //public static string ConnectionString = "Server=127.0.0.1;User ID=root;Password=212004;Database=metalurgicasaveiro";  // Computador Pedro
