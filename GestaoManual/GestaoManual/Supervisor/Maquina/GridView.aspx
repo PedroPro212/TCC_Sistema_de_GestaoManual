@@ -15,18 +15,27 @@
             height:32px;
             border-radius:5px;
             font-size:15px;
+            color:white;
         }
         .btn1{
             background-color:#00A3FF;
+            margin-right:10%;
+            margin-left:23%;
+            margin-bottom:20px;
             
         }
         .btn2{
             background-color:#F9B463;
-            margin-left:60%
+            margin-bottom:20px;
         }
 
         p{
             font-size:15px;
+        }
+        .p2{
+            font-size:15px;
+            margin-left:260px;
+            margin-top:10px;
         }
 
         .btnPesquisar{
@@ -46,12 +55,12 @@
             <div class="quadro center-block">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8">
-                    <p class="text-center col-sm-12" style="font-size:25px; text-transform:uppercase">Máquinas</p>
+                    <p class="text-center col-sm-12" style="font-size:25px; text-transform:uppercase; margin-top:15px;">Seção de Máquinas</p>
                     <asp:Button runat="server" CssClass="btn btn1" ID="btnCriar" Text="CRIAR MÁQUINA" OnClick="btnCriar_Click" />
-                    <asp:Button runat="server" CssClass="btn btn2" ID="btnProdutividade" Text="PRODUTIVIDADE" OnClick="btnProdutividade_Click" />
+                   <asp:Button runat="server" CssClass="btn btn2" ID="btnProdutividade" Text="PRODUTIVIDADE" OnClick="btnProdutividade_Click"/>
 
                     <p class="text-center">Pesquisar: <asp:TextBox runat="server" ID="txtPesquisar"></asp:TextBox> <asp:Button runat="server" ID="btnPesquisar" CssClass="btnPesquisar" Text="PESQUISAR" OnClick="btnPesquisar_Click" /></p>
-                    <p><asp:TextBox runat="server" ID="txtPesquisarOp"></asp:TextBox></p>
+                    <p class="p2"><asp:TextBox runat="server" ID="txtPesquisarOp" CssClass="txtPesquisarOp"></asp:TextBox></p>
                     <asp:DropDownList runat="server" ID="ddlSetor" CssClass="ddlSetor center-block" Width="170" Height="25" Font-Size="11" AutoPostBack="true" OnSelectedIndexChanged="ddlSetor_SelectedIndexChanged"></asp:DropDownList>
 
                     <asp:Button runat="server" ID="btnExportarExcel" Text="Excel" CssClass="btn btn-success btn-excel" Width="100" Height="23" Enabled="false" OnClick="btnExportarExcel_Click" />

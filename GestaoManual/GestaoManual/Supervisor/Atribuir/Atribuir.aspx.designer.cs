@@ -13,6 +13,15 @@ namespace GestaoManual.Supervisor.Atribuir {
     public partial class Atribuir {
         
         /// <summary>
+        /// Controle dev.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dev;
+        
+        /// <summary>
         /// Controle ddlOperador.
         /// </summary>
         /// <remarks>

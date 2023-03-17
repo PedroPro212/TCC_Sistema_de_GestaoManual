@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 
 namespace GestaoManual.Negocio
@@ -98,6 +100,39 @@ namespace GestaoManual.Negocio
                 return false;
             }
             return true;
+        }
+
+        public void EnviarEmail(string problema, string descricao, string nome, string email, int idSetor, int idRegistro)
+        {
+            string remetente = "0000886088@senaimgaluno.com.br";
+            string destinatario = "0000888202@senaimgaluno.com.br";
+            string senha = "10122004";
+
+            var smtpClient = new SmtpClient("smtp.gmail.com");
+            smtpClient.Port = 587;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.EnableSsl = true;
+            smtpClient.Timeout = 10000;
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.Credentials = new NetworkCredential(remetente, senha);
+
+            var mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress(remetente);
+            mailMessage.To.Add(destinatario);
+            mailMessage.Subject = $"{problema}";
+            mailMessage.Body = $"{descricao}\n" +
+                $"{nome} (registro {idRegistro}, setor {idSetor})\n" +
+                $"{email}\n";
+
+            try
+            {
+                smtpClient.Send(mailMessage);
+                Console.WriteLine("Email enviado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao enviar email: " + ex.Message);
+            }
         }
     }
 }
