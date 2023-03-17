@@ -42,6 +42,7 @@ namespace GestaoManual.Negocio
                         DataInicio = reader.GetDateTime("datahoraIni"),
                         DataFinal = reader.GetDateTime("datahoraFin"),
                         Produto = reader.GetString("produto"),
+                        CdBarrasIdentificacao = reader.GetString("CdBarrasIdentificacao"),
                         QtsPecas = reader.GetInt32("NPecas"),
                         TotalPecasBoas = reader.GetInt32("NPecasBoas"),
                         LotePecas = reader.GetString("lotePecas"),
