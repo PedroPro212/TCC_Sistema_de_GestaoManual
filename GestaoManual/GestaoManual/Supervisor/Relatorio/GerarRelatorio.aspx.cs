@@ -14,7 +14,20 @@ namespace GestaoManual.Supervisor.Relatorio
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(Session["Login"].ToString());
             btnGerar.Enabled = false;
+
+            if(IsPostBack == false)
+            {
+                connection.Open();
+                var reader = new MySqlCommand($"SELECT registro, id_acesso FROM login WHERE id={id}", connection).ExecuteReader();
+                while (reader.Read())
+                {
+                    var acesso = new ListItem(reader.GetInt32("id_acesso").ToString(), reader.GetInt32("registro").ToString());
+                    lblSetor.Text = acesso.ToString();
+                }
+                connection.Close();
+            }
         }
 
         protected void btnGerar_Click(object sender, EventArgs e)
@@ -49,6 +62,7 @@ namespace GestaoManual.Supervisor.Relatorio
         {
             DateTime dataInicio = cldInicio.SelectedDate.Date;
             DateTime dataFim = cldFinal.SelectedDate.Date;
+            int acesso = Convert.ToInt32(lblSetor.Text);
 
             if(dataFim < dataInicio)
             {
@@ -57,7 +71,7 @@ namespace GestaoManual.Supervisor.Relatorio
             else
             {
                 btnGerar.Enabled = true;
-                var relatorio = new Negocio.Relatorio().Read(dataInicio.Date, dataFim.Date);
+                var relatorio = new Negocio.Relatorio().Read(dataInicio.Date, dataFim.Date, acesso);
                 grdRelatorio.DataSource = relatorio;
                 grdRelatorio.DataBind();
             }
