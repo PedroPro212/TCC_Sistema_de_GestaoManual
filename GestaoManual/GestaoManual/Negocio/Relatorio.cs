@@ -23,9 +23,6 @@ namespace GestaoManual.Negocio
             try
             {
 
-                connection.Open();
-                var readerSetor = new MySqlCommand($"SELECT id, id_registro, idsetor FROM encarregado WHERE idsetor={acesso}", connection).ExecuteReader();
-
                 if(acesso == 4)
                 {
                     connection.Open();
@@ -51,8 +48,11 @@ namespace GestaoManual.Negocio
                             LoteTinta = reader.GetString("loteTinta")
                         });
                     }
+                    connection.Close();
+                    return grdRelatorio;
+                    
                 }
-                else
+                else if(acesso != 4)
                 {
                     connection.Open();
                     var comando = new MySqlCommand($@"SELECT pro.descricao AS produto,CdBarrasIdentificacao, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, se.descricao AS setor, idMaquina, loteTinta 
@@ -77,6 +77,11 @@ namespace GestaoManual.Negocio
                             LoteTinta = reader.GetString("loteTinta")
                         });
                     }
+                    connection.Close();
+                }
+                else
+                {
+
                 }
 
 
