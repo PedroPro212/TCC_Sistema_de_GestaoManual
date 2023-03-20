@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace GestaoManual.Negocio
 {
@@ -14,7 +15,7 @@ namespace GestaoManual.Negocio
             connection = new MySqlConnection(SiteMaster.ConnectionString);
         }
 
-        public List<Classes.Relatorio> Read(DateTime dataInicio, DateTime dataFim, int acesso)
+        public List<Classes.Relatorio> Read(DateTime dataInicio, DateTime dataFim, int acesso, int teste)
         {
             var grdRelatorio = new List<Classes.Relatorio>();
             var sqlDataIni = dataInicio.ToString("yyyy-MM-dd");
@@ -54,10 +55,11 @@ namespace GestaoManual.Negocio
                 }
                 else if(acesso != 4)
                 {
+
                     connection.Open();
                     var comando = new MySqlCommand($@"SELECT pro.descricao AS produto,CdBarrasIdentificacao, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, se.descricao AS setor, idMaquina, loteTinta 
                                                         FROM processo, produto as pro, setor as se 
-                                                        WHERE DATE(datahoraIni) BETWEEN '{sqlDataIni}' AND '{sqlDataFim}' AND id_produto = pro.id AND id_setor = se.id AND se.id = {acesso}", connection);
+                                                        WHERE DATE(datahoraIni) BETWEEN '{sqlDataIni}' AND '{sqlDataFim}' AND id_produto = pro.id AND id_setor = se.id AND se.id = {teste}", connection);
 
 
                     var reader = comando.ExecuteReader();
