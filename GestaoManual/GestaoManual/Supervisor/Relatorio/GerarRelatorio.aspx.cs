@@ -12,6 +12,7 @@ namespace GestaoManual.Supervisor.Relatorio
     public partial class GerarRelatorio : System.Web.UI.Page
     {
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
+        public static int teste;
         protected void Page_Load(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(Session["Login"].ToString());
@@ -24,7 +25,9 @@ namespace GestaoManual.Supervisor.Relatorio
                 while (reader.Read())
                 {
                     var acesso = new ListItem(reader.GetInt32("id_acesso").ToString(), reader.GetInt32("registro").ToString());
+                    var setor = new ListItem(reader.GetInt32("registro").ToString(), reader.GetInt32("registro").ToString());
                     lblSetor.Text = acesso.ToString();
+                    teste = Convert.ToInt32(setor.ToString());
                 }
                 connection.Close();
             }
@@ -63,15 +66,16 @@ namespace GestaoManual.Supervisor.Relatorio
             DateTime dataInicio = cldInicio.SelectedDate.Date;
             DateTime dataFim = cldFinal.SelectedDate.Date;
             int acesso = Convert.ToInt32(lblSetor.Text);
+            int id = Convert.ToInt32(Session["Login"].ToString());
 
-            if(dataFim < dataInicio)
+            if (dataFim < dataInicio)
             {
                 SiteMaster.AlertPersonalizado(this, "A data do calendário de Finalização é menor que a do calendário de Início! \nRevise sua consulta");
             }
             else
             {
                 btnGerar.Enabled = true;
-                var relatorio = new Negocio.Relatorio().Read(dataInicio.Date, dataFim.Date, acesso);
+                var relatorio = new Negocio.Relatorio().Read(dataInicio.Date, dataFim.Date, acesso, teste);
                 grdRelatorio.DataSource = relatorio;
                 grdRelatorio.DataBind();
             }
