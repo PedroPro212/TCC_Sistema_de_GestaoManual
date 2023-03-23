@@ -168,6 +168,7 @@
     <Content Include="imgs\user_sair.png" />
     <Content Include="imgs\vazio.png" />
     <Content Include="Logar.Master" />
+    <Content Include="Login\RedefinirSenha.aspx" />
     <Content Include="Producao\Corte\Corte.aspx" />
     <Content Include="Producao\EscolherSetor.aspx" />
     <Content Include="Producao\PinturaImersao\PinturaImersao.aspx" />
@@ -258,6 +259,13 @@
     </Compile>
     <Compile Include="Login\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\RedefinirSenha.aspx.cs">
+      <DependentUpon>RedefinirSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\RedefinirSenha.aspx.designer.cs">
+      <DependentUpon>RedefinirSenha.aspx</DependentUpon>
     </Compile>
     <Compile Include="Negocio\Dados.cs" />
     <Compile Include="Negocio\Encarregado.cs" />
