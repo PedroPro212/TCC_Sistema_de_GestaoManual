@@ -131,7 +131,7 @@ namespace GestaoManual.Login
 
         protected void btnRedefinirSenha_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RedefinirSenha.aspx");
+            Response.Redirect("Solicitar.aspx");
         }
     }
 }

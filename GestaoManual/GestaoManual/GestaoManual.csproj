@@ -168,7 +168,7 @@
     <Content Include="imgs\user_sair.png" />
     <Content Include="imgs\vazio.png" />
     <Content Include="Logar.Master" />
-    <Content Include="Login\RedefinirSenha.aspx" />
+    <Content Include="Login\Solicitar.aspx" />
     <Content Include="Producao\Corte\Corte.aspx" />
     <Content Include="Producao\EscolherSetor.aspx" />
     <Content Include="Producao\PinturaImersao\PinturaImersao.aspx" />
@@ -234,6 +234,7 @@
     <Compile Include="Classes\Encarregado.cs" />
     <Compile Include="Classes\Funcionario.cs" />
     <Compile Include="Classes\GridMaquina.cs" />
+    <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\Operador.cs" />
     <Compile Include="Classes\Problema.cs" />
     <Compile Include="Classes\Processo.cs" />
@@ -260,17 +261,18 @@
     <Compile Include="Login\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login\RedefinirSenha.aspx.cs">
-      <DependentUpon>RedefinirSenha.aspx</DependentUpon>
+    <Compile Include="Login\Solicitar.aspx.cs">
+      <DependentUpon>Solicitar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login\RedefinirSenha.aspx.designer.cs">
-      <DependentUpon>RedefinirSenha.aspx</DependentUpon>
+    <Compile Include="Login\Solicitar.aspx.designer.cs">
+      <DependentUpon>Solicitar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Negocio\Dados.cs" />
     <Compile Include="Negocio\Encarregado.cs" />
     <Compile Include="Negocio\Funcionario.cs" />
     <Compile Include="Negocio\GridMaquina.cs" />
+    <Compile Include="Negocio\Login.cs" />
     <Compile Include="Negocio\Maquina.cs" />
     <Compile Include="Negocio\Operador.cs" />
     <Compile Include="Negocio\Problema.cs" />
