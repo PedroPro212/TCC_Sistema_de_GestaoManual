@@ -4,25 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 
-    <asp:HiddenField runat="server" ID="maq1" Value="10" ClientIDMode="Static" />
-    <asp:HiddenField runat="server" ID="maq2" Value="20" ClientIDMode="Static" />
-    <asp:HiddenField runat="server" ID="maq3" Value="30" ClientIDMode="Static" />
-    <asp:HiddenField runat="server" ID="maq4" Value="40" ClientIDMode="Static" />
-    <asp:HiddenField runat="server" ID="maq5" Value="50" ClientIDMode="Static" />
-
-    <asp:DataList runat="server" ID="dtlTeste">
-        <ItemTemplate>  
-                <table cellpadding="2" cellspacing="0" border="1" style="width: 300px; height: 100px;   
-                border: dashed 2px #04AFEF; background-color: #FFFFFF">  
-                    <tr>  
-                        <td>  
-                            <b>Pecas: </b><span ><%# Eval("PecasBoas") %></span><br />  
-                            <b>Maquina: </b><span ><%# Eval("Maquina") %></span><br /> 
-                        </td>  
-                    </tr>  
-                </table>  
-            </ItemTemplate>  
-    </asp:DataList>
+    <div class="visibility: hidden">
+        <asp:HiddenField runat="server" ID="noMaquinas" ClientIDMode="Static" />
+        <asp:DropDownList runat="server" ID="ddlPecas"></asp:DropDownList>
+        <asp:DropDownList runat="server" ID="ddlMaquina"></asp:DropDownList>
+    </div>
 
     <asp:DropDownList ID="ddlSetor" runat="server" AutoPostBack="true" CssClass="btn-sm"></asp:DropDownList>
 
@@ -30,47 +16,44 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+        var x = document.getElementById('<%=noMaquinas.ClientID %>').value;
 
-            var alt1 = parseInt(document.getElementById('<%=maq1.ClientID %>').value);
-            var alt2 = parseInt(document.getElementById('<%=maq2.ClientID %>').value);
-            var alt3 = parseInt(document.getElementById('<%=maq3.ClientID %>').value);
-            var alt4 = parseInt(document.getElementById('<%=maq4.ClientID %>').value);
-            var alt5 = parseInt(document.getElementById('<%=maq5.ClientID %>').value);
-        </script>
+        var maquinas = [];
+        var noPecas = [];
 
-        <script>
+        for (var i = 0; i < x; i++) {
+            document.getElementById('<%=ddlMaquina.ClientID %>').selectedIndex = i;
+            document.getElementById('<%=ddlPecas.ClientID %>').selectedIndex = i;
+            maquinas.push(document.getElementById('<%=ddlMaquina.ClientID %>').value);
+            noPecas.push(document.getElementById('<%=ddlPecas.ClientID %>').value);
+        }
+    </script>
 
-            var maquinas = [];
-            
+    <script>
+        const data = {
+            labels: maquinas,
+            datasets: [{
+                label: 'Peças',
+                backgroundColor: 'rgb(0, 99, 132)',
+                borderColor: 'rgb(0, 99, 139)',
+                data: noPecas,
+            }]
+        };
 
-            var labels = [];
-            labels.push('teste 1')
-            labels.push('teste 2')
-            labels.push('teste 3')
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {}
+        };
+    </script>
 
-            const data = {
-                labels: labels,
-                datasets: [{
-                    label: 'Peças',
-                    backgroundColor: 'rgb(0, 99, 132)',
-                    borderColor: 'rgb(0, 99, 139)',
-                    data: [alt1, alt2, alt3, alt4, alt5,],
-                }]
-            };
-            const config = {
-                type: 'bar',
-                data: data,
-                options: {}
-            };
-        </script>
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
 
-        <script>
-            const myChart = new Chart(
-                document.getElementById('myChart'),
-                config
-            );
-            
-        </script>
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">

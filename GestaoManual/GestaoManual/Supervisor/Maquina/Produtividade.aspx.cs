@@ -31,17 +31,21 @@ namespace GestaoManual.Supervisor.Maquina
             connection.Open();
             var rdr2 = new MySqlCommand($"SELECT id, SUM(NPecasBoas) AS 'PecasBoas', id_setor, idMaquina FROM processo " +
                                         $"WHERE id_setor = {ddlSetor.SelectedValue} GROUP BY idMaquina", connection).ExecuteReader();
+            
 
-            DataTable table = new DataTable();
-            table.Columns.Add("PecasBoas");
-            table.Columns.Add("Maquina");
+            int i = 0;
 
             while (rdr2.Read())
             {
-                table.Rows.Add(rdr2.GetInt32("PecasBoas").ToString(), rdr2.GetString("idMaquina"));
+                i++;
+
+                var item = new ListItem(rdr2.GetString("idMaquina"), rdr2.GetString("idMaquina"));
+                ddlMaquina.Items.Add(item);
+
+                item = new ListItem(rdr2.GetInt32("PecasBoas").ToString(), rdr2.GetInt32("PecasBoas").ToString());
+                ddlPecas.Items.Add(item);
             }
-            dtlTeste.DataSource = table;
-            dtlTeste.DataBind();
+            noMaquinas.Value = i.ToString();
         }
     }
 }
