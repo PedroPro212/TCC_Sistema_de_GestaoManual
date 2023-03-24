@@ -16,7 +16,10 @@ namespace GestaoManual.Login
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtN1.MaxLength = 1;
+            txtN2.MaxLength = 1;
+            txtN3.MaxLength = 1;
+            txtN4.MaxLength = 1;
         }
 
         protected void btnGerar_Numero_Click(object sender, EventArgs e)
@@ -79,6 +82,17 @@ namespace GestaoManual.Login
 
 
 
+        }
+
+        protected void btnConferir_Click(object sender, EventArgs e)
+        {
+            string N1 = txtN1.Text;
+            string N2 = txtN2.Text;
+            string N3 = txtN3.Text;
+            string N4 = txtN4.Text;
+            string resulS = N1 + N2 + N3 + N4;
+            int resulI = Convert.ToInt32(resulS);
+            
         }
     }
 }
