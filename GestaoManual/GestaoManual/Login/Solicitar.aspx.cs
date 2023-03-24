@@ -8,12 +8,14 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TextBox = System.Web.UI.WebControls.TextBox;
 
 namespace GestaoManual.Login
 {
     public partial class RedefinirSenha : System.Web.UI.Page
     {
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
+        public int numeroAleatorio = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             txtN1.MaxLength = 1;
@@ -45,7 +47,7 @@ namespace GestaoManual.Login
 
             // Gerar número
             Random random = new Random();
-            int numeroAleatorio = random.Next(1000, 9999);
+            numeroAleatorio = random.Next(1000, 9999);
 
             // Enviar Email
             string remetente = "0000888202@senaimgaluno.com.br";
@@ -66,6 +68,7 @@ namespace GestaoManual.Login
             mailMessage.Subject = "Seu código para redefinir sua senha chegou!!";
             mailMessage.Body = "Cuidado, não espalhe para ninguém seu código!\nCódigo: " + numeroAleatorio;
             Session["numeroAleatorio"] = numeroAleatorio;
+            Session["RigistroRedefinir"] = txtRegistro.Text;
 
             try
             {
@@ -80,8 +83,6 @@ namespace GestaoManual.Login
                 SiteMaster.AlertPersonalizado(this, "Erro ao enviar email: " + ex);
             }
 
-
-
         }
 
         protected void btnConferir_Click(object sender, EventArgs e)
@@ -92,7 +93,45 @@ namespace GestaoManual.Login
             string N4 = txtN4.Text;
             string resulS = N1 + N2 + N3 + N4;
             int resulI = Convert.ToInt32(resulS);
+            int numeroAleatorio = (int)Session["numeroAleatorio"];
+
+            if(resulI == numeroAleatorio)
+            {
+                Response.Redirect("RedefinirSenha.aspx");
+            }
+            else
+            {
+                SiteMaster.AlertPersonalizado(this, "As senhas não conferem!");
+            }
             
+        }
+
+        protected void txtN1_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            Control nextControl = GetNextControl(textBox, true);
+            if(nextControl!= null )
+            {
+                nextControl.Focus();
+            }
+        }
+
+        public Control GetNextControl(Control control, bool forward)
+        {
+            Control nextControl = null;
+            if(control.Parent != null)
+            {
+                if (forward)
+                {
+                    nextControl = control.Parent.GetNextControl(control, true);
+                }
+                else
+                {
+                    nextControl = control.Parent.GetNextControl(control, false);
+                }
+            }
+
+            return nextControl;
         }
     }
 }

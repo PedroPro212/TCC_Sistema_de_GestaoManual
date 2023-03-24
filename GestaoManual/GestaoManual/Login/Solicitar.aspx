@@ -21,10 +21,10 @@
 
 
     <div runat="server" class="text-center" id="divConferir">
-        <asp:TextBox runat="server" ID="txtN1" CssClass="box text-center"></asp:TextBox>
-        <asp:TextBox runat="server" ID="txtN2" CssClass="box text-center"></asp:TextBox>
-        <asp:TextBox runat="server" ID="txtN3" CssClass="box text-center"></asp:TextBox>
-        <asp:TextBox runat="server" ID="txtN4" CssClass="box text-center"></asp:TextBox>
+        <asp:TextBox runat="server" ID="txtN1" CssClass="box text-center" OnTextChanged="txtN1_TextChanged"></asp:TextBox>
+        <asp:TextBox runat="server" ID="txtN2" CssClass="box text-center" OnTextChanged="txtN1_TextChanged"></asp:TextBox>
+        <asp:TextBox runat="server" ID="txtN3" CssClass="box text-center" OnTextChanged="txtN1_TextChanged"></asp:TextBox>
+        <asp:TextBox runat="server" ID="txtN4" CssClass="box text-center" OnTextChanged="txtN1_TextChanged"></asp:TextBox>
 
         <asp:Button runat="server" ID="btnConferir" Text="CONFERIR" OnClick="btnConferir_Click" />
     </div>
