@@ -32,8 +32,10 @@ namespace GestaoManual.Supervisor.Maquina
             var rdr2 = new MySqlCommand($"SELECT id, SUM(NPecasBoas) AS 'PecasBoas', id_setor, idMaquina FROM processo " +
                                         $"WHERE id_setor = {ddlSetor.SelectedValue} GROUP BY idMaquina", connection).ExecuteReader();
             
-
             int i = 0;
+
+            ddlMaquina.Items.Clear();
+            ddlPecas.Items.Clear();
 
             while (rdr2.Read())
             {
