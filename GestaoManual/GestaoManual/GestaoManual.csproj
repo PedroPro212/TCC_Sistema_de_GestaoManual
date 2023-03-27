@@ -235,7 +235,6 @@
     <Compile Include="Classes\Encarregado.cs" />
     <Compile Include="Classes\Funcionario.cs" />
     <Compile Include="Classes\GridMaquina.cs" />
-    <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\Operador.cs" />
     <Compile Include="Classes\Problema.cs" />
     <Compile Include="Classes\Processo.cs" />
@@ -280,7 +279,6 @@
     <Compile Include="Negocio\Encarregado.cs" />
     <Compile Include="Negocio\Funcionario.cs" />
     <Compile Include="Negocio\GridMaquina.cs" />
-    <Compile Include="Negocio\Login.cs" />
     <Compile Include="Negocio\Maquina.cs" />
     <Compile Include="Negocio\Operador.cs" />
     <Compile Include="Negocio\Problema.cs" />

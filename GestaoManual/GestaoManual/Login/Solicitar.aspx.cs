@@ -22,10 +22,13 @@ namespace GestaoManual.Login
             txtN2.MaxLength = 1;
             txtN3.MaxLength = 1;
             txtN4.MaxLength = 1;
+            divConferir.Visible = false;
         }
 
         protected void btnGerar_Numero_Click(object sender, EventArgs e)
         {
+            divSolicitar.Visible = false;
+            divConferir.Visible = true;
             // Capturar o email do funcionário
             string email = "";
             try
@@ -94,6 +97,7 @@ namespace GestaoManual.Login
             string resulS = N1 + N2 + N3 + N4;
             int resulI = Convert.ToInt32(resulS);
             int numeroAleatorio = (int)Session["numeroAleatorio"];
+            Session["RegistroRedef"] = txtRegistro.Text;
 
             if(resulI == numeroAleatorio)
             {
@@ -104,34 +108,6 @@ namespace GestaoManual.Login
                 SiteMaster.AlertPersonalizado(this, "As senhas não conferem!");
             }
             
-        }
-
-        protected void txtN1_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            Control nextControl = GetNextControl(textBox, true);
-            if(nextControl!= null )
-            {
-                nextControl.Focus();
-            }
-        }
-
-        public Control GetNextControl(Control control, bool forward)
-        {
-            Control nextControl = null;
-            if(control.Parent != null)
-            {
-                if (forward)
-                {
-                    nextControl = control.Parent.GetNextControl(control, true);
-                }
-                else
-                {
-                    nextControl = control.Parent.GetNextControl(control, false);
-                }
-            }
-
-            return nextControl;
         }
     }
 }
