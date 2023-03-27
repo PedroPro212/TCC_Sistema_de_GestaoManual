@@ -128,5 +128,10 @@ namespace GestaoManual.Login
                 return true;
             }
         }
+
+        protected void btnRedefinirSenha_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Solicitar.aspx");
+        }
     }
 }

@@ -7,83 +7,92 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace GestaoManual.Supervisor.Maquina
+namespace GestaoManual.Login
 {
 
 
-    public partial class GridView
+    public partial class RedefinirSenha
     {
 
         /// <summary>
-        /// Controle btnCriar.
+        /// Controle divSolicitar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCriar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSolicitar;
 
         /// <summary>
-        /// Controle btnProdutividade.
+        /// Controle txtRegistro.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProdutividade;
+        protected global::System.Web.UI.WebControls.TextBox txtRegistro;
 
         /// <summary>
-        /// Controle txtPesquisar.
+        /// Controle btnGerar_Numero.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPesquisar;
+        protected global::System.Web.UI.WebControls.Button btnGerar_Numero;
 
         /// <summary>
-        /// Controle btnPesquisar.
+        /// Controle divConferir.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPesquisar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divConferir;
 
         /// <summary>
-        /// Controle txtPesquisarOp.
+        /// Controle txtN1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPesquisarOp;
+        protected global::System.Web.UI.WebControls.TextBox txtN1;
 
         /// <summary>
-        /// Controle ddlSetor.
+        /// Controle txtN2.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSetor;
+        protected global::System.Web.UI.WebControls.TextBox txtN2;
 
         /// <summary>
-        /// Controle btnExportarExcel.
+        /// Controle txtN3.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExportarExcel;
+        protected global::System.Web.UI.WebControls.TextBox txtN3;
 
         /// <summary>
-        /// Controle grdMaquina.
+        /// Controle txtN4.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMaquina;
+        protected global::System.Web.UI.WebControls.TextBox txtN4;
+
+        /// <summary>
+        /// Controle btnConferir.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConferir;
     }
 }

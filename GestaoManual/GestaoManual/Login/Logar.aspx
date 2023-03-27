@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Logar.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="GestaoManual.Login.Logar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Logar.Master" AutoEventWireup="true" CodeBehind="Logar.aspx.cs" Inherits="GestaoManual.Login.Logar" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -25,14 +25,6 @@
         p{
             margin-bottom:0;
             font-size:18px
-        }
-
-        .btnRedefinirSenha{
-            border-style:none;
-            border-radius:3px;
-            margin-left:2vh;
-            background-color:#38B6FF;
-            color:white;
         }
 
         .bg {
@@ -173,7 +165,6 @@
                 </div>
                 <div class="form-check text-left" style="padding-top: 8px; padding-left: 50px;">
                     <asp:CheckBox runat="server" AutoPostBack="true" ID="chkMostrarSenha" CssClass="form-check-input" Text=" Mostrar senha" OnCheckedChanged="chkMostrarSenha_CheckedChanged"/> <%--Revela os caracteres da textbox txtSenha--%>
-                    <asp:Button runat="server" ID="btnRedefinirSenha" CssClass="btnRedefinirSenha" Text="Perdeu a senha?" OnClick="btnRedefinirSenha_Click" />
                 </div>
                 <div class="text-right" style="padding-top: 5px; padding-right: 48px;">
                     <asp:Button runat="server" ID="btnLogin" Text="ENTRAR" CssClass="bg" BorderStyle="None" OnClick="btnLogin_Click"/> <%--Botão para checar login e acessar a página principal--%>

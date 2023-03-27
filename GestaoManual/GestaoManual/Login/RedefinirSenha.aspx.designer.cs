@@ -11,52 +11,34 @@ namespace GestaoManual.Login
 {
 
 
-    public partial class Logar
+    public partial class RedefinirSenha1
     {
 
         /// <summary>
-        /// Controle txtRegistro.
+        /// Controle txtSenha1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRegistro;
+        protected global::System.Web.UI.WebControls.TextBox txtSenha1;
 
         /// <summary>
-        /// Controle txtSenha.
+        /// Controle txtSenha2.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSenha;
+        protected global::System.Web.UI.WebControls.TextBox txtSenha2;
 
         /// <summary>
-        /// Controle chkMostrarSenha.
+        /// Controle btnAlterar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkMostrarSenha;
-
-        /// <summary>
-        /// Controle btnRedefinirSenha.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRedefinirSenha;
-
-        /// <summary>
-        /// Controle btnLogin.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnAlterar;
     }
 }
