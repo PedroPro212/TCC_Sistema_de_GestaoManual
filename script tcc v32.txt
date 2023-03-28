@@ -33,6 +33,9 @@ CREATE TABLE login(
     FOREIGN KEY (id_acesso) REFERENCES acesso(id)
 );
 
+ALTER TABLE login ADD CdRecuperacao varchar(4);
+ALTER TABLE login ADD CdRecDataCriacao datetime;
+
 CREATE TABLE TecnicoQualidade(
     id int AUTO_INCREMENT PRIMARY KEY NOT null,
     nome varchar(200) NOT null,
