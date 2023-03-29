@@ -43,7 +43,7 @@ namespace GestaoManual.Login
                 }
                 connection.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 SiteMaster.AlertPersonalizado(this, "Email não localizado\n" + ex);
             }
@@ -51,6 +51,20 @@ namespace GestaoManual.Login
             // Gerar número
             Random random = new Random();
             numeroAleatorio = random.Next(1000, 9999);
+
+            try
+            {
+                connection.Open();
+                var comando2 = new MySqlCommand($@"UPDATE `login` SET `CdRecuperacao`='{numeroAleatorio.ToString()}',`CdRecDataCriacao`=NOW() WHERE registro=@registro;", connection);
+                comando2.Parameters.Add(new MySqlParameter("registro", txtRegistro.Text));
+                comando2.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+
+            }
+
 
             // Enviar Email
             string remetente = "0000888202@senaimgaluno.com.br";
@@ -68,9 +82,11 @@ namespace GestaoManual.Login
             var mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(remetente);
             mailMessage.To.Add(destinatario);
-            mailMessage.Subject = "Seu código para redefinir sua senha chegou!!";
-            mailMessage.Body = "Cuidado, não espalhe para ninguém seu código!\nCódigo: " + numeroAleatorio;
-            Session["numeroAleatorio"] = numeroAleatorio;
+            mailMessage.Subject = "Código de redefinição de senha";
+            mailMessage.Body = "Uma solicitação de redefinição de senha foi iniciada por sua conta.\n" +
+                "Se não foi você que a solicitou, ignore esta mensagem.\n" +
+                "Por sua segurança, não compartilhe este código.\nCódigo: " + numeroAleatorio;
+            //Session["numeroAleatorio"] = numeroAleatorio;
             Session["RigistroRedefinir"] = txtRegistro.Text;
 
             try
@@ -85,7 +101,6 @@ namespace GestaoManual.Login
             {
                 SiteMaster.AlertPersonalizado(this, "Erro ao enviar email: " + ex);
             }
-
         }
 
         protected void btnConferir_Click(object sender, EventArgs e)
@@ -96,10 +111,22 @@ namespace GestaoManual.Login
             string N4 = txtN4.Text;
             string resulS = N1 + N2 + N3 + N4;
             int resulI = Convert.ToInt32(resulS);
-            int numeroAleatorio = (int)Session["numeroAleatorio"];
+            // int numeroAleatorio = (int)Session["numeroAleatorio"];
+            int numeroAleatorio =55555;
+
+            connection.Open();
+            var comando = new MySqlCommand($@"SELECT CdRecuperacao FROM login where registro = @registro", connection);
+            comando.Parameters.Add(new MySqlParameter("registro", txtRegistro.Text));
+            var reader = comando.ExecuteReader();
+            if (reader.Read())
+            {
+                numeroAleatorio =  Convert.ToInt32(reader.GetString("CdRecuperacao"));
+            }
+            connection.Close();
+
             Session["RegistroRedef"] = txtRegistro.Text;
 
-            if(resulI == numeroAleatorio)
+            if (resulI == numeroAleatorio)
             {
                 Response.Redirect("RedefinirSenha.aspx");
             }
@@ -107,7 +134,7 @@ namespace GestaoManual.Login
             {
                 SiteMaster.AlertPersonalizado(this, "As senhas não conferem!");
             }
-            
+
         }
     }
 }
