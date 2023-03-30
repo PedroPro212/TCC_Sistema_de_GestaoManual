@@ -342,6 +342,28 @@
     .foto_perfil{
         border-radius:50%;
     }
+
+    [data-tooltip] {
+      position: relative;
+      font-weight: bold;
+    }
+
+    [data-tooltip]:after {
+      display: none;
+      position: absolute;
+      top: -5px;
+      padding: 5px;
+      border-radius: 3px;
+      left: calc(100% + 2px);
+      content: attr(data-tooltip);
+      white-space: nowrap;
+      background-color: black;
+      color: White;
+    }
+
+    [data-tooltip]:hover:after {
+      display: block;
+    }
     </style>
     <script>
         localStorage.setItem("")
@@ -374,7 +396,7 @@
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <a href="/Supervisor/Responsavel.aspx"><img src="/imgs/kratao.jpg" width="70" height="50" style="border-radius:50%" class="foto_perfil" alt="Foto de perfil"></a>
+                        <span data-tooltip="Início"><a href="/Supervisor/Responsavel.aspx"><img src="/imgs/kratao.jpg" width="70" height="50" style="border-radius:50%" class="foto_perfil" alt="Foto de perfil"></a></span>
                     </span>
 
                     <div class="text logo-text">
@@ -412,7 +434,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/Supervisor/Atribuir/Atribuir.aspx">
                             <i class='bx bx-bell icon'></i>
                             <span class="text nav-text">Acesso</span>
                         </a>
@@ -433,7 +455,7 @@
                     </li>--%>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/Supervisor/Relatorio/GerarRelatorio.aspx">
                             <i class='bx bx-heart icon' ></i>
                             <span class="text nav-text">Relatório</span>
                         </a>

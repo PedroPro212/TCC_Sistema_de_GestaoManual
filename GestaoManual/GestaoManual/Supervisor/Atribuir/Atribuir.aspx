@@ -47,7 +47,7 @@
                     <div class=" col-sm-12 text-center">
                         <p class="text-center center-func" >Funcionario: <asp:DropDownList runat="server" CssClass="" ID="ddlOperador" AutoPostBack="true" OnSelectedIndexChanged="ddlOperador_SelectedIndexChanged"></asp:DropDownList></p>
                         <p class="text-center">Máquina: <asp:DropDownList runat="server" CssClass="" ID="ddlMaquina" Enabled="false"></asp:DropDownList></p>
-                        <p><asp:Button runat="server" CssClass="btnLinkar" ID="btnAtribuir" Text="ATRIBUIR" OnClick="btnAtribuir_Click"/></p>
+                        <p><asp:Button runat="server" CssClass="" ID="btnAtribuir" Text="ATRIBUIR" OnClick="btnAtribuir_Click"/></p>
                     </div>
                 </div>
             </div>
