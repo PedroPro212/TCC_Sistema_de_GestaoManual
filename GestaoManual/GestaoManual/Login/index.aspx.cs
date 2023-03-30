@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace GestaoManual.Login
 {
@@ -129,9 +130,9 @@ namespace GestaoManual.Login
             }
         }
 
-        protected void btnRedefinirSenha_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Solicitar.aspx");
-        }
+        //protected void btnRedefinirSenha_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("Solicitar.aspx");
+        //}
     }
 }
