@@ -6,7 +6,7 @@
     <style>
         .quadro{
             width:100%;
-            margin-top:100px;
+            margin-top:5vh;
             border-radius:5px;
             box-shadow:2px 2px 2px;
             background-color:white;
@@ -75,7 +75,7 @@
 
                 <div class="col-sm-12 text-center">
                     
-                    <asp:GridView runat="server" ID="grdRelatorio" Width="100%" AutoGenerateColumns="false" 
+                    <asp:GridView runat="server" ID="grdRelatorio" Width="80%" AutoGenerateColumns="false" 
                         CssClass="table table-condensed" OnRowCommand="grdRelatorio_RowCommand"
                         AllowPaging="false" OnRowDataBound="grdRelatorio_RowDataBound">
 
