@@ -16,6 +16,8 @@ namespace GestaoManual.Login
     {
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         public int numeroAleatorio = 0;
+        public static DateTime tempoEnvio = DateTime.Now;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             txtN1.MaxLength = 1;
@@ -101,6 +103,8 @@ namespace GestaoManual.Login
             {
                 SiteMaster.AlertPersonalizado(this, "Erro ao enviar email: " + ex);
             }
+
+            tempoEnvio = DateTime.Now;
         }
 
         protected void btnConferir_Click(object sender, EventArgs e)
@@ -113,6 +117,9 @@ namespace GestaoManual.Login
             int resulI = Convert.ToInt32(resulS);
             // int numeroAleatorio = (int)Session["numeroAleatorio"];
             int numeroAleatorio =55555;
+            DateTime tempoConferir = DateTime.Now;
+
+            txtTeste.Text = Convert.ToString(tempoConferir - tempoEnvio);
 
             connection.Open();
             var comando = new MySqlCommand($@"SELECT CdRecuperacao FROM login where registro = @registro", connection);
@@ -125,7 +132,7 @@ namespace GestaoManual.Login
             connection.Close();
 
             Session["RegistroRedef"] = txtRegistro.Text;
-
+            
             if (resulI == numeroAleatorio)
             {
                 Response.Redirect("RedefinirSenha.aspx");

@@ -13,6 +13,11 @@ namespace GestaoManual.Supervisor
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("../Login/index.aspx");
+            }
+
             ckbSenha_CheckedChanged(null, null);
             ckbEditar_CheckedChanged(null, null);
             ckbEditarEmail_CheckedChanged(null, null);

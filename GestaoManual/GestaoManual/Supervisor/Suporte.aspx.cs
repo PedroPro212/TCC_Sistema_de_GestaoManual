@@ -18,6 +18,11 @@ namespace GestaoManual.Supervisor
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("../Login/index.aspx");
+            }
+
             connection.Open();
             id = Convert.ToInt32(Session["Login"].ToString());
             var rdr = new MySqlCommand($"SELECT id_setor, nome, email FROM funcionarios WHERE id = {id}", connection).ExecuteReader();

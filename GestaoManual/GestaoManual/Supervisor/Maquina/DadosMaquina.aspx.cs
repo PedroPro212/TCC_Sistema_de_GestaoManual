@@ -11,7 +11,10 @@ namespace GestaoManual.Supervisor.Maquina
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("../../Login/index.aspx");
+            }
         }
     }
 }
