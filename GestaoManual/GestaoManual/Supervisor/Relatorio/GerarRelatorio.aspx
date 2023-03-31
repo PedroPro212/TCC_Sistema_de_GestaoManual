@@ -75,7 +75,7 @@
 
                 <div class="col-sm-12 text-center">
                     
-                    <asp:GridView runat="server" ID="grdRelatorio" Width="80%" AutoGenerateColumns="false" 
+                    <asp:GridView runat="server" ID="grdRelatorio" Width="100%" AutoGenerateColumns="false" 
                         CssClass="table table-condensed" OnRowCommand="grdRelatorio_RowCommand"
                         AllowPaging="false" OnRowDataBound="grdRelatorio_RowDataBound">
 

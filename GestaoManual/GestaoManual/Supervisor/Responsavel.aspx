@@ -54,7 +54,7 @@
             <div class="col-sm-2">
                 <div class="quadro">
                     <div class="quadroCenter">
-                        <a href="Atribuir/Atribuir.aspx"><img runat="server" src="/imgs/chave.png" width="70" />
+                        <a href="Atribuir/Atribuir.aspx" style="text-decoration:none"><img runat="server" src="/imgs/chave.png" width="70" />
                         <p>Atribuir</p></a>
                     </div>
                 </div>

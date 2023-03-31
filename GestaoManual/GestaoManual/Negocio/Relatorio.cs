@@ -27,7 +27,7 @@ namespace GestaoManual.Negocio
                 if(acesso == 4)
                 {
                     connection.Open();
-                    var comando = new MySqlCommand($@"SELECT pro.descricao AS produto,CdBarrasIdentificacao, datahoraIni, datahoraFin, NPecas, NPecasBoas, lotePecas, se.descricao AS setor, idMaquina, loteTinta 
+                    var comando = new MySqlCommand($@"SELECT pro.descricao AS produto,concat('CB-', CdBarrasIdentificacao)  AS CdBarrasIdentificacao, datahoraIni, datahoraFin, NPecas, NPecasBoas, concat('LP-', lotePecas) AS lotePecas, se.descricao AS setor, idMaquina, concat('LT-', loteTinta) AS loteTinta  
                                                         FROM processo, produto as pro, setor as se 
                                                         WHERE DATE(datahoraIni) BETWEEN '{sqlDataIni}' AND '{sqlDataFim}' AND id_produto = pro.id AND id_setor = se.id AND se.id = 0=0", connection);
 
