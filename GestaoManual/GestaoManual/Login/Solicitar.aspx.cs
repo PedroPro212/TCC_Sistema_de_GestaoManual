@@ -29,19 +29,27 @@ namespace GestaoManual.Login
 
         protected void btnGerar_Numero_Click(object sender, EventArgs e)
         {
-            divSolicitar.Visible = false;
-            divConferir.Visible = true;
-            // Capturar o email do funcionário
-            string email = "";
-            try
+            if(Conferir() == true)
             {
-                connection.Open();
-                var comando = new MySqlCommand($@"SELECT id,email FROM funcionarios where id=@id", connection);
-                comando.Parameters.Add(new MySqlParameter("id", txtRegistro.Text));
-                var reader = comando.ExecuteReader();
-                while (reader.Read())
+                divSolicitar.Visible = false;
+                divConferir.Visible = true;
+                // Capturar o email do funcionário
+                string email = "";
+                try
                 {
-                    email = reader.GetString("email");
+                    connection.Open();
+                    var comando = new MySqlCommand($@"SELECT id,email FROM funcionarios where id=@id", connection);
+                    comando.Parameters.Add(new MySqlParameter("id", txtRegistro.Text));
+                    var reader = comando.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        email = reader.GetString("email");
+                    }
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    SiteMaster.AlertPersonalizado(this, "Email não localizado\n" + ex);
                 }
                 connection.Close();
             }
@@ -50,9 +58,9 @@ namespace GestaoManual.Login
                 SiteMaster.AlertPersonalizado(this, "Email não localizado\n" + ex);
             }
 
-            // Gerar número
-            Random random = new Random();
-            numeroAleatorio = random.Next(1000, 9999);
+                // Gerar número
+                Random random = new Random();
+                numeroAleatorio = random.Next(1000, 9999);
 
             try
             {
@@ -73,13 +81,13 @@ namespace GestaoManual.Login
             string destinatario = email;
             string senha = "Pe212004ho";
 
-            var smtpClient = new SmtpClient("smtp.gmail.com");
-            smtpClient.Port = 587;
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.EnableSsl = true;
-            smtpClient.Timeout = 10000;
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.Credentials = new NetworkCredential(remetente, senha);
+                var smtpClient = new SmtpClient("smtp.gmail.com");
+                smtpClient.Port = 587;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.EnableSsl = true;
+                smtpClient.Timeout = 10000;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Credentials = new NetworkCredential(remetente, senha);
 
             var mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(remetente);
@@ -91,20 +99,28 @@ namespace GestaoManual.Login
             //Session["numeroAleatorio"] = numeroAleatorio;
             Session["RigistroRedefinir"] = txtRegistro.Text;
 
-            try
-            {
-                for (int i = 0; i < 1; i++)
-                {
-                    smtpClient.Send(mailMessage);
-                }
 
+                try
+                {
+                    for (int i = 0; i < 1; i++)
+                    {
+                        smtpClient.Send(mailMessage);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    SiteMaster.AlertPersonalizado(this, "Erro ao enviar email: " + ex);
+                }
             }
+
             catch (Exception ex)
             {
                 SiteMaster.AlertPersonalizado(this, "Erro ao enviar email: " + ex);
             }
 
             tempoEnvio = DateTime.Now;
+
         }
 
         protected void btnConferir_Click(object sender, EventArgs e)
@@ -142,6 +158,19 @@ namespace GestaoManual.Login
                 SiteMaster.AlertPersonalizado(this, "As senhas não conferem!");
             }
 
+        }
+
+        public bool Conferir()
+        {
+            if(txtRegistro.Text == "")
+            {
+                SiteMaster.AlertPersonalizado(this, "O campo de registro está vazio, coloque seu registro para solicitar a redefinição da senha");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

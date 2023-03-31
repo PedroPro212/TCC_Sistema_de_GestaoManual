@@ -101,10 +101,10 @@ namespace GestaoManual.Supervisor.Atribuir
             else
                 ddlMaquina.Enabled = true;
 
-            if ((ddlOperador.SelectedValue == "0") || (ddlMaquina.SelectedValue == "0"))
-                btnAtribuir.Enabled = false;
-            else
-                btnAtribuir.Enabled = true;
+            //if ((ddlOperador.SelectedValue == "0") || (ddlMaquina.SelectedValue == "0"))
+            //    btnAtribuir.Enabled = false;
+            //else
+            //    btnAtribuir.Enabled = true;
         }
 
         protected void btnAtribuir_Click(object sender, EventArgs e)
