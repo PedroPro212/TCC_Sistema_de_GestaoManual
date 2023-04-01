@@ -110,7 +110,7 @@ namespace GestaoManual.Supervisor.Atribuir
         protected void btnAtribuir_Click(object sender, EventArgs e)
         {
             var operador = new Classes.Operador();
-            operador.IdMaquina = idMaquina;
+            operador.IdMaquina = Convert.ToInt32(ddlMaquina.SelectedValue);
             operador.IdSetor = setor;
             operador.IdRegistro = Convert.ToInt32(ddlOperador.SelectedValue);
             new Negocio.Operador().Create(operador);
