@@ -18,6 +18,11 @@ namespace GestaoManual.Supervisor.Atribuir
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["Login"] == null)
+            {
+                Response.Redirect("../../Login/index.aspx");
+            }
+
             if (!IsPostBack)
             {
                 string registro = Session["login"].ToString();

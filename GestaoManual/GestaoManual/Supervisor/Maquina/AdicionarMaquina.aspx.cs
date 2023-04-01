@@ -13,6 +13,11 @@ namespace GestaoManual.Supervisor.Maquina
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("../../Login/index.aspx");
+            }
+
             int id = Convert.ToInt32(Session["Login"].ToString());
             
             if (IsPostBack == false)

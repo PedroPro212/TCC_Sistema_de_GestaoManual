@@ -54,7 +54,6 @@
                     <asp:Button runat="server" ID="btnGerar_Numero" CssClass="btnGerar center-block" Text="GERAR" OnClick="btnGerar_Numero_Click" />
                 </div>
 
-
                 <div runat="server" class="text-center" id="divConferir">
                     <h1 class="text-center">Digite seu código</h1>
                     <div style="margin-top:5vh; margin-bottom:7vh">
@@ -62,10 +61,13 @@
                         <asp:TextBox runat="server" ID="txtN2" CssClass="box text-center"></asp:TextBox>
                         <asp:TextBox runat="server" ID="txtN3" CssClass="box text-center"></asp:TextBox>
                         <asp:TextBox runat="server" ID="txtN4" CssClass="box text-center"></asp:TextBox>
+                        
                     </div>
 
                     <asp:Button runat="server" ID="btnConferir" CssClass="btnGerar center-block" Text="CONFERIR" OnClick="btnConferir_Click" />
+                    <asp:TextBox runat="server" ID="txtTeste" Visible="false"></asp:TextBox>
                 </div>
+
             </div>
             
         </div>

@@ -14,7 +14,12 @@ namespace GestaoManual.Supervisor.Maquina
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(IsPostBack == false)
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("../../Login/index.aspx");
+            }
+
+            if (IsPostBack == false)
             {
                 connection.Open();
                 ddlSetor.Items.Clear();

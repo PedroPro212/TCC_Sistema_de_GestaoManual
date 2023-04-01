@@ -16,6 +16,11 @@ namespace GestaoManual.Supervisor.Dev
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("../../Login/index.aspx");
+            }
+
             if (IsPostBack == false)
             {
                 connection.Open();

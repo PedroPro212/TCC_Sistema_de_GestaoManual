@@ -14,6 +14,11 @@ namespace GestaoManual.Supervisor.Funcionario
         private MySqlConnection connection = new MySqlConnection(SiteMaster.ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("../../Login/index.aspx");
+            }
+
             txtCPF.MaxLength= 11;
             int id = Convert.ToInt32(Session["Login"].ToString());
             if (IsPostBack == false)

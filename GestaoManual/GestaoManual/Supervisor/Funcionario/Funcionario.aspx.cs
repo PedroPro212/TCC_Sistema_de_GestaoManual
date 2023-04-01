@@ -15,7 +15,10 @@ namespace GestaoManual.Supervisor.Funcionario
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("../../Login/index.aspx");
+            }
         }
 
         protected void btnCriarFuncionario_Click(object sender, EventArgs e)

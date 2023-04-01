@@ -17,6 +17,7 @@ namespace GestaoManual
         public static string ConnectionString = "Server=127.0.0.1;User ID=root;Password=1234;Database=metalurgicasaveiro";  // Computador Pedro
 
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
