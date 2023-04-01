@@ -73,7 +73,7 @@ namespace GestaoManual.Producao.PinturaImersao
 
             DateTime dataFim = DateTime.Now;
             lblTeste.Text = teste.Value;
-            LabelLotePecas.Text = lblLoteP.Value;
+            //LabelLotePecas.Text = lblLoteP.Value;
 
             int Qts = Convert.ToInt32(txtQts.Text);
             int PecasBoas = Convert.ToInt32(txtPecasBoas.Text);
@@ -88,7 +88,7 @@ namespace GestaoManual.Producao.PinturaImersao
                     producao.DataHoraFin = dataFim;
                     producao.NumPecas = Convert.ToInt32(txtQts.Text);
                     producao.NumPecasBoas = Convert.ToInt32(txtPecasBoas.Text);
-                    producao.LotePecas = LabelLotePecas.Text;
+                    producao.LotePecas = txtLotePecas.Text;
                     producao.IDOperador = id;
                     producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
                     producao.IDMaquina = lblMaquina.Text;
@@ -113,7 +113,7 @@ namespace GestaoManual.Producao.PinturaImersao
 
         public bool TodosPreenchidos()
         {
-            if ((txtQts.Text == "") || (txtPecasBoas.Text == "") || (LabelLotePecas.Text == "") || (lblTeste.Text == ""))
+            if ((txtQts.Text == "") || (txtPecasBoas.Text == "") || (txtLotePecas.Text == "") || (lblTeste.Text == ""))
             {
                 SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estar preenchidos!");
                 return false;
@@ -126,7 +126,7 @@ namespace GestaoManual.Producao.PinturaImersao
 
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../EscolherSetor.aspx");
+            //Response.Redirect("../EscolherSetor.aspx");
         }
     }
 }

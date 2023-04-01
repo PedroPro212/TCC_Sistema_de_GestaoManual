@@ -217,7 +217,7 @@
                     
                     <p>N°Lote Tinta:</p>
                     <label id="txtLoteTinta"></label><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" onclick="acao()" />
-                    <p style="margin-left:210px">Inverter Leitura: <input type="checkbox" id="cckTrocar" onclick="" /></p>
+                    
                     <p>Quantidade produzida:</p>
                     <asp:TextBox runat="server" ID="txtQts" TextMode="Number"></asp:TextBox><br />
                     
@@ -250,7 +250,7 @@
                     <asp:Label runat="server" CssClass="informacoes" ID="lblSetor"></asp:Label>
 
                     <p>Lote de Peças:</p>
-                    <label id="txtLotePecas"></label><img runat="server" id="imgLotePecas" src="/imgsproducao/code.png" width="37" onclick="acao()" />
+                    <asp:TextBox runat="server" ID="txtLotePecas"></asp:TextBox><img runat="server" id="imgLotePecas" src="/imgsproducao/code.png" width="37" />
                     <p style="margin-top:45px">Quantidade peças boas:</p>
                     <asp:TextBox runat="server" ID="txtPecasBoas" TextMode="Number"></asp:TextBox>
                     <div id="fader" style="display:none"></div>
@@ -264,8 +264,8 @@
     <asp:Label runat="server" ID="lblTeste"></asp:Label>
     <asp:HiddenField runat="server" ID="teste" Value="teste1" ClientIDMode="Static" />
 
-    <asp:Label runat="server" ID="LabelLotePecas"></asp:Label>
-    <asp:HiddenField runat="server" ID="lblLoteP" Value="teste2" ClientIDMode="Static" />
+<%--    <asp:Label runat="server" ID="LabelLotePecas"></asp:Label>
+    <asp:HiddenField runat="server" ID="lblLoteP" Value="teste2" ClientIDMode="Static" />--%>
     <script>
 
 
@@ -315,7 +315,7 @@
             mes.textContent = m + '/';
             ano.textContent = a;
             document.getElementById('teste').value = document.getElementById('txtLoteTinta').textContent;
-            document.getElementById('lblLoteP').value = document.getElementById('txtLotePecas').textContent;
+            //document.getElementById('lblLoteP').value = document.getElementById('txtLotePecas').textContent;
         });
 
         //Abrir modal camera
@@ -375,19 +375,12 @@
         Quagga.onDetected(function (data) {
             console.log(data);
 
-            var checkBox = document.getElementById('cckTrocar');    
-            if (checkBox.checked == false) {
-                var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
-                document.querySelector('#txtLoteTinta').innerHTML = l;
-            }
-            else {
-                var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
-                document.querySelector('#txtLotePecas').innerHTML = l;
-            }
+            var l = document.querySelector('#LoteTinta').innerHTML = data.codeResult.code;
+            document.querySelector('#txtLoteTinta').innerHTML = l;
 
         });
         lblLTinta.textContent = txtLoteTinta.textContent;
-        lblLPecas.textContent = txtLotePecas.textContent;
+        //lblLPecas.textContent = txtLotePecas.textContent;
         
    
     </script>
