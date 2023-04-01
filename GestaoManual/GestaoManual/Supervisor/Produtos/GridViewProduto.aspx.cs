@@ -14,7 +14,10 @@ namespace GestaoManual.Supervisor.Produtos
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("../../Login/index.aspx");
+            }
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
