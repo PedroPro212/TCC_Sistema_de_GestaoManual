@@ -157,7 +157,7 @@
                     <div class="col-3"></div>
                     <div class="col-4"></div>
                 </div>
-                <div class="seg"><p style="color:#FDD04C">S</p><p style="color:#3C6A98; margin-left: 13px;">E</p><p style="color:#38B6FF; margin-left: 23px;">G</p></div>
+                <div class="seg"><p style="color:#FDD04C">S</p><p style="color:#3C6A98; margin-left: 13px;">A</p><p style="color:#38B6FF; margin-left: 23px;">G</p></div>
                 <b>
                     <p style="text-transform: uppercase; font-size: 25px;padding-top:130px; margin-bottom:15px">Fazer Login</p>
                 </b>
