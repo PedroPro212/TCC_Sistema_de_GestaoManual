@@ -16,6 +16,7 @@ namespace GestaoManual.Producao.PinturaImersao
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtLotePecas.AutoPostBack= false;
             try
             {
                 connection.Open();

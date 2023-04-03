@@ -250,7 +250,7 @@
                     <asp:Label runat="server" CssClass="informacoes" ID="lblSetor"></asp:Label>
 
                     <p>Lote de Peças:</p>
-                    <asp:TextBox runat="server" ID="txtLotePecas"></asp:TextBox><img runat="server" id="imgLotePecas" src="/imgsproducao/code.png" width="37" />
+                    <asp:TextBox runat="server" ID="txtLotePecas" AutoPostBack="false"></asp:TextBox><img runat="server" id="imgLotePecas" src="/imgsproducao/code.png" width="37" />
                     <p style="margin-top:45px">Quantidade peças boas:</p>
                     <asp:TextBox runat="server" ID="txtPecasBoas" TextMode="Number"></asp:TextBox>
                     <div id="fader" style="display:none"></div>
