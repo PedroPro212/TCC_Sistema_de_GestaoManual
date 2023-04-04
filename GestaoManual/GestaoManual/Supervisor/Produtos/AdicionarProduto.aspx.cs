@@ -16,5 +16,12 @@ namespace GestaoManual.Supervisor.Produtos
                 Response.Redirect("../../Login/index.aspx");
             }
         }
+
+        protected void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            var produto = new Classes.Produto();
+            produto.Descricao = txtDescricao.Text;
+            new Negocio.Produto().Create(produto);
+        }
     }
 }

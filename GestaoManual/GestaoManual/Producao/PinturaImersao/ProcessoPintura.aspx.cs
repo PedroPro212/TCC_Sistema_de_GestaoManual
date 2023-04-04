@@ -124,10 +124,5 @@ namespace GestaoManual.Producao.PinturaImersao
                 return true;
             }
         }
-
-        protected void btnVoltar_Click(object sender, EventArgs e)
-        {
-            //Response.Redirect("../EscolherSetor.aspx");
-        }
     }
 }

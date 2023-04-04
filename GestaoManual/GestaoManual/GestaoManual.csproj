@@ -159,6 +159,7 @@
     <Content Include="imgs\chave.png" />
     <Content Include="imgs\check.png" />
     <Content Include="imgs\edit.png" />
+    <Content Include="imgs\engrenagem.png" />
     <Content Include="imgs\ferramenta.png" />
     <Content Include="imgs\kratao.jpg" />
     <Content Include="imgs\qualidade.png" />

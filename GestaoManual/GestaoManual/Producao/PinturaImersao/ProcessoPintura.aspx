@@ -15,7 +15,9 @@
             background-color:yellow;
             border:solid 1px;
             border-radius:4px;
-            margin-bottom:15px
+            margin-bottom:15px;
+            text-decoration:none;
+            padding:3px
         }
 
         .quadro{
@@ -171,7 +173,7 @@
     <div class="container">
         <div class="row">
             <div class="quadro">
-                <div class="col-sm-12 text-left"><asp:Button runat="server" ID="btnVoltar" CssClass="btnVoltar" Text="VOLTAR" Font-Size="8" OnClick="btnVoltar_Click" /></div>
+                <div class="col-sm-12 text-left"><a href="PinturaImersao.aspx" class="btnVoltar" style="text-decoration:none;">Voltar</a></div>
                 <div class="col-sm-4">
                     <asp:Label runat="server" CssClass="informacoes" ID="lblNome"></asp:Label>
 

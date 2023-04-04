@@ -59,8 +59,8 @@
                     <asp:Button runat="server" CssClass="btn btn1" ID="btnCriar" Text="CRIAR MÁQUINA" OnClick="btnCriar_Click" />
                    <asp:Button runat="server" CssClass="btn btn2" ID="btnProdutividade" Text="PRODUTIVIDADE" OnClick="btnProdutividade_Click"/>
 
-                    <p class="text-center">Pesquisar: <asp:TextBox runat="server" ID="txtPesquisar"></asp:TextBox> <asp:Button runat="server" ID="btnPesquisar" CssClass="btnPesquisar" Text="PESQUISAR" OnClick="btnPesquisar_Click" /></p>
-                    <p class="p2"><asp:TextBox runat="server" ID="txtPesquisarOp" CssClass="txtPesquisarOp"></asp:TextBox></p>
+                    <p class="text-center">Pesquisar: <asp:TextBox runat="server" ID="txtPesquisar" placeholder="Máquina:"></asp:TextBox> <asp:Button runat="server" ID="btnPesquisar" CssClass="btnPesquisar" Text="PESQUISAR" OnClick="btnPesquisar_Click" /></p>
+                    <p class="p2"><asp:TextBox runat="server" ID="txtPesquisarOp" CssClass="txtPesquisarOp" placeholder="Operador:"></asp:TextBox></p>
                     <asp:DropDownList runat="server" ID="ddlSetor" CssClass="ddlSetor center-block" Width="170" Height="25" Font-Size="11" AutoPostBack="true" OnSelectedIndexChanged="ddlSetor_SelectedIndexChanged"></asp:DropDownList>
 
                     <asp:Button runat="server" ID="btnExportarExcel" Text="Excel" CssClass="btn btn-success btn-excel" Width="100" Height="23" Enabled="false" OnClick="btnExportarExcel_Click" />
