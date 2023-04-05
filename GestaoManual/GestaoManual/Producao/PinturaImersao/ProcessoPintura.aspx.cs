@@ -76,7 +76,7 @@ namespace GestaoManual.Producao.PinturaImersao
             lblTeste.Text = teste.Value;
             //LabelLotePecas.Text = lblLoteP.Value;
 
-            int Qts = Convert.ToInt32(txtQts.Text);
+            int Qts = Convert.ToInt32(txtQts.Text);   // Arrumar
             int PecasBoas = Convert.ToInt32(txtPecasBoas.Text);
 
             if (TodosPreenchidos() == true)
