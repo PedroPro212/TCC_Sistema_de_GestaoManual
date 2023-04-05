@@ -218,7 +218,7 @@
                     <asp:Label runat="server" CssClass="produto" ID="lblProduto"></asp:Label>
                     
                     <p>N°Lote Tinta:</p>
-                    <label id="txtLoteTinta"></label><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" onclick="acao()" />
+                    <%--<label id="txtLoteTinta"></label>--%><asp:TextBox runat="server" ID="txtLoteTinta" AutoPostBack="false"></asp:TextBox><img runat="server" id="imgLoteTinta" src="/imgsproducao/code.png" width="37" onclick="acao()" />
                     
                     <p>Quantidade produzida:</p>
                     <asp:TextBox runat="server" ID="txtQts" TextMode="Number"></asp:TextBox><br />
