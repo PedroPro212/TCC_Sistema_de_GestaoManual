@@ -86,7 +86,6 @@
                             <asp:BoundField DataField="Email" HeaderText="EMAIL:" HeaderStyle-CssClass="text-center" />
                             <asp:BoundField DataField="Tel" HeaderText="TELEFONE:" HeaderStyle-CssClass="text-center" />
                             <asp:BoundField DataField="NomeSetor" HeaderText="SETOR:" HeaderStyle-CssClass="text-center" />
-                            <asp:ButtonField ButtonType="Link" CommandName="VER" ControlStyle-CssClass="btn btn-primary" Text="VER" ItemStyle-HorizontalAlign="Center" />
                         </Columns>
 
                     </asp:GridView>

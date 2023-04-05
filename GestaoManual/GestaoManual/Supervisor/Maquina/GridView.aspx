@@ -72,7 +72,6 @@
                             <asp:BoundField DataField="NomeMaquina" HeaderText="MÁQUINA:" />
                             <asp:BoundField DataField="NomeSetor" HeaderText="SETOR:" />
                             <asp:BoundField DataField="NomeOperador" HeaderText="OPERADOR:" />
-                            <asp:ButtonField ButtonType="Link" CommandName="VER" ControlStyle-CssClass="btn btn-primary" Text="VER" ItemStyle-HorizontalAlign="Center" />
                         </Columns>
 
                     </asp:GridView> 
