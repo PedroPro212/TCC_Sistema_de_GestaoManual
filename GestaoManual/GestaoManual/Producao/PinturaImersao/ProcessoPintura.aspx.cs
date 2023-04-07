@@ -16,6 +16,7 @@ namespace GestaoManual.Producao.PinturaImersao
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtLotePecas.AutoPostBack= false;
             try
             {
                 connection.Open();
@@ -73,26 +74,31 @@ namespace GestaoManual.Producao.PinturaImersao
 
             DateTime dataFim = DateTime.Now;
             lblTeste.Text = teste.Value;
-            LabelLotePecas.Text = lblLoteP.Value;
+            //LabelLotePecas.Text = lblLoteP.Value;
 
-            int Qts = Convert.ToInt32(txtQts.Text);
-            int PecasBoas = Convert.ToInt32(txtPecasBoas.Text);
 
             if (TodosPreenchidos() == true)
             {
+                long Qts = long.Parse(txtQts.Text);
+                int PecasBoas = Convert.ToInt32(txtPecasBoas.Text);
                 if(PecasBoas <= Qts)
                 {
+                    // Gerar número
+                    Random random = new Random();
+                    long numeroAleatorio = random.Next(10000000, 999999999);
+
                     var producao = new Classes.Producao();
                     producao.IdProduto = Convert.ToInt32(Session["produto"].ToString());
+                    producao.CdBarrasIdentificacao = Convert.ToString(numeroAleatorio);
                     producao.DataHoraIni = Convert.ToDateTime(Session["DataHoraInicio"].ToString());
                     producao.DataHoraFin = dataFim;
                     producao.NumPecas = Convert.ToInt32(txtQts.Text);
                     producao.NumPecasBoas = Convert.ToInt32(txtPecasBoas.Text);
-                    producao.LotePecas = LabelLotePecas.Text;
+                    producao.LotePecas = txtLotePecas.Text;
                     producao.IDOperador = id;
                     producao.IdSetor = Convert.ToInt32(Session["Setor"].ToString());
                     producao.IDMaquina = lblMaquina.Text;
-                    producao.LoteTinta = lblTeste.Text;
+                    producao.LoteTinta = txtLoteTinta.Text;
                     new Negocio.Producao().FinalizarProcesso(producao);
 
                     SiteMaster.AlertPersonalizado(this, "Processo finalizado com sucesso");
@@ -113,7 +119,7 @@ namespace GestaoManual.Producao.PinturaImersao
 
         public bool TodosPreenchidos()
         {
-            if ((txtQts.Text == "") || (txtPecasBoas.Text == "") || (LabelLotePecas.Text == "") || (lblTeste.Text == ""))
+            if ((txtQts.Text == "") || (txtPecasBoas.Text == "") || (txtLotePecas.Text == "") || (lblTeste.Text == ""))
             {
                 SiteMaster.AlertPersonalizado(this, "Todos os campos precisam estar preenchidos!");
                 return false;
@@ -122,11 +128,6 @@ namespace GestaoManual.Producao.PinturaImersao
             {
                 return true;
             }
-        }
-
-        protected void btnVoltar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../EscolherSetor.aspx");
         }
     }
 }

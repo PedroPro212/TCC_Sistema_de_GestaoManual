@@ -10,6 +10,7 @@ namespace GestaoManual.Classes
         public int ID { get; set; }
         public int IdSetor  { get; set;}
         public int IdProduto { get; set; }
+        public string CdBarrasIdentificacao { get;set; }
         public int IDOperador  { get; set;}
         public string IDMaquina  { get; set;}
         public DateTime DataHoraIni  { get; set;}

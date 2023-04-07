@@ -29,38 +29,43 @@ namespace GestaoManual.Login
 
         protected void btnGerar_Numero_Click(object sender, EventArgs e)
         {
-            if(Conferir() == true)
+            string email = "";
+
+            try
             {
-                divSolicitar.Visible = false;
-                divConferir.Visible = true;
-                // Capturar o email do funcionário
-                string email = "";
-                try
+                if (Conferir() == true)
                 {
-                    connection.Open();
-                    var comando = new MySqlCommand($@"SELECT id,email FROM funcionarios where id=@id", connection);
-                    comando.Parameters.Add(new MySqlParameter("id", txtRegistro.Text));
-                    var reader = comando.ExecuteReader();
-                    while (reader.Read())
+                    divSolicitar.Visible = false;
+                    divConferir.Visible = true;
+                    // Capturar o email do funcionário
+                    try
                     {
-                        email = reader.GetString("email");
+                        connection.Open();
+                        var comando = new MySqlCommand($@"SELECT id,email FROM funcionarios where id=@id", connection);
+                        comando.Parameters.Add(new MySqlParameter("id", txtRegistro.Text));
+                        var reader = comando.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            email = reader.GetString("email");
+                        }
+                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        SiteMaster.AlertPersonalizado(this, "Email não localizado\n" + ex);
                     }
                     connection.Close();
                 }
-                catch (Exception ex)
-                {
-                    SiteMaster.AlertPersonalizado(this, "Email não localizado\n" + ex);
-                }
-                connection.Close();
             }
+
             catch (Exception ex)
             {
                 SiteMaster.AlertPersonalizado(this, "Email não localizado\n" + ex);
             }
 
-                // Gerar número
-                Random random = new Random();
-                numeroAleatorio = random.Next(1000, 9999);
+            // Gerar número
+            Random random = new Random();
+            numeroAleatorio = random.Next(1000, 9999);
 
             try
             {
@@ -70,7 +75,7 @@ namespace GestaoManual.Login
                 comando2.ExecuteNonQuery();
                 connection.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -81,13 +86,13 @@ namespace GestaoManual.Login
             string destinatario = email;
             string senha = "Pe212004ho";
 
-                var smtpClient = new SmtpClient("smtp.gmail.com");
-                smtpClient.Port = 587;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.EnableSsl = true;
-                smtpClient.Timeout = 10000;
-                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpClient.Credentials = new NetworkCredential(remetente, senha);
+            var smtpClient = new SmtpClient("smtp.gmail.com");
+            smtpClient.Port = 587;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.EnableSsl = true;
+            smtpClient.Timeout = 10000;
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.Credentials = new NetworkCredential(remetente, senha);
 
             var mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(remetente);
@@ -100,27 +105,19 @@ namespace GestaoManual.Login
             Session["RigistroRedefinir"] = txtRegistro.Text;
 
 
-                try
+            try
+            {
+                for (int i = 0; i < 1; i++)
                 {
-                    for (int i = 0; i < 1; i++)
-                    {
-                        smtpClient.Send(mailMessage);
-                    }
+                    smtpClient.Send(mailMessage);
+                }
 
-                }
-                catch (Exception ex)
-                {
-                    SiteMaster.AlertPersonalizado(this, "Erro ao enviar email: " + ex);
-                }
             }
-
             catch (Exception ex)
             {
                 SiteMaster.AlertPersonalizado(this, "Erro ao enviar email: " + ex);
             }
-
             tempoEnvio = DateTime.Now;
-
         }
 
         protected void btnConferir_Click(object sender, EventArgs e)
@@ -132,7 +129,7 @@ namespace GestaoManual.Login
             string resulS = N1 + N2 + N3 + N4;
             int resulI = Convert.ToInt32(resulS);
             // int numeroAleatorio = (int)Session["numeroAleatorio"];
-            int numeroAleatorio =55555;
+            int numeroAleatorio = 55555;
             DateTime tempoConferir = DateTime.Now;
 
             txtTeste.Text = Convert.ToString(tempoConferir - tempoEnvio);
@@ -143,12 +140,12 @@ namespace GestaoManual.Login
             var reader = comando.ExecuteReader();
             if (reader.Read())
             {
-                numeroAleatorio =  Convert.ToInt32(reader.GetString("CdRecuperacao"));
+                numeroAleatorio = Convert.ToInt32(reader.GetString("CdRecuperacao"));
             }
             connection.Close();
 
             Session["RegistroRedef"] = txtRegistro.Text;
-            
+
             if (resulI == numeroAleatorio)
             {
                 Response.Redirect("RedefinirSenha.aspx");
@@ -162,7 +159,7 @@ namespace GestaoManual.Login
 
         public bool Conferir()
         {
-            if(txtRegistro.Text == "")
+            if (txtRegistro.Text == "")
             {
                 SiteMaster.AlertPersonalizado(this, "O campo de registro está vazio, coloque seu registro para solicitar a redefinição da senha");
                 return false;
